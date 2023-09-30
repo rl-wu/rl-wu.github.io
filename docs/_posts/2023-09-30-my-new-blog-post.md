@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "我的新博客文章"
 date: 2023-09-30 14:00:00 -0400
 author: 你的名字
