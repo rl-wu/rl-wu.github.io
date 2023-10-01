@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "第一篇post!"
 ---
 
