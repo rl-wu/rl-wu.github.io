@@ -1,8 +1,8 @@
 ---
 layou: single
-title: "我的新博客文章"
+title: "测试文档"
 date: 2023-09-30 14:00:00 -0400
-author: 你的名字
+author: WRL
 ---
 
 此篇post为测试专用post，测试各项功能的实现效果。
