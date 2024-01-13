@@ -4,4 +4,4 @@
 
 测试本地上传文件
 
-![test](./_pages/2023_7_28.jpg "test picture")
+![test](/assets/2023_7_28.jpg)
