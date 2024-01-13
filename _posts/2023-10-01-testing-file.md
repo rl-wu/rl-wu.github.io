@@ -1,5 +1,5 @@
 ---
-layou: single
+layout: single
 title: "测试文档"
 date: 2023-09-30 14:00:00 -0400
 author: WRL
