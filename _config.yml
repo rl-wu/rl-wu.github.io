@@ -106,10 +106,12 @@ analytics:
 author:
   name             : "Ruilin Wu"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Life is complex for its real and imaginary components."
+  bio              : "Life is <i>complex</i> for its real and imaginary components."
   location         : "Beijing"
   email            :
-  links:
+  links:git add .
+git commit -m "Update personal homepage post"
+
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       # url: "mailto:your.name@email.com"
