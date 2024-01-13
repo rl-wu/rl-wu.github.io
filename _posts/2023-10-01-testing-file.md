@@ -7,4 +7,6 @@ author: WRL
 
 此篇post为测试专用post，测试各项功能的实现效果。
 
+测试本地上传文件
+
 ![testing picture](./_pages/2023_7_28_家园晚霞.jpg “我是测试图片”)
