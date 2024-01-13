@@ -109,9 +109,7 @@ author:
   bio              : "Life is <i>complex</i> for its real and imaginary components."
   location         : "Beijing"
   email            :
-  links:git add .
-git commit -m "Update personal homepage post"
-
+  links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       # url: "mailto:your.name@email.com"
