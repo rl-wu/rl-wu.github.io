@@ -9,7 +9,4 @@ author: WRL
 
 测试本地上传文件
 
-![testing picture](./_pages/2023_7_28_家园晚霞.jpg “我是测试图片”)
-
-<img src="./_pages/2023_7_28_家园晚霞.jpg" width="258" height="39" />
-
+![testing picture](./_pages/2023_7_28.jpg “我是测试图片”)
