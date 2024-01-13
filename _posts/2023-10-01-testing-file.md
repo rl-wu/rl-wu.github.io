@@ -9,4 +9,4 @@ author: WRL
 
 测试本地上传文件
 
-![testing picture](./_pages/2023_7_28.jpg “我是测试图片”)
+![测试图片](./_pages/2023_7_28.jpg “我是测试图片”)
