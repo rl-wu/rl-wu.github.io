@@ -1,4 +1,6 @@
-
+---
+layout: default
+---
 
 此篇post为测试专用post，测试各项功能的实现效果。
 
