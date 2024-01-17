@@ -104,10 +104,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Ruilin Wu"
+  name             : "吴睿林"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Life is <i>complex</i> for its real and imaginary components."
-  location         : "Beijing"
+  location         : "北京"
   email            :
   links:
     - label: "Email"
