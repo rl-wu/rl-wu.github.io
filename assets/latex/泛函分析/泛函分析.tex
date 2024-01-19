@@ -1,0 +1,70 @@
+\documentclass[12pt,a4paper]{article}
+
+% 中文支持
+\usepackage[UTF8]{ctex}
+
+% 数学宏包
+\usepackage{amsmath,amsfonts,amssymb,blkarray}
+
+%插入代码
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+
+% 图片和表格
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{subcaption}
+
+% 页面布局
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
+\usepackage{multirow}
+
+
+% 超链接
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=red
+}
+
+
+% 页眉和页脚
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{泛函分析笔记}
+\lhead{吴睿林}
+\rfoot{第 \thepage 页}
+
+% 颜色
+\usepackage{xcolor}
+
+
+
+\begin{document}
+\begin{center}
+\section*{摘要}
+\end{center}
+
+本来寒假打算在个人主页上面更新泛函分析的学习笔记，但在markdown文件中插入latex真不太方便，
+故单独用\LaTeX文件来记泛函笔记。
+
+本文件
+
+{\centering\tableofcontents}
+
+\newpage
+\section{度量空间}
+\subsection{压缩映射原理}
+\subsection{完备化}
+\subsection{列紧集}
+\subsection{赋范线性空间}
+\subsection{凸集与不动点}
+\subsection{内积空间}
+
+
+\end{document}
