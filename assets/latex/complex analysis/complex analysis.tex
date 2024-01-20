@@ -1,0 +1,74 @@
+\documentclass[12pt,a4paper]{article}
+
+% 中文支持
+\usepackage[UTF8]{ctex}
+
+% 数学宏包
+\usepackage{amsmath,amsfonts,amssymb,blkarray}
+
+%插入代码
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+
+% 图片和表格
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{subcaption}
+
+% 页面布局
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
+\usepackage{multirow}
+
+
+% 超链接
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=red
+}
+
+
+% 页眉和页脚
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{复变函数笔记}
+\lhead{WRL}
+\rfoot{第 \thepage 页}
+
+% 颜色
+\usepackage{xcolor}
+
+
+
+\begin{document}
+\begin{center}
+\section*{摘要}
+\end{center}
+
+
+我自学使用的教材为Stein的《complex analysis》，在此笔记中主要记录书中的核心内容，配以心得体会。
+
+
+{\centering\tableofcontents}
+
+\newpage
+\section{Preliminaries}
+\subsection{Complex numbers and the complex plane}
+\subsection{Functions on the complex plane }
+\subsection{Integration along curves}
+
+\newpage
+\section{Cauchy's Theorem and Its Applications }
+\subsection{Goursat's theorem}
+\subsection{Local existence of primitives and Cauchy's theorem in a
+disc}
+\subsection{Evaluation of some integrals}
+\subsection{Cauchy's integral formulas }
+\subsection{Further applications}
+
+\end{document}

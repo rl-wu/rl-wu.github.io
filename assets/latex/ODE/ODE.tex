@@ -1,0 +1,83 @@
+\documentclass[12pt,a4paper]{article}
+
+% 中文支持
+\usepackage[UTF8]{ctex}
+
+% 数学宏包
+\usepackage{amsmath,amsfonts,amssymb,blkarray}
+
+%插入代码
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+
+% 图片和表格
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{subcaption}
+
+% 页面布局
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
+\usepackage{multirow}
+
+
+% 超链接
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=red
+}
+
+
+% 页眉和页脚
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{泛函分析笔记}
+\lhead{WRL}
+\rfoot{第 \thepage 页}
+
+% 颜色
+\usepackage{xcolor}
+
+
+
+\begin{document}
+\begin{center}
+\section*{摘要}
+\end{center}
+
+我自学使用的教材为柳彬老师的《常微分方程》，在此笔记中主要记录书中的核心内容，配以心得体会。
+
+
+{\centering\tableofcontents}
+
+\newpage
+\section{微分方程的基本概念}
+\subsection{微分方程的定义}
+\subsection{几何解释}
+
+\newpage
+\section{初等积分法}
+\subsection{恰当方程}
+\subsection{变量分离方程}
+\subsection{一阶线性微分方程}
+\subsection{积分因子}
+\subsection{一阶隐式微分方程}
+\subsection{应用举例}
+
+\newpage
+\section{解的存在唯一性}
+\subsection{准备知识}
+\subsection{Picard定理}
+\subsection{Peano定理}
+\subsection{解的延伸}
+\subsection{比较定理}
+\subsection{奇解}
+\subsection{包络}
+
+
+\end{document}

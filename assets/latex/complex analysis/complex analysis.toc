@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Preliminaries}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Complex numbers and the complex plane}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Functions on the complex plane }{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Integration along curves}{2}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Cauchy's Theorem and Its Applications }{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Goursat's theorem}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Local existence of primitives and Cauchy's theorem in a disc}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Evaluation of some integrals}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Cauchy's integral formulas }{3}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Further applications}{3}{subsection.2.5}%
