@@ -4,7 +4,7 @@
 \usepackage[UTF8]{ctex}
 
 % 数学宏包
-\usepackage{amsmath,amsfonts,amssymb,blkarray}
+\usepackage{amsmath,amsfonts,amssymb,blkarray,mathrsfs,amsthm}
 
 %插入代码
 \usepackage{listings}
@@ -44,6 +44,12 @@
 \usepackage{xcolor}
 
 
+% 定义定理环境
+\newtheorem{thm}{定理}[subsection]  % 在每个章节重新编号
+\newtheorem{lemma}{引理}[subsection]    % 在每个章节重新编号
+\newtheorem{corollary}{推论}[subsection] % 在每个章节重新编号
+
+
 
 \begin{document}
 \begin{center}
@@ -66,6 +72,25 @@
 \subsection{赋范线性空间}
 \subsection{凸集与不动点}
 \subsection{内积空间}
+
+\begin{thm}
+    如果$C$是\rm{Hilbert}空间$\mathscr{X}$中的一个闭凸子集,
+    那么在$C$上存在唯一元素$x_0$取到最小范数.
+\end{thm}
+\begin{proof}
+    存在性: 设$d= \inf_{z \in C}\|z\|$,取$x_n$,使得$d\leq \|x_n\|\leq d + \frac{1}{n}$利用\\
+    $\|x_m - x_n\|^2 = 2(\|x_m\|^2+\|x_n\|^2)-4\|\frac{x_m + x_n}{2}\|^2$
+    可以证明$\{x_n\}$是柯西列.\\
+    唯一性: 同上利用极化恒等式可证唯一性.
+\end{proof}
+\begin{corollary}
+    若C是\rm{Hilbert}空间$\mathscr{X}$中的一个闭凸子集,则对
+    $\forall y \in \mathscr{X},\exists !x_0 \in C$,使得\\$\|y-x_0\| = \inf_{x\in C}\|x-y\|$
+\end{corollary}
+\begin{proof}
+    将$C$平移$-y$之后,利用上面的定理即可.
+\end{proof}
+
 \newpage
 \section{线性算子与线性泛函}
 \subsection{线性算子的概念}
