@@ -1,0 +1,89 @@
+\documentclass[12pt,a4paper]{article}
+
+% 中文支持
+\usepackage[UTF8]{ctex}
+
+% 数学宏包
+\usepackage{amsmath,amsfonts,amssymb,blkarray,mathrsfs,amsthm}
+
+%插入代码
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+
+% 图片和表格
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{subcaption}
+
+% 页面布局
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
+\usepackage{multirow}
+
+
+% 超链接
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=red
+}
+
+
+% 页眉和页脚
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{概率论笔记}
+\lhead{WRL}
+\rfoot{第 \thepage 页}
+
+% 颜色
+\usepackage{xcolor}
+
+\newtheorem{thm}{定理}[subsection]  % 在每个章节重新编号
+\newtheorem{lemma}{引理}[subsection]    % 在每个章节重新编号
+\newtheorem{corollary}{推论}[subsection] % 在每个章节重新编号
+\newtheorem{definition}{定义}[subsection] % 在每个章节内自动编号
+
+\begin{document}
+\begin{center}
+\section*{摘要}
+\end{center}
+
+我自学使用的教材为《概率论基础》，在此笔记中主要记录书中的核心内容，配以心得体会。
+
+
+{\centering\tableofcontents}
+
+\newpage
+\section{事件与概率}
+\subsection{样本空间与事件}
+
+\begin{definition}
+    对于(随机)试验,可能出现的结果称为\textbf{样本点},样本点全体构成\textbf{样本空间}.
+\end{definition}
+在概率论中一般假定样本空间是给定的,这是必要的抽象,是我们能更好地把我住随机变量的本质,类比于线性空间.
+\begin{definition}
+    \textbf{事件}定义为样本点的某个集合,称事件发生当且仅当它所包含的某一个样本点出现.
+\end{definition}
+在此定义下,集合的包含关系诱导了事件的包含关系,补集对应于逆事件,或称对立事件,两个集合的交意味着两个事件的交意味着两个事件同时发生,并集意味着至少发生一个.
+\begin{definition}
+    
+\end{definition}
+\newpage
+\section{条件概率与统计独立性}
+\subsection{}
+\subsection{}
+
+
+\newpage
+\section{随机变量与分布函数}
+\subsection{}
+\subsection{}
+
+
+
+\end{document}
