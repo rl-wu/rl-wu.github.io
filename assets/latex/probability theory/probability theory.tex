@@ -6,6 +6,9 @@
 % 数学宏包
 \usepackage{amsmath,amsfonts,amssymb,blkarray,mathrsfs,amsthm}
 
+%使用分条的列表
+\usepackage{enumitem}
+
 %插入代码
 \usepackage{listings}
 \usepackage[most]{tcolorbox}
@@ -59,19 +62,36 @@
 {\centering\tableofcontents}
 
 \newpage
-\section{事件与概率}
-\subsection{样本空间与事件}
-
-\begin{definition}
-    对于(随机)试验,可能出现的结果称为\textbf{样本点},样本点全体构成\textbf{样本空间}.
+\section{公理化结构}
+\subsection{事件域}
+\begin{definition}[样本空间]
+    对于(随机)试验,可能出现的结果称为\textbf{样本点}$\omega$,样本点全体构成\textbf{样本空间}$\varOmega$.
 \end{definition}
 在概率论中一般假定样本空间是给定的,这是必要的抽象,是我们能更好地把我住随机变量的本质,类比于线性空间.
 \begin{definition}
-    \textbf{事件}定义为样本点的某个集合,称事件发生当且仅当它所包含的某一个样本点出现.
+    \textbf{事件}定义为样本空间$\varOmega$的一个子集,称事件发生当且仅当它所包含的某一个样本点出现.
 \end{definition}
 在此定义下,集合的包含关系诱导了事件的包含关系,补集对应于逆事件,或称对立事件,两个集合的交意味着两个事件的交意味着两个事件同时发生,并集意味着至少发生一个.
+
+一般不把样本空间$\varOmega$的一切子集作为事件,这会带来困难,譬如在几何概率中把不可测集也作为事件将会带来不可克服的麻烦.
+另一方面,又必须把感兴趣的事件都包括进来,所以要求事件全体$\mathscr{F}$组成一个$\sigma$代数.
+\begin{definition}[事件域]
+    若$\mathscr{F}$是由样本空间$\varOmega$的一些子集构成的一个\textbf{$\sigma$代数},则称它为\textbf{事件域},
+    $\mathscr{F}$中的元素称为\textbf{事件},$\varOmega$称为必然事件,$\varnothing$称为不可能事件.
+\end{definition}
+需要特别注意的是由给定的$\varOmega$的一个非空集族$\mathscr{G}$,必定存在由$\mathscr{G}$生成的$\sigma$代数.这种方法可以定义Borel集.
+\subsection{概率}
+\begin{definition}[概率]
+    定义在事件域$\mathscr{F}$上的一个集合函数$P$称为\textbf{概率},如果它满足如下三个要求:
+    \begin{enumerate}[label=(\roman*),font=\upshape]
+        \item $P(A)\geq 0,\forall A \in \mathscr{F}$
+        \item $P(\varOmega)=1$
+        \item $\forall A_i \in \mathscr{F},i = 1,2, \cdots$,若$A_i$两两互不相容,则
+        \[P(\sum_{i=1}^{\infty}A_i) = \sum_{i=1}^{\infty}P(A_i)\]
+      \end{enumerate}
+\end{definition}
 \begin{definition}
-    
+    把概率 $p(n)$ 看作未知参数$n$的函数,称为\textbf{似然函数},在通过求其最大值而得到$n$的估计,这就是数理统计中的\textbf{最大似然估计法}
 \end{definition}
 \newpage
 \section{条件概率与统计独立性}
