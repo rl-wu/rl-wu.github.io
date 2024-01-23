@@ -90,14 +90,45 @@
         \[P(\sum_{i=1}^{\infty}A_i) = \sum_{i=1}^{\infty}P(A_i)\]
       \end{enumerate}
 \end{definition}
+实际上实变函数中的一般测度在全空间的测度为1时就是概率.
+
+有了可数可加性,我们便有\textbf{下连续性}.实际上若$A_i \in \mathscr{F},i = 1,2, \cdots$且$A_i$两两互不相容,则有
+\[P(\sum_{i = 1}^n A_i) = \sum_{i = 1}^n P(A_i) \]两边取极限,右边由于是级数和,1显然是其上界,所以级数和存在,于是有:
+\[\lim_{n\rightarrow \infty}P(\sum_{i = 1}^n A_i) = \sum_{i=1}^{\infty} P(A_i) \overset{\text{\tiny{可数可加}}}{=} P(\sum_{i=1}^{\infty}A_i) \]
+即对于单调不减的集合列,其\textbf{概率的极限等于极限集合的概率}.考虑补集,可以知道概率也是上连续的.另外,有限可加且下连续与可数可加等价.
+\subsection{概率空间}
+\begin{definition}[概率空间]
+    $\varOmega$是样本空间,$\mathscr{F}$是事件域,$P$是概率,则称三元总体$(\varOmega.\mathscr{F},P)$为\textbf{概率空间}.
+\end{definition}
+最后这里放个最大似然估计法,因为书上第一章提到了,我觉得比较重要就记下来了,以后有更合适的地方再搬过去吧.
 \begin{definition}
     把概率 $p(n)$ 看作未知参数$n$的函数,称为\textbf{似然函数},在通过求其最大值而得到$n$的估计,这就是数理统计中的\textbf{最大似然估计法}
 \end{definition}
 \newpage
 \section{条件概率与统计独立性}
-\subsection{}
-\subsection{}
+\subsection{条件概率}
+\begin{definition}[条件概率]
+    设$(\varOmega,\mathscr{F},P)$为一个概率空间,$B \in \mathscr{F},P(B)>0$,则对任意$A\in\mathscr{F}$,记
+    \[P(A|B) = \frac{P(AB)}{P(B)}\]
+    并称$P(A|B)$为\textbf{在事件B发生的条件下事件A发生的条件概率}.
+\end{definition}
+概率论的重要课题之一就是通过简单事件的概率推算处复杂事件的概率，这里全概率公式起着重要作用.
+\begin{definition}[全概率公式]
+    设事件$A_1,A_2,\cdots,A_n,\cdots$是样本空间$\varOmega$的一个分割,亦称完备事件组,即$A_i$两两互不相容,而且$\sum_{i=1}^{\infty}A_i = \varOmega$,这样便有
+    $B = \sum_{i=1}^{\infty}A_i B$,由概率的可加性与条件概率定义可得
+    \[P(B) = \sum_{i=1}^{\infty}P(A_i)P(B|A_i)\]
+    此公式称为\textbf{全概率公式}
+\end{definition}
+\begin{definition}[Bayes公式]
+    若B总是与两两互不相容的事件$A_1,A_2,\cdots$之一同时发生,即$B = \sum_{i=1}^{\infty}BA_i$,结合条件概率的定义与全概率公式得
+    \[P(A_i|B) = \frac{P(A_i)P(B|A_i)}{P(B)} = \frac{P(A_i)P(B|A_i)}{\sum_{i=1}^{\infty} P(A_i)P(B|A_i)}\]
+    此公式称为\textbf{Bayes公式}
+\end{definition}
+Bayes公式得应用场景十分广泛,比如医生为了诊断病人是患了$A_1,\cdots,A_n$这几个疾病中的哪一种,可以先对病人进行检查确定指标$B$,此时利用指标$B$,可以计算相关概率.
 
+Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生的可能性大小,实际应用中一般是以往经验的总结,试验前便已知道.条件概率$P(A_i|B)$称为\textbf{后验概率},
+它反映了试验发生后各种原因发生的可能性大小的条件概率.
+\subsection{事件独立性}
 
 \newpage
 \section{随机变量与分布函数}
