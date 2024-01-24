@@ -5,6 +5,8 @@
 \contentsline {section}{\numberline {2}条件概率与统计独立性}{4}{section.2}%
 \contentsline {subsection}{\numberline {2.1}条件概率}{4}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}事件独立性}{4}{subsection.2.2}%
-\contentsline {section}{\numberline {3}随机变量与分布函数}{5}{section.3}%
-\contentsline {subsection}{\numberline {3.1}}{5}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {2.3}伯努利试验}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}二项分布与泊松分布}{5}{subsection.2.4}%
+\contentsline {section}{\numberline {3}随机变量与分布函数}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}随机变量及其分布}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}}{6}{subsection.3.2}%

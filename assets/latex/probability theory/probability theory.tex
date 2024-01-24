@@ -129,10 +129,55 @@ Bayes公式得应用场景十分广泛,比如医生为了诊断病人是患了$A
 Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生的可能性大小,实际应用中一般是以往经验的总结,试验前便已知道.条件概率$P(A_i|B)$称为\textbf{后验概率},
 它反映了试验发生后各种原因发生的可能性大小的条件概率.
 \subsection{事件独立性}
+\begin{definition}[事件独立性]
+    对$n$个事件$A_1,A_2,\cdots,A_n$,若对于所有可能的组合$1\leq i<j<k<\cdots\leq n$成立着
+    \[\begin{aligned}
+        & P(A_i A_j) = P(A_i)P(A_j)\\
+        & P(A_i A_j A_k) = P(A_i)P(A_j)P(A_k)\\
+        & \cdots\\
+        &P(A_1 A_2 \cdots A_n) = P(A_1)P(A_2)\cdots P(A_n)
+    \end{aligned}\]
+    则称$A_1,A_2,\cdots,A_n$\textbf{相互独立}
+\end{definition}
+事件独立性的每个条件都是必要的,与集合不同,集合两两相交为空集便有任意的交为空集,但是这与事件独立性不同,下面是三个事件两两独立,但三个事件一起并不独立的例子.
+
+考虑一个均匀的正四面体,第一面染成1色,第二面染成2色,第三面染成3色,第四面同时染上1,2,3三种颜色,现在记事件$A,B,C$分别为投一次四面体出现1,2,3色朝下的事件,
+因此$P(A)=P(B)=P(C)=\frac{1}{2},P(AB)=P(BC)=P(AC)=\frac{1}{4}$,即此时事件$A,B,C$两两独立,但是$P(ABC)=\frac{1}{4}\neq\frac{1}{8}=P(A)P(B)P(C)$,即三个事件一起并不一致独立.
+
+有了事件的独立性之后可以定义\textbf{试验的独立性}与\textbf{重复独立试验},不在这里写了.
+\subsection{伯努利试验}
+\begin{definition}[伯努利试验]
+    把事件域$\mathscr{F}$取为$\{\varnothing,A,\bar{A},\varOmega\}$,并称出现$A$为成功,出现$\bar{A}$为失败,这种只有两个可能结果的试验称为\textbf{伯努利试验}.
+    考虑重复进行$n$次独立的伯努利试验,这种试验称作\textbf{$n$重伯努利试验}
+\end{definition}
+\begin{definition}[二项分布]
+    记伯努利试验中$P(A)=p,P(\bar{A})=q=1-p$, 记$n$重伯努利试验中事件$A$出现$k$次的概率为$b(k;n,p)$, 那么有$b(k;n,p)= {n\choose k}p^kq^{n-k},k=1,2,\cdots,n$, $b(k;n,p)$称为\textbf{二项分布}
+\end{definition}
+二项分布的结果也可以容易地推广到$n$次重复独立试验且每次试验可能有若干有限个结果的情形,此时称为\textbf{多项分布}.
+
+\subsection{二项分布与泊松分布}
+二项分布定义如上,我们下面考虑二项分布的性质,由于\[\frac{b(k;n,p)}{b(k-1;,b,p)}=1 + \frac{(n+1)p-k}{kq}\]
+于是$k=\left[(n+1)p\right]$为最可能成功次数,这也是使得$b(k;n,p)$最大的项,此时也称为中心项.
+\begin{thm}[二项分布的泊松逼近]
+    在独立试验中,以$p_n$代表事件$A$在试验中出现的概率,它与试验总数$n$有关,如果 $n\rightarrow \infty$ 时 $np_n\rightarrow \lambda$,则有
+    \[b(k;n,p_n)\rightarrow \frac{\lambda^k}{k!}e^{-\lambda}\]
+    其中$p(k;\lambda)=\frac{\lambda^k}{k!}e^{-\lambda}$称为\textbf{泊松分布}
+\end{thm}
 
 \newpage
 \section{随机变量与分布函数}
-\subsection{}
+\subsection{随机变量及其分布}
+\begin{definition}[随机变量]
+    设$\xi(\omega)$是定义于概率空间$(\varOmega,\mathscr{F},P)$上的单值实函数,其中$\omega$是样本点,如果对于直线上任一Borel点集$B$,有
+    \[\{\omega:\xi(\omega)\in B\}\in \mathscr{F}\]
+    则称$\xi(\omega)$为\textbf{随机变量},而$P\{\omega:\xi(\omega)\in B\}$称为随机变量$\xi(\omega)$的\textbf{概率分布}.
+\end{definition}
+\begin{definition}[分布函数]
+    称\[F(x)=P\{\omega:\xi(\omega)<x\},\ -\infty<x<\infty\]
+    为随机变量$\xi(\omega)$的\textbf{分布函数}.
+\end{definition}
+为了书写方便,通常把“随机变量$\xi(\omega)$服从分布函数$F(x)$”简记作$\xi(\omega)\sim F(x)$.
+由分布函数的定义立刻得到\[P\{a\leq \xi (\omega)<b \} = F(b)-F(a)\]
 \subsection{}
 
 
