@@ -172,12 +172,33 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
     \[\{\omega:\xi(\omega)\in B\}\in \mathscr{F}\]
     则称$\xi(\omega)$为\textbf{随机变量},而$P\{\omega:\xi(\omega)\in B\}$称为随机变量$\xi(\omega)$的\textbf{概率分布}.
 \end{definition}
+随机变量其实就是测度空间上的可测函数.
 \begin{definition}[分布函数]
     称\[F(x)=P\{\omega:\xi(\omega)<x\},\ -\infty<x<\infty\]
     为随机变量$\xi(\omega)$的\textbf{分布函数}.
 \end{definition}
 为了书写方便,通常把“随机变量$\xi(\omega)$服从分布函数$F(x)$”简记作$\xi(\omega)\sim F(x)$.
 由分布函数的定义立刻得到\[P\{a\leq \xi (\omega)<b \} = F(b)-F(a)\]
+由此定义的分布函数具有\textbf{左连续性},即$F(x-0)=F(x)$,这里左连续而不一定右连续是因为分布函数的定义中不取等号导致的,具体来说更本质的原因是
+ $[x_n,x )$ 在$x_n\rightarrow x$时会趋近空集.分布函数的定义还能推导出以下等式:
+\[\begin{aligned}
+    P\{\xi(\omega)=a\}=&F(a+0)-F(a) \\ P\{\xi(\omega)\leq a\} =& F(a+0)
+\end{aligned}\]
+这些公式基本都来源于\textbf{概率的下连续性},即\textbf{概率的极限等于极限集合的概率}
+
+\begin{definition}[离散型随机变量]
+    设$\{x_i\}$为离散型随机变量的所有可能值,而$p(x_i)$是$\xi$取$x_i$的概率,即\[P\{\xi = x_i\} = p(x_i),i=1,2,\cdots\]
+    那么称$\{p(x_i),i=1,2,\cdots\}$为随机变量$\xi$的概率分布.
+\end{definition}
+由此我们可以求出分布函数\[F(x) = P\{\xi(\omega)<x\}=\sum_{x_k<x}p(x_k)\]
+此时分布函数为一个跳跃的阶梯函数.另外,常用\textbf{分布列}表出离散型随机变量的概率分布.
+\begin{definition}[连续型随机变量]
+    连续型随机变量$\xi$可取某个区间$[c,d]$或者$(-\infty,\infty)$中的一切值,而且其分布函数$F(x)$是绝对连续函数,
+    即存在可积函数$p(x)$,使得\[F(x) = \int_{-\infty}^x p(t) \mathrm{d}t\]此时称$p(x)$为$\xi$的\textbf{密度函数}.
+\end{definition}
+这里的绝对连续是实变函数中的概念,$p(x)$在零测集上作改动也不影响分布函数,
+所以对于密度函数$p(x)$的论断通常都是在“几乎处处”的意义上成立.这些都是实变函数中老生常谈的内容.
+
 \subsection{}
 
 

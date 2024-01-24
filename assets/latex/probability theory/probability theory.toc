@@ -9,4 +9,4 @@
 \contentsline {subsection}{\numberline {2.4}二项分布与泊松分布}{5}{subsection.2.4}%
 \contentsline {section}{\numberline {3}随机变量与分布函数}{6}{section.3}%
 \contentsline {subsection}{\numberline {3.1}随机变量及其分布}{6}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}}{6}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}}{7}{subsection.3.2}%
