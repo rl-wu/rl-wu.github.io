@@ -4,7 +4,7 @@
 \usepackage[UTF8]{ctex}
 
 % 数学宏包
-\usepackage{amsmath,amsfonts,amssymb,blkarray,mathrsfs,amsthm}
+\usepackage{amsmath,amsfonts,amssymb,blkarray,mathrsfs,amsthm,bm}
 
 %使用分条的列表
 \usepackage{enumitem}
@@ -56,7 +56,7 @@
 \section*{摘要}
 \end{center}
 
-我自学使用的教材为《概率论基础》，在此笔记中主要记录书中的核心内容，配以心得体会。
+我自学使用的教材为李贤平的《概率论基础》，在此笔记中主要记录书中的核心内容，配以心得体会。
 
 
 {\centering\tableofcontents}
@@ -198,9 +198,73 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
 \end{definition}
 这里的绝对连续是实变函数中的概念,$p(x)$在零测集上作改动也不影响分布函数,
 所以对于密度函数$p(x)$的论断通常都是在“几乎处处”的意义上成立.这些都是实变函数中老生常谈的内容.
+\subsection{正态分布,指数分布,$\Gamma$分布}
+\begin{definition}[正态分布]
+    密度函数为\[p(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},-\infty<x<\infty\]
+    其中$\sigma>0$,$\mu$与$\sigma$均为常数,相应的分布函数为
+    \[F(x)=\frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^{x} e^{-\frac{(t-\mu)^2}{2\sigma^2}} \mathrm{d}t,,-\infty<x<\infty\]
+    此分布称为\textbf{正态分布},简记为$N(\mu,\sigma^2)$.
+\end{definition}
+为了验证如上定义的$p(x)$确实是密度函数,非负是显然的,于是只需验证其在$\mathbb{R}$上的积分为1,
+这是经典数分题目,考虑原积分的平方,将其化成一个累次积分的形式,进而化为二元重积分,再利用极坐标换元便可直接积出来.
 
-\subsection{}
+特别地,当$\mu = 0, \sigma = 1$,这时分布称为\textbf{标准正态分布},记为$N(0,1)$,
+相应的密度函数与分布函数分别记为$\varphi(x)$与$\varPhi(x)$.
 
+可以验证,若随机变量$\xi$服从正态分布$N(\mu,\sigma^2)$,
+简记作$\xi \sim N(\mu,\sigma^2)$,则随机变量$\zeta=\frac{\xi - \mu}{\sigma}$服从$N(0,1)$.
 
+有了以上的关系式,一般的正态分布可以化为标准正态分布来处理:\\若$\xi \sim N(\mu, \sigma^2)$,则
+\[F(x)=P\{\xi<x\} = P\{\frac{\xi-\mu}{\sigma}<\frac{x-\mu}{\sigma}\}=\varPhi(\frac{x-\mu}{\sigma})\]
+\[P\{a\leq\xi<b\}=\varPhi(\frac{b-\mu}{\sigma})-\varPhi(\frac{a-\mu}{\sigma})\]
+\[P\{|\xi-\mu|<k\sigma\} = P\{-k<\frac{\xi-\mu}{\sigma}<k\}=\varPhi(k)-\varPhi(-k)=2\varPhi(k)-1\]
+\begin{definition}[指数分布]
+    分布密度函数为
+    \[p(x)=
+    \begin{cases}\lambda e^{-\lambda x}& x\geq0\\
+    0 &x<0\end{cases}\]
+    分布函数为\[F(x)=\begin{cases}1-e^{-\lambda x}&x\geq 0\\0&x<0\end{cases}\]
+    z这里$\lambda>0$是参数,这分布称为\textbf{指数分布},简记为$\mathrm{Exp}(\lambda)$.
+\end{definition}
+\begin{definition}[$\Gamma$分布]
+    称密度函数为\[f(x)=\begin{cases}\frac{\lambda^r}{\Gamma(r)}x^{r-1}e^{-\lambda x}&x>0\\0& x\leq0\end{cases}\]
+    的分布为\textbf{$\Gamma$分布},其中$\lambda>0,r>0$为参数.简记作$\Gamma(r,\lambda)$.
+\end{definition}
+
+\subsection{随机向量,联合分布函数}
+\begin{definition}[随机向量]
+    若随机变量$\xi_1(\omega),\cdots,\xi_n(\omega)$定义在同一概率空间$(\varOmega,\mathscr{F},P)$上,则称
+    \[\bm{\xi}(\omega) = ( \xi_1(\omega), \cdots, \xi_n(\omega) )\]
+    构成一个\textbf{$n$维随机向量},亦称\textbf{$n$维随机变量}.
+\end{definition}
+对于任意$n$个实数$x_1,\cdots,x_n$,\[\{ \omega: \xi_1(\omega)<x_1,\cdots,\xi_n(\omega)<x_n \} = \bigcap_{i=1}^{n}\{\xi_i(\omega)<x_i\} \in \mathscr{F}\]
+即对于$\mathbb{R}^n$中的$n$维矩形$C_n=\prod_{i=1}^n(-\infty,x_i)$,有$\{\bm{\xi}(\omega)\in C_n\}\in \mathscr{F}$
+于是随机向量也可良好定义(联合)分布函数:
+\begin{definition}[联合分布函数]
+    称$n$元函数\[F(x_1,\cdots,x_n)=P\{\omega:\xi_1(\omega)<x_1,\cdots,\xi_n(\omega)<x_n\}\]
+    为随机向量$\bm{\xi}(\omega) = ( \xi_1(\omega), \cdots, \xi_n(\omega) )$的\textbf{(联合)分布函数}.
+\end{definition}
+多元分布函数的一些性质:
+\begin{enumerate}[label=(\roman*),font=\upshape]
+    \item 单调性:关于每个变元是单调不减函数.
+    \item $F(x_1,\cdots,-\infty,\cdots,x_n)=0$\\$F(+\infty,\cdots,+\infty)=1$
+    \item 关于每个变元左连续.\\
+
+    特别地,在二元场合,还有:\ (类似的结论可以推广到$n$元)
+    \item 对任意$a_1<b_1,a_2<b_2$,都有\[F(b_1,b_2)-F(a_1,b_2)-F(b_1,a_2)+F(a_1,a_2) = P\{a_1 \leq \xi_1 <b_1, a_2\leq\xi_2<b_2\}\geq0\]
+\end{enumerate}
+
+随机向量也有不同类型,最常见的也是离散型与连续型两类.
+
+离散型场合中,概率分布集中在有限或可列个点上,其中比较重要的有多项分布与多元超几何分布
+
+在连续型场合,存在非负函数$p(x_1,\cdots,x_n)$,使得\[F(x_1,\cdots,x_n) = \int_{-\infty}^{x_1}\cdots\int_{-\infty}^{x_n} p(t_1,\cdots,t_n)\mathrm{d}t_1\cdots\mathrm{d}t_n\]
+这里的$p(x_1,\cdots,x_n)$称为(多元分布)\textbf{密度函数}
+\begin{definition}[多元正态分布]
+    若$\bm{\Sigma}=(\sigma_{ij})$是$n$阶正定对称矩阵,以$\bm{\Sigma}^{-1}=(\gamma_{ij})$表示$\bm{\Sigma}$的逆矩阵,
+    $\det \bm{\Sigma}$表示$\bm{\Sigma}$的行列式的值.$\bm{\mu} = (\mu_1,\cdots,\mu_n)$是任意实值行向量,则由密度函数
+    \[p(x_1,\cdots,x_n) = \frac{1}{(2\pi)^{\frac{n}{2}}(\det\bm{\Sigma})^{\frac{1}{2}}} e^{-\frac{1}{2} (\bm{x}-\bm{\mu})\bm{\Sigma}^{-1}(\bm{x}-\bm{\mu})^\top }\]
+    定义的分布称为\textbf{$n$元正态分布},简记为$N(\bm{\mu},\bm{\Sigma})$.
+\end{definition}
 
 \end{document}
