@@ -266,5 +266,13 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
     \[p(x_1,\cdots,x_n) = \frac{1}{(2\pi)^{\frac{n}{2}}(\det\bm{\Sigma})^{\frac{1}{2}}} e^{-\frac{1}{2} (\bm{x}-\bm{\mu})\bm{\Sigma}^{-1}(\bm{x}-\bm{\mu})^\top }\]
     定义的分布称为\textbf{$n$元正态分布},简记为$N(\bm{\mu},\bm{\Sigma})$.
 \end{definition}
+\subsection{边际分布}
+下面的讨论将对二维场合进行,$n$维时这些结论仍然成立,设随机向量为$(\xi,\eta)$.
+\begin{definition}[离散型随机变量的边际分布]
+    对于离散型分布,设$\xi$取值$x_1,x_2,\cdots$,\ $\eta$取值$y_1,y_2,\cdots$,显然有
+    \[p_1(x_i):=P\{\xi = x_i\} =\sum_{j}p(x_i,y_j)\]
+    \[p_2(y_j):=P\{\eta = y_j\} =\sum_{i}p(x_i,y_j)\]
+    这里$p_1(x_i)$与$p_2(y_j)$称为$p(x_i,y_j)$的\textbf{边际分布}或\textbf{边缘分布}
+\end{definition}
 
 \end{document}
