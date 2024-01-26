@@ -6,9 +6,9 @@
 \contentsline {subsection}{\numberline {1.5}凸集与不动点}{2}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}内积空间}{2}{subsection.1.6}%
 \contentsline {section}{\numberline {2}线性算子与线性泛函}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}线性算子的概念}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Riesz表示定理及其应用}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}纲与开映射定理}{4}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Hahn-Banach定理}{4}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}共轭空间、弱收敛、自反空间}{4}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}线性算子的谱}{4}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.1}线性算子}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Riesz表示定理及其应用}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}纲与开映射定理}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Hahn-Banach定理}{6}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}共轭空间、弱收敛、自反空间}{6}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}线性算子的谱}{6}{subsection.2.6}%

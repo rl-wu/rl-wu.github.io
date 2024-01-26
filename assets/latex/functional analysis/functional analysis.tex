@@ -104,6 +104,7 @@
     设$M$是\rm{Hilbert}空间$\mathscr{X}$的一个闭线性子流形,$\forall x \in \mathscr{X}$,为了$y$是$x$在$M$上的最佳逼近元,必须且仅须它适合
     \[x-y \perp M-\{y\} \]
 \end{corollary}
+这个推论对线性子流形(子空间)中的最佳逼近元作了很到位的刻画,可以利用这个刻画得到最小二乘法的具体算法.
 \begin{corollary}[正交分解]
     设$M$是\rm{Hilbert}空间$\mathscr{X}$中的一个闭线性子空间,那么$\forall x \in \mathscr{X}$,存在下列唯一的正交分解:
     \[x= y+z\quad (y\in M,z\in M^{\top})\]
@@ -114,14 +115,50 @@
 
 \newpage
 \section{线性算子与线性泛函}
-\subsection{线性算子的概念}
+\subsection{线性算子}
 \begin{definition}[线性算子]
+    设$\mathscr{X},\mathscr{Y}$是两个线性空间,$D$是$\mathscr{X}$的一个线性子空间.$T:D\to \mathscr{Y}$是一个映射,
+    $D$称为定义域,也记作$D(T)$,$R(T)=\{Tx|x \in D\}$称为$T$的值域.如果
+    \[T(\alpha x + \beta y) = \alpha Tx + \beta Ty\quad (\forall x,y \in D,\forall \alpha,\beta \in \mathbb{K})\]
+    那么称$T$是一个\textbf{线性算子}.取值于实数$\mathbb{R}$(复数$\mathbb{C}$)的线性算子称为\textbf{实(复)线性泛函}.
 \end{definition}
-\begin{definition}[连续性与有界性]
+\begin{definition}[连续性]
+    设$\mathscr{X},\mathscr{Y}$是$F^*$空间,$D(T)\subset \mathscr{X}$,称线性算子$T:D(T)\to \mathscr{Y}$在$x_0 \in D(T)$是\textbf{连续的},如果
+    \[x_n \in D(T),\quad x_n \to x_0\Rightarrow Tx_n\to Tx_0\]
 \end{definition}
+\begin{definition}[有界性]
+    设$\mathscr{X},\mathscr{Y}$都是$B^*$空间,称线性算子$T:\mathscr{X}\to \mathscr{Y}$是\textbf{有界的},如果存在常数$M\geq 0$,使得
+    \[\|Tx\|_{\mathscr{Y}}\leq M\|x\|_{\mathscr{X}} \quad (\forall x \in \mathscr{X})\]
+\end{definition}
+\begin{thm}[有界等价于连续]
+    设$\mathscr{X},\mathscr{Y}$都是$B^*$空间,为了线性算子$T$连续,必须且只须$T$有界.
+\end{thm}
+\begin{definition}[线性算子空间]
+    用$\mathscr{L}(\mathscr{X},\mathscr{Y})$表示一切由$\mathscr{X}$到$\mathscr{Y}$的有界线性算子的全体,并规定
+    \[\|T\| = \underset{x\in \mathscr{X}\setminus \theta}{\sup} \frac{\|Tx\|}{\|x\|} = \underset{\|x\|=1}{\sup}\|Tx\| \]
+    为$T\in \mathscr{L}(\mathscr{X},\mathscr{Y})$的\textbf{范数},特别用$\mathscr{L}(\mathscr{X})$表示$\mathscr{L}(\mathscr{X},\mathscr{X})$,
+    用$\mathscr{X}^*$表示$\mathscr{L}(\mathscr{X},\mathbb{K})$,即$\mathscr{X}^*$表示$\mathscr{X}$上的有界线性泛函全体.
+\end{definition}
+\begin{thm}[线性算子空间上的运算]
+    设$\mathscr{X}$是$B^*$空间,$\mathscr{Y}$是$B$空间,若在$\mathscr{L}(\mathscr{X},\mathscr{Y})$上规定线性运算:
+    \[(\alpha_1 T_1 + \alpha_2 T_2)(x) = \alpha_1 T_1 x + \alpha_2 T_2 x \quad (\forall x \in \mathscr{X}) \]
+    其中$\alpha_1,\alpha_2\in \mathbb{K},T_1,T_2\in\mathscr{L}(\mathscr{X},\mathscr{Y})$,则$\mathscr{L}(\mathscr{X},\mathscr{Y})$按$\|T\|$
+    构成一个\rm{Banach}空间.
+\end{thm}
+\begin{proof}
+    主要是证范数的三角不等式与完备性,三角不等式基于算子范数的定义与$\mathscr{Y}$中范数的三角不等式.根据$\mathscr{Y}$的完备性可以定义极限算子.
+\end{proof}
 \subsection{Riesz表示定理及其应用}
 \begin{thm}[Riesz表示定理(Hilbert空间)]
+    设$f$是\rm{Hilbert}空间$\mathscr{X}$上的一个连续线性泛函,则必存在唯一的$y_f \in \mathscr{X}$,使得
+    \[f(x) = (x,y_f)\quad (\forall x \in \mathscr{X})\]
 \end{thm}
+\begin{proof}
+    考虑$M\triangleq \{x\in \mathscr{X}|f(x) = 0\}$,不妨设$f$不恒等于$0$,由$f$连续线性保证$M$是一个真闭线性子空间.
+    任取$x_0 \perp M$,正交分解定理保证了$x_0$是存在的.由于\[x-\frac{f(x)}{f(x_0)}x_0 \in M \quad (\forall x \in \mathscr{X})\]
+    (由此可以看到$M$是余$1$维的)于是\[f(x)\frac{\|x_0\|^2}{f(x_0)} = (x,x_0)\]所以取$y_f = (\overline{f(x_0)}/\|x_0\|^2) x_0$即可.
+
+\end{proof}
 Riesz表示定理有很多应用,这首先依赖于\rm{Hilbert}空间本身的良好性质,其次要求是连续线性泛函.
 \begin{definition}[弱解]
 \end{definition}
@@ -144,6 +181,8 @@ Riesz表示定理有很多应用,这首先依赖于\rm{Hilbert}空间本身的�
 \end{thm}
 \begin{thm}[一致有界定理]
 \end{thm}
+本小节后面的两个应用还没怎么细看,这节东西太多了,一下子看完不是很消化...另外一个原因是已经等不及赶紧进入下一节去看凸集分离定理了!
+在最优化方法的课上就早有耳闻,如今终于可以学到了!
 \subsection{Hahn-Banach定理}
 \subsection{共轭空间、弱收敛、自反空间}
 \subsection{线性算子的谱}
