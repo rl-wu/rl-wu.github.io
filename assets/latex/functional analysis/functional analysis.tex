@@ -48,7 +48,7 @@
 \newtheorem{thm}{定理}[subsection]  % 在每个章节重新编号
 \newtheorem{lemma}{引理}[subsection]    % 在每个章节重新编号
 \newtheorem{corollary}{推论}[subsection] % 在每个章节重新编号
-\newtheorem{def}{定义}[subsection] % 在每个章节内自动编号
+\newtheorem{definition}{定义}[subsection] % 在每个章节内自动编号
 
 
 
@@ -84,19 +84,66 @@
     可以证明$\{x_n\}$是柯西列.\\
     唯一性: 同上利用极化恒等式可证唯一性.
 \end{proof}
-\begin{corollary}
+\begin{corollary}[\rm{Hilbert}空间闭凸子集中最佳逼近元存在且唯一]
     若C是\rm{Hilbert}空间$\mathscr{X}$中的一个闭凸子集,则对
-    $\forall y \in \mathscr{X},\exists !x_0 \in C$,使得\\$\|y-x_0\| = \inf_{x\in C}\|x-y\|$
+    $\forall y \in \mathscr{X},\exists !x_0 \in C$,使得\[\|y-x_0\| = \inf_{x\in C}\|x-y\|\]
 \end{corollary}
 \begin{proof}
     将$C$平移$-y$之后,利用上面的定理即可.
+\end{proof}
+\begin{thm}[最佳逼近元的刻画]
+    设$C$是内积空间$\mathscr{X}$中的闭凸子集, $\forall y \in \mathscr{X}$为了$x_0$是$y$在$C$上的最佳逼近元,必须且仅须它适合
+    \[\mathrm{Re}(y-x_0,x_0-x)\geq 0,\forall x \in C\]
+\end{thm}
+\begin{proof}
+    $\forall x \in C$,考虑函数$\varphi_x(t) = \|y-tx-(1-t)x_0\|^2$,为了$x_0$是$y$在$C$上的最佳逼近元,必须且仅需
+    \[\varphi_x(t)\geq\varphi_x(0) \quad \forall x \in C ,\forall t \in[0,1]\]
+    考察此二次函数的取值即可,这是容易地.
+\end{proof}
+\begin{corollary}
+    设$M$是\rm{Hilbert}空间$\mathscr{X}$的一个闭线性子流形,$\forall x \in \mathscr{X}$,为了$y$是$x$在$M$上的最佳逼近元,必须且仅须它适合
+    \[x-y \perp M-\{y\} \]
+\end{corollary}
+\begin{corollary}[正交分解]
+    设$M$是\rm{Hilbert}空间$\mathscr{X}$中的一个闭线性子空间,那么$\forall x \in \mathscr{X}$,存在下列唯一的正交分解:
+    \[x= y+z\quad (y\in M,z\in M^{\top})\]
+\end{corollary}
+\begin{proof}
+    实际上,$y$为$x$在$M$上的最佳逼近元.
 \end{proof}
 
 \newpage
 \section{线性算子与线性泛函}
 \subsection{线性算子的概念}
+\begin{definition}[线性算子]
+\end{definition}
+\begin{definition}[连续性与有界性]
+\end{definition}
 \subsection{Riesz表示定理及其应用}
+\begin{thm}[Riesz表示定理(Hilbert空间)]
+\end{thm}
+Riesz表示定理有很多应用,这首先依赖于\rm{Hilbert}空间本身的良好性质,其次要求是连续线性泛函.
+\begin{definition}[弱解]
+\end{definition}
+\begin{thm}[Laplace方程Dirichlet边值问题的弱解存在唯一]
+\end{thm}
 \subsection{纲与开映射定理}
+\begin{definition}[疏集,第一纲集,第二纲集]
+\end{definition}
+\begin{thm}[Baire]
+\end{thm}
+\begin{thm}[开映射定理]
+\end{thm}
+\begin{thm}[Banach]
+\end{thm}
+\begin{definition}[闭线性算子]
+\end{definition}
+\begin{corollary}[等价范数定理]
+\end{corollary}
+\begin{thm}[闭图像定理]
+\end{thm}
+\begin{thm}[一致有界定理]
+\end{thm}
 \subsection{Hahn-Banach定理}
 \subsection{共轭空间、弱收敛、自反空间}
 \subsection{线性算子的谱}
