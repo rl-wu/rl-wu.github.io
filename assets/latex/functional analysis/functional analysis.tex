@@ -157,13 +157,46 @@
     考虑$M\triangleq \{x\in \mathscr{X}|f(x) = 0\}$,不妨设$f$不恒等于$0$,由$f$连续线性保证$M$是一个真闭线性子空间.
     任取$x_0 \perp M$,正交分解定理保证了$x_0$是存在的.由于\[x-\frac{f(x)}{f(x_0)}x_0 \in M \quad (\forall x \in \mathscr{X})\]
     (由此可以看到$M$是余$1$维的)于是\[f(x)\frac{\|x_0\|^2}{f(x_0)} = (x,x_0)\]所以取$y_f = (\overline{f(x_0)}/\|x_0\|^2) x_0$即可.
-
 \end{proof}
-Riesz表示定理有很多应用,这首先依赖于\rm{Hilbert}空间本身的良好性质,其次要求是连续线性泛函.
-\begin{definition}[弱解]
-\end{definition}
-\begin{thm}[Laplace方程Dirichlet边值问题的弱解存在唯一]
+实际上还有$\|f\| = \|y_f\|$.
+\begin{thm}[共轭双线性函数的表示]
+    设$\mathscr{X}$是一个\rm{Hilbert}空间,$a(x,y)$是$\mathscr{X}$上的共轭双线性函数,并$\exists M>0$.使得
+    \[|a(x,y)| \leq M\|x\|\cdot \|y\|\quad (\forall x,y \in \mathscr{X})\]
+    则存在唯一的$A \in \mathscr{L}(\mathscr{X})$,使得\[a(x,y) = (x,Ay) \quad (\forall x,y \in \mathscr{X})\]
+    且\[\|A\| = \underset{(x,y) \in \mathscr{X}\times \mathscr{X}, x \neq \theta, y \neq \theta}{\sup}\frac{|a(x,y)|}{\|x\|\cdot \|y\|} \]
 \end{thm}
+Riesz表示定理有很多应用,这首先依赖于\rm{Hilbert}空间本身的良好性质,其次要求是连续线性泛函.
+
+\paragraph{Laplace方程 $-\Delta u = f$ Dirichlet边值问题的弱解}\mbox{} 
+
+设$\Omega\subset \mathbb{R}^n$是一个有界开区域,$f\in L^2(\Omega)$,称实函数$u$是
+\begin{equation}\begin{cases}
+    -\Delta u = f &\quad (\text{在}\Omega \text{内})\\u|_{\partial \Omega} = 0&
+\end{cases}\tag{\#} \end{equation}
+的一个\textbf{弱解}是指$u \in H_0^1(\Omega)$,满足
+\[\int_{\Omega} \nabla u \cdot \nabla v \mathrm{d}x = \int_{\Omega}fv\mathrm{d}x \quad (\forall v \in H_0^1(\Omega))\]
+这是因为:如果$u \in C^2(\overline{\Omega})$,并且是一个解,那么$\forall v \in C^2(\Omega),v|_{\partial \Omega} = 0$
+\[\int_{\Omega}fv\mathrm{d}x = \int_{\Omega}-\Delta u \cdot v\mathrm{d}x 
+\overset{\mathrm{Green}}{=} \int_{\Omega}\nabla u \cdot \nabla v \mathrm{d}x - \int_{\partial \Omega} \frac{\partial u}{\partial v} v \mathrm{d}\sigma
+= \int_{\Omega}\nabla u \cdot \nabla v \mathrm{d}x\]
+由于$\{v \in C^2(\Omega)|v|_{\Omega} = 0\}$在$H_0^1(\Omega)$中稠密,所以上式对$\forall v\in H_0^1(\Omega)$也成立,于是$u$是一个弱解.
+
+
+对Laplace方程直接求解是很困难的,近代偏微分方程理论的基本方法是先求弱解,证其存在唯一,再证其光滑性,正因如此,泛函分析是研究近代偏微分方程理论必不可少的工具.
+\begin{thm}[Laplace方程Dirichlet边值问题的弱解存在唯一]
+    $\forall f \in L^2(\Omega)$,(\#)式所代表的$0$-Dirichlet问题(即边界条件为$0$)弱解存在唯一.
+\end{thm}
+\begin{proof}
+    可以证明:(书上有证)\[(u,v) \triangleq \int_{\Omega} \nabla u \cdot \nabla v \mathrm{d}x\]
+    是$H_0^1(\Omega)$上的一个内积,对$\forall v \in H_0^1(\Omega)$
+    \[|\int_{\Omega}f\cdot v \mathrm{d}x|\leq (\int_{\Omega}|f|^2\mathrm{d}x)^{\frac{1}{2}} (\int_{\Omega}|v|^2\mathrm{d}x)^{\frac{1}{2}}
+    \leq C \|f\|\cdot \|v\|_1\]
+    其中$\|\cdot\|$与$\|\cdot\|_1$分别表示$L^2(\Omega)$与$H_0^1(\Omega)$上的范数.上式表明
+    \[v \to \int_{\Omega}f\cdot v \mathrm{d}x\]
+    是$H_0^1(\Omega)$上的一个连续线性泛函.应用Riesz表示定理,$\exists u \in H_0^1(\Omega)$,使得
+    \[\int_{\Omega}fv\mathrm{d}x = (u_0,v)_1 = \int_{\Omega}\nabla u \cdot \nabla v\mathrm{d}x\quad (\forall v \in H_0^1(\Omega))\]
+    从而$u_0$是一个弱解.唯一性略.
+\end{proof}
 \subsection{纲与开映射定理}
 \begin{definition}[疏集,第一纲集,第二纲集]
 \end{definition}
