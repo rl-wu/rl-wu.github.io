@@ -75,7 +75,7 @@
 \subsection{内积空间}
 
 \begin{thm}
-    如果$C$是\rm{Hilbert}空间$\mathscr{X}$中的一个闭凸子集,
+    如果$C$是$\mathrm{Hilbert}$空间$\mathscr{X}$中的一个闭凸子集,
     那么在$C$上存在唯一元素$x_0$取到最小范数.
 \end{thm}
 \begin{proof}
@@ -84,8 +84,8 @@
     可以证明$\{x_n\}$是柯西列.\\
     唯一性: 同上利用极化恒等式可证唯一性.
 \end{proof}
-\begin{corollary}[\rm{Hilbert}空间闭凸子集中最佳逼近元存在且唯一]
-    若C是\rm{Hilbert}空间$\mathscr{X}$中的一个闭凸子集,则对
+\begin{corollary}[$\mathrm{Hilbert}$空间闭凸子集中最佳逼近元存在且唯一]
+    若C是$\mathrm{Hilbert}$空间$\mathscr{X}$中的一个闭凸子集,则对
     $\forall y \in \mathscr{X},\exists !x_0 \in C$,使得\[\|y-x_0\| = \inf_{x\in C}\|x-y\|\]
 \end{corollary}
 \begin{proof}
@@ -101,12 +101,12 @@
     考察此二次函数的取值即可,这是容易地.
 \end{proof}
 \begin{corollary}
-    设$M$是\rm{Hilbert}空间$\mathscr{X}$的一个闭线性子流形,$\forall x \in \mathscr{X}$,为了$y$是$x$在$M$上的最佳逼近元,必须且仅须它适合
+    设$M$是$\mathrm{Hilbert}$空间$\mathscr{X}$的一个闭线性子流形,$\forall x \in \mathscr{X}$,为了$y$是$x$在$M$上的最佳逼近元,必须且仅须它适合
     \[x-y \perp M-\{y\} \]
 \end{corollary}
 这个推论对线性子流形(子空间)中的最佳逼近元作了很到位的刻画,可以利用这个刻画得到最小二乘法的具体算法.
 \begin{corollary}[正交分解]
-    设$M$是\rm{Hilbert}空间$\mathscr{X}$中的一个闭线性子空间,那么$\forall x \in \mathscr{X}$,存在下列唯一的正交分解:
+    设$M$是$\mathrm{Hilbert}$空间$\mathscr{X}$中的一个闭线性子空间,那么$\forall x \in \mathscr{X}$,存在下列唯一的正交分解:
     \[x= y+z\quad (y\in M,z\in M^{\top})\]
 \end{corollary}
 \begin{proof}
@@ -143,14 +143,14 @@
     设$\mathscr{X}$是$B^*$空间,$\mathscr{Y}$是$B$空间,若在$\mathscr{L}(\mathscr{X},\mathscr{Y})$上规定线性运算:
     \[(\alpha_1 T_1 + \alpha_2 T_2)(x) = \alpha_1 T_1 x + \alpha_2 T_2 x \quad (\forall x \in \mathscr{X}) \]
     其中$\alpha_1,\alpha_2\in \mathbb{K},T_1,T_2\in\mathscr{L}(\mathscr{X},\mathscr{Y})$,则$\mathscr{L}(\mathscr{X},\mathscr{Y})$按$\|T\|$
-    构成一个\rm{Banach}空间.
+    构成一个$\mathrm{Banach}$空间.
 \end{thm}
 \begin{proof}
     主要是证范数的三角不等式与完备性,三角不等式基于算子范数的定义与$\mathscr{Y}$中范数的三角不等式.根据$\mathscr{Y}$的完备性可以定义极限算子.
 \end{proof}
 \subsection{Riesz表示定理及其应用}
 \begin{thm}[Riesz表示定理(Hilbert空间)]
-    设$f$是\rm{Hilbert}空间$\mathscr{X}$上的一个连续线性泛函,则必存在唯一的$y_f \in \mathscr{X}$,使得
+    设$f$是$\mathrm{Hilbert}$空间$\mathscr{X}$上的一个连续线性泛函,则必存在唯一的$y_f \in \mathscr{X}$,使得
     \[f(x) = (x,y_f)\quad (\forall x \in \mathscr{X})\]
 \end{thm}
 \begin{proof}
@@ -160,7 +160,7 @@
 \end{proof}
 实际上还有$\|f\| = \|y_f\|$.
 \begin{thm}[共轭双线性函数的表示]
-    设$\mathscr{X}$是一个\rm{Hilbert}空间,$a(x,y)$是$\mathscr{X}$上的共轭双线性函数,并$\exists M>0$.使得
+    设$\mathscr{X}$是一个$\mathrm{Hilbert}$空间,$a(x,y)$是$\mathscr{X}$上的共轭双线性函数,并$\exists M>0$.使得
     \[|a(x,y)| \leq M\|x\|\cdot \|y\|\quad (\forall x,y \in \mathscr{X})\]
     则存在唯一的$A \in \mathscr{L}(\mathscr{X})$,使得\[a(x,y) = (x,Ay) \quad (\forall x,y \in \mathscr{X})\]
     且\[\|A\| = \underset{(x,y) \in \mathscr{X}\times \mathscr{X}, x \neq \theta, y \neq \theta}{\sup}\frac{|a(x,y)|}{\|x\|\cdot \|y\|} \]
