@@ -78,18 +78,16 @@
     设 $P:\mathscr{X} \to \mathbb{R}$ 是线性空间$\mathscr{X}$上的一个函数,若它满足
     \begin{enumerate}[label=(\roman*),font=\upshape]
         \item $P(x+y) \leq P(x) + P(y) \quad (\forall x, y \in \mathscr{X})$
-        \item $P(\lambda x) \lambda P(x) \quad (\forall \lambda > 0, \forall x \in \mathscr{X})$
+        \item $P(\lambda x) = \lambda P(x) \quad (\forall \lambda > 0, \forall x \in \mathscr{X})$
     \end{enumerate}
     则称$P$为$\mathscr{X}$上的一个\textbf{次线性泛函}.
 \end{definition}
-
 \subsection{凸集与不动点}
 \begin{definition}[Minkowski泛函]
     设$\mathscr{X}$是线性空间,$C$是$\mathscr{X}$上含有$\theta$的凸子集,在$\mathscr{X}$上规定一个取值于$[0,\infty]$的函数
     \[P(x) = \inf\{\lambda > 0 |\frac{x}{\lambda} \in C\} \quad (\forall x \in \mathscr{X})\]
     与$C$对应,称函数$P$为$C$的\textbf{$\mathrm{Minkowski}$泛函}.
 \end{definition}
-
 \subsection{内积空间}
 
 \begin{thm}
@@ -97,9 +95,9 @@
     那么在$C$上存在唯一元素$x_0$取到最小范数.
 \end{thm}
 \begin{proof}
-    存在性: 设$d= \inf_{z \in C}\|z\|$,取$x_n$,使得$d\leq \|x_n\|\leq d + \frac{1}{n}$利用
+    存在性: 设 $d= \inf_{z \in C}\|z\|$,取 $x_n$, 使得 $d\leq \|x_n\|\leq d + \frac{1}{n}$ 利用
     \[\|x_m - x_n\|^2 = 2(\|x_m\|^2+\|x_n\|^2)-4\|\frac{x_m + x_n}{2}\|^2\]
-    可以证明$\{x_n\}$是柯西列.\\
+    可以证明 $\{x_n\}$ 是柯西列.\\
     唯一性: 同上利用极化恒等式可证唯一性.
 \end{proof}
 \begin{corollary}[$\mathrm{Hilbert}$空间闭凸子集中最佳逼近元存在且唯一]
@@ -131,9 +129,10 @@
     实际上,$y$为$x$在$M$上的最佳逼近元.
 \end{proof}
 
-\newpage
-\section{线性算子与线性泛函}
 
+\newpage
+
+\section{线性算子与线性泛函}
 \subsection{线性算子}
 \begin{definition}[线性算子]
     设$\mathscr{X},\mathscr{Y}$是两个线性空间,$D$是$\mathscr{X}$的一个线性子空间.$T:D\to \mathscr{Y}$是一个映射,
@@ -216,7 +215,6 @@ Riesz表示定理有很多应用,这首先依赖于\rm{Hilbert}空间本身的�
     \[\int_{\Omega}fv\mathrm{d}x = (u_0,v)_1 = \int_{\Omega}\nabla u \cdot \nabla v\mathrm{d}x\quad (\forall v \in H_0^1(\Omega))\]
     从而$u_0$是一个弱解.唯一性略.
 \end{proof}
-
 \subsection{纲与开映射定理}
 \begin{definition}[疏集,第一纲集,第二纲集]
     设$(\mathscr{X},\rho )$是一个度量空间,集合$E \subset \mathscr{X}$,称$E$是\textbf{疏}的,如果$\overline{E}$的内点是空的.
@@ -256,6 +254,53 @@ Riesz表示定理有很多应用,这首先依赖于\rm{Hilbert}空间本身的�
 本小节后面的两个应用还没怎么细看,这节东西太多了,一下子看完不是很消化...另外一个原因是已经等不及赶紧进入下一节去看凸集分离定理了!
 在最优化方法的课上就早有耳闻,如今终于可以学到了!
 \subsection{Hahn-Banach定理}
+\begin{thm}[实 Hahn-Banach 定理]
+    设 $\mathscr{X}$ 是实线性空间, $p$ 是定义在 $\mathscr{X}$ 上的次线性泛函, $\mathscr{X}_0$ 是 $\mathscr{X}$ 的实线性子空间, 
+    $f_0$ 是 $\mathscr{X}_0$ 上的实线性泛函并满足 $f(x_0) \leq p(x) \quad (\forall x \in \mathscr{X}_0)$. 
+    那么 $\mathscr{X}$ 上必有一个实线性泛函 $f$, 满足:
+    \begin{enumerate}[label=(\roman*),font=\upshape]
+        \item $f(x) \leq p(x) \quad (\forall x \in \mathscr{X})$
+        \item $f(x) = f_0(x) \quad (\forall x \in \mathscr{X}_0)$
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    每次延拓一维, 这等价于在一个已有定义的子空间之外的一个向量上定义取值, 但是取值需要满足被给定的次线性泛函 $p(x)$ 控制, 
+    最后用Zorn引理可以保证最后能延拓到整个空间上去. 
+\end{proof}
+\begin{thm}[复 Hahn-Banach 定理]
+    设 $\mathscr{X}$ 是复线性空间, $p$ 是 $\mathscr{X}$ 上的半范数. $\mathscr{X}_0$ 是 $\mathscr{X}$ 的线性子空间, 
+    $f$ 是 $\mathscr{X}_0$ 上的线性泛函, 并满足 $|f_0(x)| \leq p(x)$, $\forall x \in \mathscr{X}_0$, 那么 $\mathscr{X}$ 上
+    必有一个线性泛函 $f$ 满足:
+    \begin{enumerate}[label=(\roman*),font=\upshape]
+        \item $|f(x)| \leq p(x) \quad (\forall x \in \mathscr{X})$
+        \item $f(x) = f_0(x) \quad (\forall x \in \mathscr{X}_0)$
+    \end{enumerate}
+\end{thm}
+\begin{thm}[Hahn-Banach 定理]
+    设 $\mathscr{X}$ 是 $B^*$ 空间, $\mathscr{X}_0$ 是 $\mathscr{X}$ 的线性子空间, 
+    $f_0$ 是定义在 $\mathscr{X}_0$ 上的有界线性泛函, 则在 $\mathscr{X}$ 上必有有界线性泛函 $f$ 满足:
+    \begin{enumerate}[label=(\roman*),font=\upshape]
+        \item $f(x) = f_0(x) \quad (\forall x \in \mathscr{X})$
+        \item $\|f\| = \|f_0\|_0$
+    \end{enumerate}
+    其中 $\|f_0\|_0$ 表示 $f_0$ 在 $\mathscr{X}_0$ 上的范数.
+\end{thm}
+\begin{proof}
+    在 $\mathscr{X}$ 上定义 $p(x) \triangleq \|f_0\|_0 \cdot \|x\|$, 那么 $p(x)$ 是 $\mathscr{X}$ 上的半范数, 
+    从而根据 实 Hanh-Banach 定理, 必存在 $\mathscr{X}$ 上的线性泛函 $f(x)$, 满足
+    \[f(x) = f_0(x) \quad (\forall x \in \mathscr{X}_0)\]并且
+    \[ |f(x)| \leq p(x) = \|f_0\|_0 \cdot \|x\| \quad (\forall x \in \mathscr{X})\]
+    因此 $\|f\| = \|f_0\|_0$.
+\end{proof}
+\begin{thm}
+    设 $\mathscr{X}$ 是 $B^*$ 空间, $M$ 是 $\mathscr{X}$ 的线性子空间, 若 $x_0 \in \mathscr{X}$, 且
+    \[d \triangleq \rho (x_0, M) > 0\] 则必 $\exists f \in \mathscr{X}^*$ 适合条件:
+    \begin{enumerate}[label=(\roman*),font=\upshape]
+        \item $f(x) = 0 \quad (\forall x \in M)$
+        \item $f(x_0) = d$
+        \item $\|f\| =1$
+    \end{enumerate}
+\end{thm}
 \subsection{共轭空间、弱收敛、自反空间}
 \subsection{线性算子的谱}
 
