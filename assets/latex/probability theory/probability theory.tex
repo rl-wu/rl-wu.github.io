@@ -105,6 +105,7 @@
     把概率 $p(n)$ 看作未知参数$n$的函数,称为\textbf{似然函数},在通过求其最大值而得到$n$的估计,这就是数理统计中的\textbf{最大似然估计法}
 \end{definition}
 \newpage
+
 \section{条件概率与统计独立性}
 \subsection{条件概率}
 \begin{definition}[条件概率]
@@ -165,6 +166,7 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
 \end{thm}
 
 \newpage
+
 \section{随机变量与分布函数}
 \subsection{随机变量及其分布}
 \begin{definition}[随机变量]
@@ -198,7 +200,7 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
 \end{definition}
 这里的绝对连续是实变函数中的概念,$p(x)$在零测集上作改动也不影响分布函数,
 所以对于密度函数$p(x)$的论断通常都是在“几乎处处”的意义上成立.这些都是实变函数中老生常谈的内容.
-\subsection{正态分布,指数分布,$\Gamma$分布}
+\subsection{正态分布, 指数分布, $\Gamma$ 分布}
 \begin{definition}[正态分布]
     密度函数为\[p(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},-\infty<x<\infty\]
     其中$\sigma>0$,$\mu$与$\sigma$均为常数,相应的分布函数为
@@ -230,8 +232,7 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
     称密度函数为\[f(x)=\begin{cases}\frac{\lambda^r}{\Gamma(r)}x^{r-1}e^{-\lambda x}&x>0\\0& x\leq0\end{cases}\]
     的分布为\textbf{$\Gamma$分布},其中$\lambda>0,r>0$为参数.简记作$\Gamma(r,\lambda)$.
 \end{definition}
-
-\subsection{随机向量,联合分布函数}
+\subsection{随机向量, 联合分布函数}
 \begin{definition}[随机向量]
     若随机变量$\xi_1(\omega),\cdots,\xi_n(\omega)$定义在同一概率空间$(\varOmega,\mathscr{F},P)$上,则称
     \[\bm{\xi}(\omega) = ( \xi_1(\omega), \cdots, \xi_n(\omega) )\]
@@ -266,7 +267,7 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
     \[p(x_1,\cdots,x_n) = \frac{1}{(2\pi)^{\frac{n}{2}}(\det\bm{\Sigma})^{\frac{1}{2}}} e^{-\frac{1}{2} (\bm{x}-\bm{\mu})\bm{\Sigma}^{-1}(\bm{x}-\bm{\mu})^\top }\]
     定义的分布称为\textbf{$n$元正态分布},简记为$N(\bm{\mu},\bm{\Sigma})$.
 \end{definition}
-\subsection{边际分布}
+\subsection{边际分布, 条件分布}
 下面的讨论将对二维场合进行,$n$维时这些结论仍然成立,设随机向量为$(\xi,\eta)$.
 \begin{definition}[离散型随机变量的边际分布]
     对于离散型分布,设$\xi$取值$x_1,x_2,\cdots$,\ $\eta$取值$y_1,y_2,\cdots$,显然有
@@ -274,5 +275,43 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
     \[p_2(y_j):=P\{\eta = y_j\} =\sum_{i}p(x_i,y_j)\]
     这里$p_1(x_i)$与$p_2(y_j)$称为$p(x_i,y_j)$的\textbf{边际分布}或\textbf{边缘分布}
 \end{definition}
+\begin{definition}[连续型随机变量的边际分布]
+    若 $(\xi, \eta)$ 是二维随机变量, 其分布函数为 $F(x, y)$, 我们能由 $F(x, y)$ 得出 $\xi$ 和 $\eta$ 的分布函数. 
+    事实上, \[F_1(x) = P\{\xi < x \} = P\{\xi < x, \eta < +\infty\} = F(x, +\infty)\]
+    同理\[F_2(x) = p\{\eta < y\} = F(+\infty, y)\]
+    $F_1(x)$ 及 $F_2(x)$ 称为 $F(x, y)$ 的\textbf{边际分布函数}.\\
+    若 $F(x, y)$ 是连续型分布函数, 有密度函数 $p(x, y)$ 那么\[F_1(x) = \int_{-\infty}^x \int_{-\infty}^{+\infty} p(u, y) \mathrm{d}y\mathrm{d}u\]
+    因此 $F_1(x)$ 是连续型分布函数, 其密度函数为\[p_1(x) = \int_{-\infty}^{\infty} p(x,y) \mathrm{d} y\]
+    $p_1(x)$ 称为\textbf{边际(分布)密度函数}. $F_2(x), p_2(x)$ 同理.
+\end{definition}
+
+\begin{definition}[离散型随机变量的条件分布]
+    对于离散型随机变量, 若已知 $\xi = x_i (p_1(x_i) > 0)$, 则事件 $\{\eta = y_i\}$ 的条件概率为
+    \[P\{\eta = y_j | \xi = x_i\} = \frac{P\{\xi = x_i, \eta = y_j\}}{P\{\xi = x_i \}} = \frac{p(x_i, y_j)}{p_1(x_i)}\] 
+    此式定义了随机变量 $\eta$ 关于随机变量 $\xi$ 的\textbf{条件分布}.
+\end{definition}
+\begin{definition}[连续型随机变量的条件分布]
+    对于连续型随机变量, $p(x,y),p_1(x)$ 为其密度函数与边际密度函数, 那么其\textbf{条件分布函数}定义为
+    \[P\{\eta < y | \xi = x\} = \frac{\int_{-\infty}^y p(x, v) \mathrm{d}v}{p_1(x)} = \int_{-\infty}^y \frac{p(x,v)}{p_1(x)} \mathrm{d}v \]
+    其分布密度函数为\[p(y|x) = \frac{p(x,y)}{p_1(x)} \]
+\end{definition}
+
+\begin{definition}[二元正态分布]
+    函数\[p(x,y) = \frac{1}{2\pi \sigma_1 \sigma_2 \sqrt{1-\rho^2}}\exp\left\{ -\frac{1}{2(1-\rho^2)} \times 
+    \left( \frac{(x-\mu_1)^2}{\sigma_1^2} -2\rho \frac{(x-\mu_1)(x-\mu_2)}{\sigma_1 \sigma_2} +\frac{(y-\mu_2)^2}{\sigma_2^2} \right)\right\} \]
+    称为\textbf{二元正态(分布)密度函数}, 其中 $\sigma_1>0, \sigma_2>0, |\rho|<1$, 简记为 $N(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)$.
+\end{definition}
+
+\begin{thm}[二元正态分布的典型分解]
+    其实也不是定理, 就是一个重要结论. 二元正态密度函数具有如下分解式:
+    \[p(x,y) = \frac{1}{\sqrt{2\pi}\sigma_1} e^{-\frac{(x-\mu_1)^2}{2\sigma_1^2}} \times \frac{1}{\sqrt{2\pi}\sigma_2\sqrt{1-\rho^2}}e^{- \frac{\left[ y-\left(\mu_2+\rho \frac{\sigma_2}{\sigma_1}(x-\mu_1) \right)\right]^2}{2\sigma_2^2(1-\rho^2)} } \]
+    对于此分解, 第一部分为 $N(\mu_1, \sigma_1^2)$ 的密度函数, 第二部分为 $N\left(\mu_2+\rho \frac{\sigma_2}{\sigma_1}(x-\mu_1),\sigma_2^2(1-\rho^2)\right)$ 的密度函数\\
+    并且二元正态分布的边际分布为正态分布:
+    \[p_1(x) = \int_{-\infty}^{\infty} p(x,y) \mathrm{d}y = \frac{1}{\sqrt{2\pi} \sigma_1} e^{-\frac{(x-\mu_1)^2}{2\sigma_1^2}}\]
+    二元正态分布的条件分布仍然是正态分布:
+    \[p(y|x) = \frac{p(x,y)}{p_1(x)} = \frac{1}{\sqrt{2\pi}\sigma_2\sqrt{1-\rho^2}}e^{- \frac{\left[ y-\left(\mu_2+\rho \frac{\sigma_2}{\sigma_1}(x-\mu_1) \right)\right]^2}{2\sigma_2^2(1-\rho^2)} }\]
+    因此, 此典型分解式的涵义就完全清楚了, 第一部分是边际密度 $p_1(x)$, 第二部分是条件密度 $p(y|x)$, 整个式子形如 $p(x,y) = p_1(x) p(y|x)$
+\end{thm}
+\subsection{随机变量的独立性}
 
 \end{document}
