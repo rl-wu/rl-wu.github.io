@@ -13,3 +13,4 @@
 \contentsline {subsection}{\numberline {3.3}随机向量, 联合分布函数}{8}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}边际分布, 条件分布}{9}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}随机变量的独立性}{11}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}随机变量的函数及其分布}{12}{subsection.3.6}%

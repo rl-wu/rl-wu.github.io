@@ -313,5 +313,46 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
     因此, 此典型分解式的涵义就完全清楚了, 第一部分是边际密度 $p_1(x)$, 第二部分是条件密度 $p(y|x)$, 整个式子形如 $p(x,y) = p_1(x) p(y|x)$
 \end{thm}
 \subsection{随机变量的独立性}
+\begin{definition}[随机变量的独立性]
+    设 $\xi_1, \cdots, \xi_n$ 为 $n$ 个随机变量, 若对于任意的 $x_1, \cdots, x_n$, 成立:
+    \[P\{\xi_1<x_1, \cdots, \xi_n<x_n \} = P\{\xi_1<x_1\}\cdots P\{\xi_n<x_n\} \]
+    则称 $\xi_1, \cdots, \xi_n$ 是\textbf{相互独立的}.\\
+    若 $\xi_i$ 的分布函数为 $F_i(x)$, 联合分布函数为 $F(x_1, \cdots, x_n)$, 则上式等价于对一切 $x_1, \cdots, x_n$ 成立:
+    \[F(x_1, \cdots, x_n) = F_1(x_1) \cdots F_n(x_n)\]
+    在这种场合, 由每个随机变量的(边际)分布函数可以唯一地确定联合分布函数,此时条件分布化为无条件分布
+    \[P\{\eta < y | \xi =x\} = P\{\eta < y\}\]
+    即由 $\xi$ 的取值不能得出任何关于 $\eta$ 的信息.
+\end{definition}
+对连续型随机变量, 上述独立性条件的等价形式是对 $x_1, \cdots, x_n$ 几乎处处成立
+\[p(x_1, \cdots, x_n) = p_1(x_1) \cdots p_n (x_n)\]
+这里 $p(x_1, \cdots, x_n)$ 是联合分布密度函数, $p_i(x)$ 是各随机变量的密度函数.
+\subsection{随机变量的函数及其分布}
+\begin{definition}[Borel 函数]
+    设 $y = g(x)$ 是 $\mathbb{R} \to \mathbb{R}$ 的一个映射, 若对于一切 $\mathbb{R}$ 中的 $\mathrm{Borel}$ 点集 $B$ 均有 
+    \[\{x:g(x) \in B\} \in \mathscr{B}\]其中 $\mathscr{B}$ 为 $\mathbb{R}$ 上的 $\mathrm{Borel}-\sigma$ 域, 
+    则称 $g(x)$ 是\textbf{一元 $\mathrm{Borel}$ （可测）函数}.
+\end{definition}
+若 $\xi$ 是随机变量, $g(x)$ 是一元 Borel 函数, 则 $g(\xi)$ 也是随机变量, 事实上, 对一切 $B \in \mathscr{B}$ 有:
+\[\{\omega:g(\xi(w)) \in B\} = \{\omega: \xi(\omega) \in g^{-1}(B)\} \in \mathscr{F}\]
+\begin{definition}[$n$ 元 Borel 函数]
+    设 $y = g(x_1, \cdots, x_n)$ 是 $\mathbb{R}^n \to \mathbb{R}^n$ 上的一个映射, 若对一切 $\mathbb{R}$ 中的 $\mathrm{Borel}$ 点集 $B$ 均有:
+    \[\{(x_1, \cdots, x_n): g(x_1, \cdots, x_n ) \in B \} \in \mathscr{B}_n \]
+    其中 $\mathscr{B}_n$ 为 $\mathbb{R}^n$ 上的 $\mathrm{Borel}-\sigma$ 域, 则称 $g(x_1, \cdots, x_n)$ 为 \textbf{$n$ 元 $\mathrm{Borel}$ （可测）函数}.
+\end{definition}
+同样地, 若 $(\xi_1, \cdots, \xi_n)$ 是随机向量, $g(x_1, \cdots, x_n)$ 是 $n$ 元 $\mathrm{Borel}$ 函数, 则同上可证 $g(\xi_1, \cdots, \xi_n)$ 是随机变量.
+
+若 $\zeta \sim N(0,1)$, 下面来求 $\eta = \zeta^2$ 的密度函数 $q(y)$:\\
+$y\leq 0$ 时, $G(y) = P\{\eta < y\} = 0$, 显然此时 $q(y) = 0$.\\
+$y > 0$ 时, 
+\[\begin{aligned}
+    G(y) = & P\{\eta < y\} = P\{\zeta^2 < y\} = P\{-\sqrt{y} < \zeta < \sqrt{y}\} \\
+= & \int_{-\sqrt{y}}^{\sqrt{y}} \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \mathrm{d}x = 2\int_0^{\sqrt{y}} \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \mathrm{d}x
+\end{aligned}\]
+因此 $\eta = \zeta^2$ 的密度函数为\[q(y) = \frac{1}{\sqrt{2\pi}} y^{-\frac{1}{2}}e^{-\frac{y}{2}} \quad (y > 0) \]
+此分布是下面 $\chi^2$ 分布 $n=1$ 的特例.
+\begin{definition}[$\chi^2$ 分布]
+    具有密度函数\[p(x) = \frac{1}{2^{n/2} \Gamma(\frac{n}{2})} x^{\frac{n}{2}-1}e^{-\frac{x}{x}}\quad (x>0)\]
+    的分布称为\textbf{具有自由度 $n$ 的 $\chi^2$ 分布}.
+\end{definition}
 
 \end{document}
