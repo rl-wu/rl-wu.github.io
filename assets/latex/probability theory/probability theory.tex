@@ -334,12 +334,6 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
 \end{definition}
 若 $\xi$ 是随机变量, $g(x)$ 是一元 Borel 函数, 则 $g(\xi)$ 也是随机变量, 事实上, 对一切 $B \in \mathscr{B}$ 有:
 \[\{\omega:g(\xi(w)) \in B\} = \{\omega: \xi(\omega) \in g^{-1}(B)\} \in \mathscr{F}\]
-\begin{definition}[$n$ 元 Borel 函数]
-    设 $y = g(x_1, \cdots, x_n)$ 是 $\mathbb{R}^n \to \mathbb{R}^n$ 上的一个映射, 若对一切 $\mathbb{R}$ 中的 $\mathrm{Borel}$ 点集 $B$ 均有:
-    \[\{(x_1, \cdots, x_n): g(x_1, \cdots, x_n ) \in B \} \in \mathscr{B}_n \]
-    其中 $\mathscr{B}_n$ 为 $\mathbb{R}^n$ 上的 $\mathrm{Borel}-\sigma$ 域, 则称 $g(x_1, \cdots, x_n)$ 为 \textbf{$n$ 元 $\mathrm{Borel}$ （可测）函数}.
-\end{definition}
-同样地, 若 $(\xi_1, \cdots, \xi_n)$ 是随机向量, $g(x_1, \cdots, x_n)$ 是 $n$ 元 $\mathrm{Borel}$ 函数, 则同上可证 $g(\xi_1, \cdots, \xi_n)$ 是随机变量.
 
 若 $\zeta \sim N(0,1)$, 下面来求 $\eta = \zeta^2$ 的密度函数 $q(y)$:\\
 $y\leq 0$ 时, $G(y) = P\{\eta < y\} = 0$, 显然此时 $q(y) = 0$.\\
@@ -352,7 +346,65 @@ $y > 0$ 时,
 此分布是下面 $\chi^2$ 分布 $n=1$ 的特例.
 \begin{definition}[$\chi^2$ 分布]
     具有密度函数\[p(x) = \frac{1}{2^{n/2} \Gamma(\frac{n}{2})} x^{\frac{n}{2}-1}e^{-\frac{x}{x}}\quad (x>0)\]
-    的分布称为\textbf{具有自由度 $n$ 的 $\chi^2$ 分布}.
+    的分布称为\textbf{具有自由度 $n$ 的 $\chi^2$ 分布}.、、
 \end{definition}
+\begin{thm}
+    若 $\xi$ 是连续型随机变量, 其密度函数为 $p(x)$, 而 $\eta = g(\xi)$, 对其密度函数, $q(y)$ 有如下结果:\\
+    $(1)$ 若 $g(x)$ 严格单调, 其反函数为 $g^{-1}(y)$ 有连续导函数, 则 $\eta = g(\xi)$ 是具有密度函数\[p(g^{-1}(y))|g^{-1}(y)^{\prime}|\]
+    的连续型随机变量.\\
+    $(2)$ 若 $g(x)$ 在不相重叠的 区间 $I_1, I_2, \cdots$ 上逐段严格单调, 其反函数分别为 $h_1(y), h_2(y), \cdots$ 而且 
+    $h^{\prime}_1(x), h^{\prime}_2(x), \cdots$ 均为连续函数, 那么 $\eta = g(\xi)$ 是连续性随机变量, 其分布密度函数为
+    \[p(h_1(y)) |h_1^{\prime}(y)| + p(h_2(y))|h_2^{\prime}(y)| + \cdots\] 
+\end{thm}
+\begin{proof}
+    $P\{\eta < a\} = P\{g(\xi) < a\} = \int_{-\infty}^{g^{-1}(a)} p(x) \mathrm{d} x = \int_{-\infty}^a p(g^{-1}(y)) |g^{-1}(y)^{\prime}| \mathrm{d}y$ 
+    分段的情况类似.
+\end{proof}
+\begin{thm}[均匀分布的特殊地位]
+    若随机变量 $\xi$ 的分布函数为 $F(x)$, 因为 $F(x)$ 是非降函数, 对任意 $0 \leq y \leq 1$, 可定义 
+    \[F^{-1}(y) = \inf\{x: F(x)>y\} \]作为 $F(x)$ 的反函数.
+
+    下面考察随机变量 $\theta = F(\xi)$ 的分布, 这里 $F(x)$ 是连续函数. 对 $0 \leq x \leq 1$:
+    \[P\{\theta < x\} = P\{F(\xi) < x\} = P\{\xi < F^{-1}(x)\} = F(F^{-1}(x)) = x\]
+    即 $\theta = F(\xi)$ 服从 $[0,1]$ 均匀分布, 这个结论在统计中起重要作用.
+
+    反之, 若 $\theta$ 服从 $[0,1]$ 均匀分布, 对任意分布函数 $F(x)$, 令 $\xi = F^{-1}(\theta)$, 则
+    \[P\{\xi<x\} = P\{F^{-1}(\theta)<x\} = P\{\theta<F(x)\} = F(x)\]
+    因此 $\xi$ 是服从分布函数 $F(x)$ 的随机变量.
+
+    由此, 只要我们产生 $[0,1]$ 中均匀分布的随机变量的样本（观察值）, 那么我们就可以用如上方法得到分布函数为 $F(x)$ 的随机变量的样本. 
+\end{thm}
+\subsection{随机向量的函数及其分布}
+\begin{definition}[$n$ 元 Borel 函数]
+    设 $y = g(x_1, \cdots, x_n)$ 是 $\mathbb{R}^n \to \mathbb{R}^n$ 上的一个映射, 若对一切 $\mathbb{R}$ 中的 $\mathrm{Borel}$ 点集 $B$ 均有:
+    \[\{(x_1, \cdots, x_n): g(x_1, \cdots, x_n ) \in B \} \in \mathscr{B}_n \]
+    其中 $\mathscr{B}_n$ 为 $\mathbb{R}^n$ 上的 $\mathrm{Borel}-\sigma$ 域, 则称 $g(x_1, \cdots, x_n)$ 为 \textbf{$n$ 元 $\mathrm{Borel}$ （可测）函数}.
+\end{definition}
+若 $(\xi_1, \cdots, \xi_n)$ 是随机向量, $g(x_1, \cdots, x_n)$ 是 $n$ 元 $\mathrm{Borel}$ 函数, 则同上节可证 $g(\xi_1, \cdots, \xi_n)$ 是随机变量.
+
+若 $\eta = g(\xi_1, \cdots, \xi_n)$, 而 $(\xi_1, \cdots, \xi_n)$ 的密度函数为 $p(x_1, \cdots, x_n)$, 则有:
+\[G(y) = P\{\eta<y\} = \underset{g(x_1, \cdots, x_n)<y}{\int \cdots \int} p(x_1, \cdots, x_n) \mathrm{d}x_1 \cdots \mathrm{d}x_n\]
+下面看一些具体的例子.
+\begin{thm}[和的分布-卷积]
+    若 $\eta = \xi_1 + \xi_2$, 而 $(\xi_1, \xi_2)$ 的密度函数为 $p(x_1, x_2)$, 则
+    \[G(y) = P\{\eta<y\} = \int_{-\infty}^{\infty} \int_{-\infty}^{y-x_1} p(x_1, x_2) \mathrm{d}x_2 \mathrm{d}x_1\]
+    特别地, 当 $\xi_1, \xi_2$ 相互独立时, 有 $p(x_1, x_2) = p_1(x_1)p_2(x_2)$, 这里 $p_1(x)$ 是 $\xi_1$ 的密度函数, $p_2(x)$ 是 $\xi_2$ 的密度函数, 代入得
+    \[\begin{aligned}G(y) =& \int_{-\infty}^{\infty} \int_{-\infty}^{y-x_1} p_1(x_1)p_2(x_2) \mathrm{d}x_2 \mathrm{d}x_1 = \int_{-\infty}^{\infty} \int_{-\infty}^{y} p_1(x_1)p_2(z-x_1) \mathrm{d}z \mathrm{d}x_1 \\
+    =& \int_{-\infty}^{y}\int_{-\infty}^{\infty} p_1(x_1)p_2(z-x_1) \mathrm{d}x_1 \mathrm{d}z\end{aligned}\]
+    因此 $\eta$ 的密度函数为 \[ q(y) = \int_{-\infty}^{\infty} p_1(u)p_2(y-u) \mathrm{d}u = \int_{-\infty}^{\infty} p_1(y-u)p_2(u) \mathrm{d}u\]
+    上面两式称为 $p_1$ 与 $p_2$ 的\textbf{卷积}.
+\end{thm}
+\subsection{随机向量的变换}
+这一节比较难, 没掌握好. 
+
+若 $(\xi_1, \cdots, \xi_n)$ 的密度函数为 $p(x_1, \cdots, x_n)$, 求 $\eta_1 = g_1(\xi_1, \cdots, \xi_n), \cdots, \eta_m = g_m(\xi_1, \cdots, \xi_n)$ 的分布, 此时有:
+\[G(y_1, \cdots, y_m) = P\{\eta_1<y_1, \cdots, \eta_m<y_m\} = \underset{g_1<y_1, \cdots, g_m<y_m}{\int \cdots \int} p(x_1, \cdots, x_n) \mathrm{d}x_1 \mathrm{d}x_n\]
+其中 $g_i = g_i(x_1, \cdots, x_n)$, 上述是最一般的情况.
+\subsection{随机变量的函数的独立性}
+\begin{thm}
+    若 $\xi_1, \cdots, \xi_n$ 是相互独立的随机变量, 则 $f_1(\xi_1), \cdots, f_n(\xi_n)$ 也是相互独立的, 这里 $f_i$ 是任意的一元 $\mathrm{Borel}$ 函数.
+\end{thm}
+
+
 
 \end{document}
