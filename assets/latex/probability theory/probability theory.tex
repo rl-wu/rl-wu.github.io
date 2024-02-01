@@ -50,6 +50,8 @@
 \newtheorem{lemma}{引理}[subsection]    % 在每个章节重新编号
 \newtheorem{corollary}{推论}[subsection] % 在每个章节重新编号
 \newtheorem{definition}{定义}[subsection] % 在每个章节内自动编号
+\newtheorem{example}{例}[subsection] % 在每个章节内自动编号
+
 
 \begin{document}
 \begin{center}
@@ -105,7 +107,6 @@
     把概率 $p(n)$ 看作未知参数$n$的函数,称为\textbf{似然函数},在通过求其最大值而得到$n$的估计,这就是数理统计中的\textbf{最大似然估计法}
 \end{definition}
 \newpage
-
 \section{条件概率与统计独立性}
 \subsection{条件概率}
 \begin{definition}[条件概率]
@@ -164,9 +165,7 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
     \[b(k;n,p_n)\rightarrow \frac{\lambda^k}{k!}e^{-\lambda}\]
     其中$p(k;\lambda)=\frac{\lambda^k}{k!}e^{-\lambda}$称为\textbf{泊松分布}
 \end{thm}
-
 \newpage
-
 \section{随机变量与分布函数}
 \subsection{随机变量及其分布}
 \begin{definition}[随机变量]
@@ -404,7 +403,38 @@ $y > 0$ 时,
 \begin{thm}
     若 $\xi_1, \cdots, \xi_n$ 是相互独立的随机变量, 则 $f_1(\xi_1), \cdots, f_n(\xi_n)$ 也是相互独立的, 这里 $f_i$ 是任意的一元 $\mathrm{Borel}$ 函数.
 \end{thm}
+\newpage
+\section{数字特征与特征函数}
+\subsection{数学期望}
+\begin{definition}[加权平均值]
+    给定权 $\omega_i \geq 0, i=1, \cdots, n$, 满足 $\sum\limits_{i=1}^n \omega_i= 1$ 则
+    \[\bar{x}_\omega = \sum\limits_{i=1}^n \omega_i x_i\] 称为 $x_1, \cdots, x_n$ 关于权 $\{\omega_i\}$ 的\textbf{加权平均值}.
+\end{definition}
+\begin{definition}[离散型随机变量的数学期望]
+    设 $\xi$ 为一离散型随机变量, 它取值 $x_1, x_2, \cdots$ 对应的概率为 $p_1, p_2, \cdots$ 如果级数
+    \[\sum\limits_{i=1}^{\infty} x_i p_i \] 绝对收敛, 则把它称为 $\xi$ 的\textbf{数学期望} $(\mathrm{mathematical\ expectation})$, 
+    简称\textbf{期望, 期望值}或\textbf{均值} $(\mathrm{mean})$, 记作 $E\xi$. 若级数不绝对收敛, 则说 $\xi$ 的数学期望不存在.
+\end{definition}
+下面考虑连续型随机变量的数学期望, 设随机变量 $\xi$ 有密度函数 $p(x)$, 取划分 $x_0<x_1<\cdots<x_n$, 则 $\xi$ 落在
+$[x_i, x_{i+1}]$ 的概率近似等于 $p(x_i)(x_{i+1}-x_i)$, 因此 $\xi$ 与以概率 $p(x_i)(x_{i+1}-x_i)$ 取值 $x_i$ 的离散型随机变量近似, 而这离散型随机变量的数学期望为
+\[\sum\limits_{i} x_ip(x_i)(x_{i+1}-x_i)\] 上式是积分 $\int_{-\infty}^{\infty} xp(x) \mathrm{d}x$ 的渐进和式.
+\begin{definition}[连续型随机变量的数学期望]
+    设 $\xi$ 是具有密度函数 $p(x)$ 的连续型随机变量, 当积分 $\int_{-\infty}^{\infty} xp(x) \mathrm{d}x$ 绝对收敛时, 我们称它为 $\xi$ 的\textbf{数学期望}（或\textbf{均值}）, 记作 $E\xi$, 即
+    \[ E\xi = \int_{-\infty}^{\infty} xp(x) \mathrm{d}x \]
+\end{definition}
+下面计算一些重要的连续型分布的数学期望.
+\begin{example}[正态分布的期望]
+    对于正态分布 $N(\mu, \sigma^2)$,
+    \[\begin{aligned}
+        \int_{-\infty}^{\infty} xp(x) \mathrm{d}x & = \int_{-\infty}^{\infty} x\frac{1}{\sqrt{2\pi}\sigma} e^{-(x-\mu)^2/(2\sigma^2)} \mathrm{d}x 
+        = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} (\sigma z + \mu) e^{-z^2 / 2} \mathrm{d}z \\ 
+        & = \frac{\mu}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-z^2/2} \mathrm{d}z = \mu
+    \end{aligned}\]
+    可见 $N(\mu, \sigma^2)$ 中的参数 $\mu$ 正是它的数学期望.
+\end{example}
+下面考虑一般场合的数学期望, 需要利用 $\mathrm{Stieltjes}$ 积分.
 
+若随机变量 $\xi$ 的分布函数为 $F(x)$, 类似于
 
 
 \end{document}
