@@ -156,7 +156,6 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
     记伯努利试验中$P(A)=p,P(\bar{A})=q=1-p$, 记$n$重伯努利试验中事件$A$出现$k$次的概率为$b(k;n,p)$, 那么有$b(k;n,p)= {n\choose k}p^kq^{n-k},k=1,2,\cdots,n$, $b(k;n,p)$称为\textbf{二项分布}
 \end{definition}
 二项分布的结果也可以容易地推广到$n$次重复独立试验且每次试验可能有若干有限个结果的情形,此时称为\textbf{多项分布}.
-
 \subsection{二项分布与泊松分布}
 二项分布定义如上,我们下面考虑二项分布的性质,由于\[\frac{b(k;n,p)}{b(k-1;,b,p)}=1 + \frac{(n+1)p-k}{kq}\]
 于是$k=\left[(n+1)p\right]$为最可能成功次数,这也是使得$b(k;n,p)$最大的项,此时也称为中心项.
@@ -434,7 +433,90 @@ $[x_i, x_{i+1}]$ 的概率近似等于 $p(x_i)(x_{i+1}-x_i)$, 因此 $\xi$ 与�
 \end{example}
 下面考虑一般场合的数学期望, 需要利用 $\mathrm{Stieltjes}$ 积分.
 
-若随机变量 $\xi$ 的分布函数为 $F(x)$, 类似于
+若随机变量 $\xi$ 的分布函数为 $F(x)$, 类似于对连续型随机变量的讨论, 取划分 $x_0 < x_1< \cdots< x_n$, 则 $\xi$ 落在
+$[x_i, x_{i+1})$ 中的概率为 $F(x_{i+1})-F(x_i)$, 因此 $\xi$ 与以概率 $F(x_{i+1}) - F(x_i)$ 取值 $x_i$ 的离散型随机变量近似, 而后者的数学期望为
+\[\sum\limits_i x_i[F(x_{i+1}) - F(x_i)]\]
+上式为 $\mathrm{Stieltjes}$ 积分的渐进和式. 故引进如下定义:
+\begin{definition}[数学期望]
+    若 $\xi$ 的分布函数为 $F(x)$, 则定义 \[E\xi = \int_{-\infty}^{\infty} x \mathrm{d}F(x)\]
+    为 $\xi$ 的\textbf{数学期望}（或\textbf{均值}）. 这里我们还是要求上述积分绝对收敛, 否则称数学期望不存在.
+\end{definition}
+关于 $\mathrm{Stieltjes}$ 积分 \[I = \int_{-\infty}^{\infty} g(x) \mathrm{d}F(x)\] 它有如下性质:
 
+(1) 当 $F(x)$ 为跳跃函数, 在 $x_i$ 处具有跃度 $p_i$ 时, 上面积分化为求和级数\[I = \sum\limits_{i} g(x_i)p_i\]
+
+(2) 当 $F(x)$ 存在导数 $F^{\prime}(x) = p(x)$ 时, 上述积分化为普通积分\[I = \int_{-\infty}^{\infty} g(x)p(x) \mathrm{d}x\]
+
+由此可以知道此定义可以囊括离散型和连续型随机变量的数学期望的定义.
+
+\paragraph{随机变量函数的数学期望}
+下面讨论随机变量的函数 $\eta = g(\xi)$ 的数学期望, 这里 $\xi$ 是分布函数为 $F_{\xi}(x)$ 的随机变量, $g(x)$ 是一元 $\mathrm{Borel}$ 函数, 
+类似于上节的讨论, 似应定义 $g(\xi)$ 的数学期望为 \[\sum\limits_{i} g(x_i) [F_{\xi}(x_{i+1}) - F_{\xi}(x_i) ]\] 的极限, 即
+\[ E g(\xi) = \int_{-\infty}^{\infty} g(x)\mathrm{d}F_{\xi}(x) \]
+
+但是, 另一方面, 因为 $\eta$ 是随机变量, 也有分布函数, 设为 $F_{\eta}(x)$, 又应有 \[E\eta = \int_{-\infty}^{\infty} y\mathrm{d}F_{\eta}(y)\]
+因此, 这两个积分应该相等, 即:\[\int_{-\infty}^{\infty} y \mathrm{d}F_{\eta}(y) = \int_{-\infty}^{\infty} g(x) \mathrm{d}F_{\xi}(x)\]
+事实上这是个定理, 但证明需要用到测度论, 不作讨论. 但这个定理很重要, 因为它跳过了计算 $\eta$ 的分布函数 $F_{\eta}(y)$ 并求得了 $\eta$ 的数学期望.
+
+\paragraph{多维场合}
+若随机向量 $(\xi_1, \cdots, \xi_n)$ 的分布函数为 $F(x_1, \cdots, x_n)$, 而 $g(x_1, \cdots, x_n)$ 为 $n$ 元 $\mathrm{Borel}$ 函数, 则 
+\[Eg(x_1, \cdots, x_n) = \int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty} g(x_1, \cdots, x_n) \mathrm{d} F(x_1, \cdots, x_n)\]
+特别地, \[ E\xi_1 = \int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty} x_1 \mathrm{d}F(x_1, \cdots, x_n) = \int_{-\infty}^{\infty} x_1 \mathrm{d}F_1(x_1)\]
+其中 $F_1(x_1)$ 是 $\xi_1$ 的分布函数. 一般地引进如下定义:
+\begin{definition}[随机向量的数学期望]
+    随机向量 $(\xi_1, \cdots, \xi_n)$ 的\textbf{数学期望}为 $(E\xi_1, \cdots, E\xi_n)$, 其中
+    \[ E\xi_i = \int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty} x_i \mathrm{d}F(x_1, \cdots, x_n) = \int_{-\infty}^{\infty} x_i \mathrm{d}F_i(x_i)\]
+    这里 $F_i(x_i)$ 是 $\xi_i$ 的分布函数.
+\end{definition}
+
+\paragraph{数学期望的基本性质}
+利用随机变量函数的数学期望计算公式, 我们可以得到如下基本性质:
+
+性质(1)\quad 若 $a \leq \xi \leq b$, 则 $a \leq E\xi \leq b$. 特别地 $Ec = c$, 这里 $a,b,c$ 为常数.
+
+性质(2)\quad 线性性: 对任意常数 $c_i,i = 1,\cdots,n$ 及 $b$, 有 \[E(\sum\limits_{i=1}^{n}c_i \xi_i + b) = \sum\limits_{i=1}^{n}c_i E\xi_i + b\]
+\subsection{方差, 相关系数, 矩}
+数学期望给出了随机变量的均值, 接下来考虑的便是随机变量对于均值的偏差, 也就是方差.
+\begin{definition}[方差]
+    若 $E(\xi - E\xi)^2$ 存在, 则称它为随机变量 $\xi$ 的\textbf{方差}$(\mathrm{variance})$, 并记为 $D\xi$, 
+    而 $\sqrt{D\xi}$ 称为\textbf{根方差}, \textbf{均方差}, 或更多的称为\textbf{标准差}$(\mathrm{standard \ deviation})$.
+\end{definition}
+标准差与随机变量具有相同的量纲(齐次), 有时更便于应用, 但方差的数学性质更好, 因此更为常用.
+
+利用数学期望的线性性质, 可以得到方差很方便的计算式: \[ D\xi  = E(\xi - E\xi)^2 = E[\xi^2 - 2\xi \cdot E\xi + (E\xi)^2] = E\xi^2 -(E\xi)^2 \]
+\begin{example}[正态分布的方差]
+    \[\begin{aligned}
+        D\xi & = \int_{-\infty}^{\infty} (x-\mu)^2 \frac{1}{\sqrt{2\pi}\sigma}e^{-(x-\mu)^2/(2\sigma^2)}\mathrm{d}x = \frac{\sigma^2}{\sqrt{2\pi}}\int_{-\infty}^{\infty}z^2 e^{-z^2/2}\mathrm{d}z\\
+        & = \frac{\sigma^2}{\sqrt{2\pi}}\left[ (-ze^{-z^2/2}) |^{\infty}_{-\infty} + \int_{-\infty}^{\infty}e^{-z^2/2} \mathrm{d} z \right] = \sigma^2
+    \end{aligned}\]
+    于是正态分布中的第二个参数 $\sigma$ 就是标准差, 正态分布由它的数学期望及标准差唯一确定.
+\end{example}
+\paragraph{方差的基本性质}\mbox{}
+
+性质(1)\quad 常数的方差为 $0$.
+
+性质(2)\quad $D(\xi + c) = D(\xi)$, 这里 $c$ 是常数.
+
+性质(3)\quad $D(c\xi) = c^2D\xi$, 这里 $c$ 是常数.
+
+对于随机变量 $\xi$, 若它的期望和方差均存在, 而且 $D\xi > 0$, 有时可以考虑\textbf{标准化}了的随机变量\[\xi^* = \frac{\xi - E\xi}{\sqrt{D\xi}}\]
+此时 $E\xi^* = 0, D\xi^* = 1$
+
+性质(4)\quad 若 $c \neq E\xi$, 则 $D\xi < E(\xi - c)^2$
+
+此式表明数学期望在方差表达式中的一个极值性质.
+
+\paragraph{切比雪夫不等式}
+\begin{thm}[切比雪夫不等式]
+    对于任何具有有限方差的随机变量 $\xi$, 都有\[P\{ |\xi-E\xi| \geq \epsilon\} \leq \frac{D\xi}{\epsilon^2}\] 其中 $\epsilon$ 是任一正数.
+\end{thm}
+\begin{proof}
+    设 $F(x)$ 为 $\xi$ 的分布函数, 则
+    \[\begin{aligned}
+        D\xi & = \int_{-\infty}^{\infty} (x - E\xi)^2 \mathrm{d}F(x) \geq \int_{|x-E\xi|\geq \epsilon} (x-E\xi)^2\mathrm{d}F(x)\\
+        & \geq \int_{|x-E\xi| \geq \epsilon} \epsilon^2 \mathrm{d}F(x) = \epsilon^2 P\{|\xi-E\xi| \geq \epsilon\}
+    \end{aligned}\]
+\end{proof}
+切比雪夫不等式断言不管 $\xi$ 的分布是什么, $\xi$ 落在 $(E\xi-\sigma\delta, E\xi+\sigma\delta)$ 中的概率均不小于 $1-\frac{1}{\delta^2}$
 
 \end{document}
