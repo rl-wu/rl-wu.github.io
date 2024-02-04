@@ -485,10 +485,10 @@ $[x_i, x_{i+1})$ 中的概率为 $F(x_{i+1})-F(x_i)$, 因此 $\xi$ 与以概率 
 
 利用数学期望的线性性质, 可以得到方差很方便的计算式: \[ D\xi  = E(\xi - E\xi)^2 = E[\xi^2 - 2\xi \cdot E\xi + (E\xi)^2] = E\xi^2 -(E\xi)^2 \]
 \begin{example}[正态分布的方差]
-    \[\begin{aligned}
+    \[  \begin{aligned}
         D\xi & = \int_{-\infty}^{\infty} (x-\mu)^2 \frac{1}{\sqrt{2\pi}\sigma}e^{-(x-\mu)^2/(2\sigma^2)}\mathrm{d}x = \frac{\sigma^2}{\sqrt{2\pi}}\int_{-\infty}^{\infty}z^2 e^{-z^2/2}\mathrm{d}z\\
-        & = \frac{\sigma^2}{\sqrt{2\pi}}\left[ (-ze^{-z^2/2}) |^{\infty}_{-\infty} + \int_{-\infty}^{\infty}e^{-z^2/2} \mathrm{d} z \right] = \sigma^2
-    \end{aligned}\]
+        & = \frac{\sigma^2}{\sqrt{2\pi}}\left[ (-ze^{-z^2/2}) \Big|^{\infty}_{-\infty} + \int_{-\infty}^{\infty}e^{-z^2/2} \mathrm{d} z \right] = \sigma^2
+    \end{aligned}  \]
     于是正态分布中的第二个参数 $\sigma$ 就是标准差, 正态分布由它的数学期望及标准差唯一确定.
 \end{example}
 \paragraph{方差的基本性质}\mbox{}
@@ -518,5 +518,30 @@ $[x_i, x_{i+1})$ 中的概率为 $F(x_{i+1})-F(x_i)$, 因此 $\xi$ 与以概率 
     \end{aligned}\]
 \end{proof}
 切比雪夫不等式断言不管 $\xi$ 的分布是什么, $\xi$ 落在 $(E\xi-\sigma\delta, E\xi+\sigma\delta)$ 中的概率均不小于 $1-\frac{1}{\delta^2}$
+
+\subsection{相关系数}
+对于随机向量 $\xi = (\xi_1, \cdots, \xi_n)$, 定义它的\textbf{方差}为 $(D\xi_1, \cdots, D\xi_n)$. 
+这反映了随机向量各个分量对于各自的数学期望的偏离程度, 但是我们还希望知道各个分量之间的联系, 从而引进相关系数.
+
+由于\[D(\xi \pm \eta) = E[(\xi \pm \eta) - (E\xi \pm E\eta)]^2 = D\xi + D\eta \pm 2E[(\xi - E\xi)(\eta - E\eta)]\]
+可见, 为了计算 $\xi \pm \eta$ 的方差, 需要计算 $E[(\xi - E\xi)(\eta - E\eta)]$, 引入如下定义:
+\begin{definition}[协方差]
+    称\[\sigma_{ij} = \mathrm{cov}(\xi_i, \xi_j) = E[(\xi_i - E\xi_i)(\xi_j - E\xi_j)] \quad (i,j = 1,\cdots, n)\]
+    为 $\xi_i$ 与 $\xi_j$ 的\textbf{协方差}$(\mathrm{covariance})$.
+\end{definition}
+方差是协方差的特例: $\sigma_{ii} = D\xi_i$
+
+直接验证可以得到如下性质:
+\[\mathrm{cov}(\xi_i, \xi_j) = E\xi_i \xi_j - E\xi_i \cdot E\xi_j\]
+\[D(\sum\limits_{i=1}^{n} \xi_i) = \sum\limits_{i=1}^n D\xi_i + 2\sum\limits_{1 \leq i < j \leq n} \mathrm{cov}(\xi_i, \xi_j)\]
+如下对称矩阵称为 $\xi$ 的\textbf{协方差矩阵}.
+\[\Sigma = 
+\begin{bmatrix}
+    \sigma_{11} & \sigma_{12} & \cdots & \sigma_{1n} \\
+    \sigma_{21} & \sigma_{22} & \cdots & \sigma_{2n} \\
+    \vdots & \vdots & & \vdots \\
+    \sigma_{n1} & \sigma_{n2} & \cdots & \sigma_{nn}
+\end{bmatrix}\]
+
 
 \end{document}
