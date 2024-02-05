@@ -475,7 +475,7 @@ $[x_i, x_{i+1})$ 中的概率为 $F(x_{i+1})-F(x_i)$, 因此 $\xi$ 与以概率 
 性质(1)\quad 若 $a \leq \xi \leq b$, 则 $a \leq E\xi \leq b$. 特别地 $Ec = c$, 这里 $a,b,c$ 为常数.
 
 性质(2)\quad 线性性: 对任意常数 $c_i,i = 1,\cdots,n$ 及 $b$, 有 \[E(\sum\limits_{i=1}^{n}c_i \xi_i + b) = \sum\limits_{i=1}^{n}c_i E\xi_i + b\]
-\subsection{方差, 相关系数, 矩}
+\subsection{方差}
 数学期望给出了随机变量的均值, 接下来考虑的便是随机变量对于均值的偏差, 也就是方差.
 \begin{definition}[方差]
     若 $E(\xi - E\xi)^2$ 存在, 则称它为随机变量 $\xi$ 的\textbf{方差}$(\mathrm{variance})$, 并记为 $D\xi$, 
@@ -518,7 +518,6 @@ $[x_i, x_{i+1})$ 中的概率为 $F(x_{i+1})-F(x_i)$, 因此 $\xi$ 与以概率 
     \end{aligned}\]
 \end{proof}
 切比雪夫不等式断言不管 $\xi$ 的分布是什么, $\xi$ 落在 $(E\xi-\sigma\delta, E\xi+\sigma\delta)$ 中的概率均不小于 $1-\frac{1}{\delta^2}$
-
 \subsection{相关系数}
 对于随机向量 $\xi = (\xi_1, \cdots, \xi_n)$, 定义它的\textbf{方差}为 $(D\xi_1, \cdots, D\xi_n)$. 
 这反映了随机向量各个分量对于各自的数学期望的偏离程度, 但是我们还希望知道各个分量之间的联系, 从而引进相关系数.
@@ -542,6 +541,61 @@ $[x_i, x_{i+1})$ 中的概率为 $F(x_{i+1})-F(x_i)$, 因此 $\xi$ 与以概率 
     \vdots & \vdots & & \vdots \\
     \sigma_{n1} & \sigma_{n2} & \cdots & \sigma_{nn}
 \end{bmatrix}\]
+此外， 对任何实数 $t_j(j=1, \cdots, n)$ 有\[\sum\limits_{j,k} \sigma_{jk}t_j t_k = E\Big[\sum\limits_{j=1}^n t_j (\xi - E\xi)\Big]^2 \geq 0\]
+因此 $\Sigma$ 是一个\textbf{非负定}矩阵, 所以 $\det \Sigma \geq 0$.
+
+更常用的是如下"标准化"之后的协方差:
+\begin{definition}[相关系数]
+    称\[\rho_{ij} = \frac{\mathrm{cov}(\xi_i, \xi_j)}{\sqrt{D\xi_i}\sqrt{D\xi_j}}\]
+    为 $\xi_i$ 与 $\xi_j$ 的\textbf{相关系数}$(\mathrm{correlation \ coefficient})$, 这里要求 $D\xi_i, D\xi_j$ 不为零. \\
+    补充定义常数与任何随机变量的相关系数为 $0$.\\
+    相关系数为正时, 称两随机变量\textbf{正相关}, 为负时则称\textbf{负相关}.
+\end{definition}
+由定义, 相关系数也就是标准化的随机变量 $\frac{\xi_i - E\xi_i}{\sqrt{D\xi_i}}$ 与 $\frac{\xi_j - E\xi_j}{\sqrt{D\xi_j}}$ 的协方差.
+
+可以说相关系数时规格化了的协方差, 其优点是排除了随机变量的量纲的影响, 并且在线性变换下保持不变, 即对于 $ac>0$, 则 $a\xi+b$ 与 $c\eta+d$ 的相关系数仍为 $\rho_{\xi \eta}$.
+\begin{definition}[Cauchy-Schwarz 不等式]
+    对任意随机变量 $\xi$ 与 $\eta$ 都有 \[|E\xi\eta|^2 \leq E\xi^2 \cdot E\eta^2 \]
+    等式成立当且仅当 \[P\{\eta = c\xi\} = 1\] 这里 $c$ 是某一个常数.
+\end{definition}
+\begin{proof}
+    对任意实数 $t$, 定义 $u(t) = E(t\xi - \eta)^2$, 显然二次函数 $u(t) \geq 0, \forall t$, 利用判别式可得.
+\end{proof}
+将这个不等式应用到随机变量 $\frac{\xi - E\xi}{\sqrt{D\xi}}$ 与 $\frac{\eta - E\eta}{\sqrt{D\eta}}$ 上可以得到如下性质:
+\begin{thm}
+    对相关系数 $\rho = \rho_{\xi \eta}$, 成立 $|\rho| \leq 1$, 并且 $\rho = 1$ 当且仅当 $P\{\frac{\xi - E\xi}{\sqrt{D\xi}} = \frac{\eta - E\eta}{\sqrt{D\eta}}\} = 1$, 
+    $\rho = -1$ 当且仅当 $P\{\frac{\xi - E\xi}{\sqrt{D\xi}} = -\frac{\eta - E\eta}{\sqrt{D\eta}}\} = 1$
+\end{thm}
+上述性质表明 $\rho = \pm 1$ 时, $\xi$ 与 $\eta$ 之间存在着完全线性关系. $\rho = 1$ 时, 称为\textbf{完全正相关}, $\rho = -1$ 时, 称为\textbf{完全负相关}.
+
+另一个极端是 $\rho = 0$ 的场合:
+\begin{definition}
+    若随机变量 $\xi$ 与 $\eta$ 的相关系数 $\rho = 0$, 则我们称 $\xi$ 与 $\eta$ \textbf{不相关}.
+\end{definition}
+根据定义即可验证如下结论:
+\begin{thm}
+    对随机变量 $\xi$ 与 $\eta$, 下面的事实等价:
+    \begin{enumerate}[label=(\roman*),font=\upshape]
+        \item $\mathrm{cov}(\xi, \eta) = 0$
+        \item $\xi$ 与 $\eta$ 不相关
+        \item $E\xi\eta = E\xi E\eta$
+        \item $D(\xi+\eta) = D\xi + D\eta$
+    \end{enumerate}
+\end{thm}
+下面的性质刻画了"独立性"与"不相关性"的联系:
+\begin{thm}
+    若 $\xi$ 与 $\eta$ 独立, 则 $\xi$ 与 $\eta$ 不相关.
+\end{thm}
+\begin{proof}
+    我们只对连续型随机变量给出证明:
+
+    因为 $\xi$ 与 $\eta$ 独立, 故其密度函数 $p(x,y) = p_1(x)p_2(y)$, 因此
+    \[\begin{aligned}
+        \mathrm{cov}(\xi,\eta) & = \int_{-\infty}^{\infty} (x-E\xi)(y-E\eta)p(x,y) \mathrm{d}x\mathrm{d}y \\
+        & = \int_{-\infty}^{\infty} (x-E\xi)p_1(x) \mathrm{d}x \cdot \int_{-\infty}^{\infty} (y - E\eta)p_2(y) \mathrm{d}y = 0
+    \end{aligned}\]
+\end{proof}
+但是反过来是不一定成立的.
 
 
 \end{document}
