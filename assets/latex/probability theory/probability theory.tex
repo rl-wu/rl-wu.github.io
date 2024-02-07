@@ -596,6 +596,44 @@ $[x_i, x_{i+1})$ 中的概率为 $F(x_{i+1})-F(x_i)$, 因此 $\xi$ 与以概率 
     \end{aligned}\]
 \end{proof}
 反过来是不一定成立的. 但对于二元正态分布, 其中的参数 $\rho$ 就是其相关系数, 所以二元正态分布场合, 独立性等价于不相关性.
+\subsection{矩, 分位数, 条件数学期望}
 
+\begin{definition}[原点矩]
+    对正整数 $k$, 称 \[m_k = E \xi^k\] 为\textbf{ $k$ 阶原点矩}. 数学期望是一阶原点矩. 由于 $|\xi|^{k-1} \leq 1 + |\xi|^k$, 
+    因此若 $k$ 阶矩存在, 则所有低阶矩都存在.
+\end{definition}
+
+\begin{definition}[中心矩]
+    对正整数 $k$, 称 \[c_k = E(\xi - E\xi)^k\] 为 \textbf{$k$ 阶中心矩}. 方差是二阶中心矩.
+\end{definition}
+显然中心矩可由原点矩表示, 反之在已知数学期望后原点矩也可由中心矩表示.
+
+\begin{definition}[分位数]
+    对 $0<p<1$, 若 \[ F(x_p) \leq p \leq F(x_p + 0)\] 则称 $x_p$ 为分布函数 $F(x)$ 的 $p$ \textbf{分位数}.
+\end{definition}
+最重要的分位数是 $x_{0.5}$, 称为\textbf{中位数} $(\mathrm{median})$.
+
+\begin{definition}[条件数学期望]
+    在 $\xi = x$ 的条件下, $\eta$ 的\textbf{条件数学期望}定义为 \[ E\{\eta | \xi = x\} = \int_{-\infty}^{\infty} y p(y | x) \mathrm{d}y\]
+\end{definition}
+今后我们将称 $y = E\{\eta | \xi = x\}$ 是 $\eta$ 关于 $\xi$ 的\textbf{回归}.
+
+如果以 $E\{\eta | \xi\}$ 记为随机变量 $\xi$ 的函数: 若 $\xi = x$ 时, 它取值 $E\{\eta | \xi = x\}$, 那么可以考虑它的期望, 并有以下关系式:
+\[E\eta = E[E\{\eta | \xi\}]\] 这是条件数学期望的一个十分重要的性质, 称为\textbf{重期望公式}, 下面对连续型随机变量的情形进行证明:
+\[\begin{aligned}
+    E[E\{\eta | \xi\}] & = \int_{-\infty}^{\infty} E\{\eta | \xi = x\} p_1(x) \mathrm{d} x = \int_{-\infty}^{\infty} \left[ \int_{-\infty}^{\infty} y p(y|x) \mathrm{d}y \right] p_1(x) \mathrm{d} x\\
+    & = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} y p(x,y) \mathrm{d}x \mathrm{d}y = E\eta
+\end{aligned} \]
+
+\paragraph{最佳线性预测} 若 $\xi, \eta$ 是相依的随机变量, 我们要找 $\xi$ 与 $\eta$ 的函数关系, 即要找函数 $h$ 使得 $\eta$ 与 $h(\xi)$ "尽可能地接近", 这里接近的标准最常用的是高斯的最小二乘法, 即要求如下的均方误差达到最小:
+\[\underset{h}{\min} \quad E[\eta - h(\xi)]^2\]
+因为 
+\[\begin{aligned}
+E[\eta - h(\xi)]^2 & = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} [y - h(x)]^2 p(x,y) \mathrm{d}x\mathrm{d}y \\
+& = \int_{-\infty}^{\infty} p_1(x) \left\{ \int_{-\infty}^{\infty} [y-h(x)]^2p(y|x) \mathrm{d}y \right\} \mathrm{d}x
+\end{aligned}\]
+由此知道 $h(x) = E\{\eta | \xi = x\}$ 时, $\int_{-\infty}^{\infty} [y-h(x)]^2 p(y|x) \mathrm{d}y$ 达到最小, 从而使上式均方误差最小, 
+即当我们观察到 $\xi = x$ 时, $E\{\eta | \xi = x\}$ 是一切对 $\eta$ 的估值中均方误差最小的一个. 
+称 $y = \{\eta | \xi = x\}$ 是 $\eta$ 关于 $\xi$ 的\textbf{回归}.
 
 \end{document}
