@@ -64,6 +64,7 @@
 {\centering\tableofcontents}
 
 \newpage
+
 \section{公理化结构}
 \subsection{事件域}
 \begin{definition}[样本空间]
@@ -107,6 +108,7 @@
     把概率 $p(n)$ 看作未知参数$n$的函数,称为\textbf{似然函数},在通过求其最大值而得到$n$的估计,这就是数理统计中的\textbf{最大似然估计法}
 \end{definition}
 \newpage
+
 \section{条件概率与统计独立性}
 \subsection{条件概率}
 \begin{definition}[条件概率]
@@ -165,6 +167,7 @@ Bayes公式中的$P(A_i)$称为\textbf{先验概率},反映了各种原因发生
     其中$p(k;\lambda)=\frac{\lambda^k}{k!}e^{-\lambda}$称为\textbf{泊松分布}
 \end{thm}
 \newpage
+
 \section{随机变量与分布函数}
 \subsection{随机变量及其分布}
 \begin{definition}[随机变量]
@@ -403,7 +406,9 @@ $y > 0$ 时,
     若 $\xi_1, \cdots, \xi_n$ 是相互独立的随机变量, 则 $f_1(\xi_1), \cdots, f_n(\xi_n)$ 也是相互独立的, 这里 $f_i$ 是任意的一元 $\mathrm{Borel}$ 函数.
 \end{thm}
 \newpage
+
 \section{数字特征与特征函数}
+
 \subsection{数学期望}
 \begin{definition}[加权平均值]
     给定权 $\omega_i \geq 0, i=1, \cdots, n$, 满足 $\sum\limits_{i=1}^n \omega_i= 1$ 则
@@ -475,6 +480,7 @@ $[x_i, x_{i+1})$ 中的概率为 $F(x_{i+1})-F(x_i)$, 因此 $\xi$ 与以概率 
 性质(1)\quad 若 $a \leq \xi \leq b$, 则 $a \leq E\xi \leq b$. 特别地 $Ec = c$, 这里 $a,b,c$ 为常数.
 
 性质(2)\quad 线性性: 对任意常数 $c_i,i = 1,\cdots,n$ 及 $b$, 有 \[E(\sum\limits_{i=1}^{n}c_i \xi_i + b) = \sum\limits_{i=1}^{n}c_i E\xi_i + b\]
+
 \subsection{方差}
 数学期望给出了随机变量的均值, 接下来考虑的便是随机变量对于均值的偏差, 也就是方差.
 \begin{definition}[方差]
@@ -518,6 +524,7 @@ $[x_i, x_{i+1})$ 中的概率为 $F(x_{i+1})-F(x_i)$, 因此 $\xi$ 与以概率 
     \end{aligned}\]
 \end{proof}
 切比雪夫不等式断言不管 $\xi$ 的分布是什么, $\xi$ 落在 $(E\xi-\sigma\delta, E\xi+\sigma\delta)$ 中的概率均不小于 $1-\frac{1}{\delta^2}$
+
 \subsection{相关系数}
 对于随机向量 $\xi = (\xi_1, \cdots, \xi_n)$, 定义它的\textbf{方差}为 $(D\xi_1, \cdots, D\xi_n)$. 
 这反映了随机向量各个分量对于各自的数学期望的偏离程度, 但是我们还希望知道各个分量之间的联系, 从而引进相关系数.
@@ -596,6 +603,7 @@ $[x_i, x_{i+1})$ 中的概率为 $F(x_{i+1})-F(x_i)$, 因此 $\xi$ 与以概率 
     \end{aligned}\]
 \end{proof}
 反过来是不一定成立的. 但对于二元正态分布, 其中的参数 $\rho$ 就是其相关系数, 所以二元正态分布场合, 独立性等价于不相关性.
+
 \subsection{矩, 分位数, 条件数学期望}
 
 \begin{definition}[原点矩]
@@ -648,6 +656,7 @@ E[\eta - h(\xi)]^2 & = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} [y - h(x)
 \[\mathrm{cov}(\hat{\eta}, \eta - \hat{\eta}) = 0\] 这个事实可以解释为: 残差中已不再包含对预测 $\eta$ 有用的知识. 因此观察值 $\eta$ 被分解为两个不相关的的随机变量之和:
 \[\eta = \hat{\eta} + (\eta - \hat{\eta})\]
 以上是\textbf{二阶矩理论}, 或称\textbf{均值-方差理论}, 它以最小二乘法为准则, 研究最佳线性预测, 是概率论中最有实用价值的理论之一.
+
 \subsection{熵与信息}
 为了从数值上估计各种随机试验的不确定性程度, 香农(Shannon)推导出满足三个期望基本性质(书上有讲)的唯一函数, 并称其为熵:
 \begin{definition}[熵]
@@ -657,15 +666,67 @@ E[\eta - h(\xi)]^2 & = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} [y - h(x)
 
 下面考虑熵的基本性质:
 
-性质(1) 在有 $n$ 个可能结果的试验中, 等概试验具有最大熵, 其值为 $\log n$.
+性质1 在有 $n$ 个可能结果的试验中, 等概试验具有最大熵, 其值为 $\log n$.
 \begin{proof}
 $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
 \end{proof}
-性质(2) 若试验 $\alpha$ 与试验 $\beta$ 独立, 则 \[H(\alpha \beta) = H(\alpha) + H(\beta)\] 
+性质2 若试验 $\alpha$ 与试验 $\beta$ 独立, 则 \[H(\alpha \beta) = H(\alpha) + H(\beta)\] 
 \begin{proof}
     此时 $p(A_k B_l) = p(A_k)p(B_l)$, 因此
     \[H(\alpha \beta) = - \sum\limits_{k,l} p(A_k)p(B_l) \log p(A_k)p(B_l) = H(\alpha) + H(\beta)\]
 \end{proof}
+
+为了进一步研究熵的性质, 引进条件熵的概念, 设 $\alpha, \beta$ 是两个试验, 以 $p(B_l | A_k)$ 记试验 $\alpha$ 出现结果 $A_k$ 的条件下, 试验 $\beta$ 出现结果 $B_i$ 的概率, 则: 
+\[H_{A_k}(\beta) = - \sum\limits_{i=1}^n p(B_l | A_k) \log p(B_l | A_k)\] 是在试验 $\alpha$ 出现 $A_k$ 的条件下, 试验 $\beta$ 的熵.
+
+我们称平均值 \[ H_{\alpha}(\beta) = \sum\limits_{k=1}^m p(A_k) H_{A_k}(\beta)\] 为在试验 $\alpha$ 实现的条件下试验 $\beta$ 的\textbf{条件熵}.
+
+下面指出 $H_{\alpha}(\beta)$ 的重要性质: 
+
+性质1: $H(\alpha \beta) = H(\alpha) + H_{\alpha}(\beta)$
+
+性质2: $H_{\alpha}(\beta) \leq H(\beta)$
+
+性质2的含义不难理解, 因为在进行试验 $\alpha$ 后, 一般对试验 $\beta$ 的结果会增加了解, 从而消除部分不确定性, 只有当两个试验独立时, $H_{\alpha}(\beta) = H(\beta)$, 
+因此量 $H(\beta) - H_{\alpha}(\beta)$ 是作了辅助试验 $\alpha$ 之后试验 $\beta$ 不肯定性的减少量, 即是由试验 $\alpha$ 得到的关于试验 $\beta$ 的信息, 此量也称为
+试验 $\alpha$ 中的有关试验 $\beta$ 的\textbf{信息量}.
+
+下面介绍连续型分布的熵:
+\begin{definition}
+    设随机变量 $\alpha, \beta$ 的密度函数分别为 $p(x), q(x)$, 它们的联合密度函数为 $f(x,y)$. 仿照离散场合定义\textbf{熵}:
+    \[H(\alpha) = -\int_{-\infty}^{\infty} p(x) \log p(x) \mathrm{d}x\]
+    \[H(\alpha \beta) = - \int \int f(x,y) \log f(x,y) \mathrm{d}x \mathrm{d}y\]
+    \[H_{\alpha}(\beta) = -\int \int f(x,y) \log \frac{f(x,y)}{p(x)} \mathrm{d}x \mathrm{d}y\]
+\end{definition}
+下面是连续型分布的熵的性质:
+
+性质1: 若 $\alpha$ 限制在 $V$ 种变化, 则 $V$ 中的均匀分布有最大熵, 其值等于 $\log |V|$, 此处 $|V|$ 是 $V$ 的测度.
+
+性质2: $H(\alpha \beta) = H(\alpha) + H_{\alpha}(\beta) = H(\beta) + H_{\beta}(\alpha)$, 而且 $H_{\alpha}(\beta) \leq H(\beta)$
+
+性质3: 设 $p(x)$ 是一元密度函数, 其标准差为 $\sigma$, 则当 $p(x)$ 为正态分布时其熵最大, 其值等于 $\log \sqrt{2\pi e} \sigma$
+\begin{proof}
+    此时要求 $p(x)$ 满足约束条件 \[\int p(x) \mathrm{d}x = 1 \] \[\sigma^2 = \int x^2 p(x) \mathrm{d}x\]
+    又使 \[H(x) = - \int p(x) \log p(x) \mathrm{d}x\] 达到最大. 根据变分法, 这相当于要求
+    \[\int \left[-p(x) \log p(x) + \lambda p(x) + \mu x^2 p(x) \right] \mathrm{d}x\] 达到最大, 即
+    \[-1 - \log p(x) + \lambda + \mu x^2 = 0\] 选取常数使其满足约束条件, 即得
+    \[p(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{- x^2 / (2\sigma^2)}\]
+\end{proof}
+
+性质4: 若密度函数 $p(x)$ 当 $x \leq 0$ 时等于 $0$, 并且其均值为 $a$, 则指数分布 $\mathrm{Exp}(\frac{1}{a})$, 即 \[p(x) = \frac{1}{a} e^{-x/a} \quad (x>0)\]
+达到最大熵, 其值为 $\log ea$.
+
+熵是\textbf{信息论}中的基本概念, 它的引入使得人们能对不肯定性进行度量, 具有重大意义.
+
+\subsection{母函数}
+我们称取值为非负整数值的随机变量为\textbf{整值随机变量}, 对于整值随机变量, 母函数法十分便于应用.
+\begin{definition}[母函数]
+    若整值随机变量 $xi$ 的分布列为 $P\{\xi = i\} = p_i \quad (i=0,1,\cdots)$, 则称
+    \[P(s) = \sum\limits_{k=0}^{\infty} p_k s^k\] 为 $\xi$ 的\textbf{母函数} $(\mathrm{generating \ function})$. 
+\end{definition}
+由随机变量函数的数学期望的计算可知 \[P(s) = E s^{\xi}\]
+由于\[\sum\limits_{k=0}^{\infty} p_k = 1\] 由幂级数的收敛性知道 $P(s)$ 至少在 $|s| \leq 1$ 一致收敛且绝对收敛.
+因此母函数对任何整值随机变量都存在.
 
 
 
