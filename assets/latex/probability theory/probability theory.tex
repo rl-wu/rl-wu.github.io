@@ -634,6 +634,39 @@ E[\eta - h(\xi)]^2 & = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} [y - h(x)
 \end{aligned}\]
 由此知道 $h(x) = E\{\eta | \xi = x\}$ 时, $\int_{-\infty}^{\infty} [y-h(x)]^2 p(y|x) \mathrm{d}y$ 达到最小, 从而使上式均方误差最小, 
 即当我们观察到 $\xi = x$ 时, $E\{\eta | \xi = x\}$ 是一切对 $\eta$ 的估值中均方误差最小的一个. 
-称 $y = \{\eta | \xi = x\}$ 是 $\eta$ 关于 $\xi$ 的\textbf{回归}.
+称 $y = E\{\eta | \xi = x\}$ 是 $\eta$ 关于 $\xi$ 的\textbf{回归}.
+
+通常 $(\xi, \eta)$ 的联合分布函数是不知道的, 或者虽然知道但是不易算出 $E\{\eta | \xi = x\}$. 假定已知 $\xi$ 与 $\eta$ 的数学期望为 $\mu_1, \mu_2$, 
+标准差 $\sigma_1, \sigma_2$ 及相关系数 $\rho$, 此时可以降低要求, 改为求\textbf{最佳线性预测}. 也就是说, 把 $h(x)$ 限定为线性函数 $L(x) = a + bx$, 求 $a, b$ 使 
+\[e(a,b) = E[\eta - (a+b\xi)]^2\] 达到最小. 通过求偏导可以解得 \[ a=\mu_2 - b\mu_1 \quad b = \rho \cdot \frac{\sigma_2}{\sigma_1}\]
+于是最佳线性预测为 \[ L(x) = \mu_2 + \rho \frac{\sigma_2}{\sigma_1}(x-\mu_1)\] 
+我们称上式为 $\eta$ 关于 $\xi$ 的\textbf{线性回归}. 这个结果与 $E\{\eta | \xi = x\}$ 一般是不同的, 但是在 $(\xi, \eta)$ 是二元正态分布的场合, 两者是重合的, 最佳预测是线性预测. 
+
+进一步, 我们可以计算最佳线性预测的均方误差:\[ E[\eta - L(\xi)]^2 = \sigma_2^2 (1-\rho^2)\]
+
+最佳线性预测理论中的一个重要事实是: 预测值 $\hat{\eta} = L(\xi)$ 与残差 $\eta - \hat{\eta}$ 是不相关的, 即
+\[\mathrm{cov}(\hat{\eta}, \eta - \hat{\eta}) = 0\] 这个事实可以解释为: 残差中已不再包含对预测 $\eta$ 有用的知识. 因此观察值 $\eta$ 被分解为两个不相关的的随机变量之和:
+\[\eta = \hat{\eta} + (\eta - \hat{\eta})\]
+以上是\textbf{二阶矩理论}, 或称\textbf{均值-方差理论}, 它以最小二乘法为准则, 研究最佳线性预测, 是概率论中最有实用价值的理论之一.
+\subsection{熵与信息}
+为了从数值上估计各种随机试验的不确定性程度, 香农(Shannon)推导出满足三个期望基本性质(书上有讲)的唯一函数, 并称其为熵:
+\begin{definition}[熵]
+    若研究的随机试验 $\alpha$ 只有有限个不相容的结果 $A_1, \cdots, A_n$, 它们相应的概率为 $p(A_1), \cdots, p(A_n)$, 称 
+    \[H(\alpha) = - \sum\limits_{i=1}^n p(A_i) \log p(A_i)\] 为试验 $\alpha$ 的\textbf{熵} $(\mathrm{entropy})$.
+\end{definition}
+
+下面考虑熵的基本性质:
+
+性质(1) 在有 $n$ 个可能结果的试验中, 等概试验具有最大熵, 其值为 $\log n$.
+\begin{proof}
+$\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
+\end{proof}
+性质(2) 若试验 $\alpha$ 与试验 $\beta$ 独立, 则 \[H(\alpha \beta) = H(\alpha) + H(\beta)\] 
+\begin{proof}
+    此时 $p(A_k B_l) = p(A_k)p(B_l)$, 因此
+    \[H(\alpha \beta) = - \sum\limits_{k,l} p(A_k)p(B_l) \log p(A_k)p(B_l) = H(\alpha) + H(\beta)\]
+\end{proof}
+
+
 
 \end{document}
