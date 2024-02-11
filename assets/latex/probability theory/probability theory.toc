@@ -30,3 +30,5 @@
 \contentsline {paragraph}{最佳线性预测}{22}{section*.8}%
 \contentsline {subsection}{\numberline {4.5}熵与信息}{23}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}母函数}{25}{subsection.4.6}%
+\contentsline {section}{\numberline {5}极限定理}{26}{section.5}%
+\contentsline {subsection}{\numberline {5.1}伯努利试验的极限定理}{26}{subsection.5.1}%

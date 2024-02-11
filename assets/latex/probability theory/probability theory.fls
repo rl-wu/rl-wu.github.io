@@ -1373,6 +1373,7 @@ INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong5d.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong7c.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong77.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong71.tfm
+INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong74.tfm
 OUTPUT probability theory.toc
 INPUT c:/texlive/2022/texmf-dist/tex/generic/ctex/zhmap/ctex-zhmap-windows.tex
 INPUT c:/texlive/2022/texmf-dist/tex/generic/ctex/zhmap/ctex-zhmap-windows.tex
@@ -1529,7 +1530,6 @@ INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unikai/unikai7b.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong7d.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei68.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei6b.tfm
-INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong74.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unikai/unikai63.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei54.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei80.tfm
@@ -1568,6 +1568,7 @@ INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong99.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong55.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei71.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong58.tfm
+INPUT c:/texlive/2022/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei74.tfm
 INPUT probability theory.aux
 INPUT ./probability theory.out
 INPUT ./probability theory.out
@@ -1599,7 +1600,6 @@ INPUT c:/Windows/Fonts/simkai.ttf
 INPUT c:/Windows/Fonts/simkai.ttf
 INPUT c:/Windows/Fonts/simhei.ttf
 INPUT c:/Windows/Fonts/simkai.ttf
-INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simhei.ttf
 INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simkai.ttf
@@ -1686,6 +1686,7 @@ INPUT c:/Windows/Fonts/simkai.ttf
 INPUT c:/Windows/Fonts/simkai.ttf
 INPUT c:/Windows/Fonts/simkai.ttf
 INPUT c:/Windows/Fonts/simhei.ttf
+INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simsun.ttc
