@@ -52,6 +52,8 @@
 \newtheorem{lemma}{引理}[subsection]    % 在每个章节重新编号
 \newtheorem{corollary}{推论}[subsection] % 在每个章节重新编号
 \newtheorem{definition}{定义}[subsection] % 在每个章节内自动编号
+\newtheorem{example}{例}[subsection] % 在每个章节内自动编号
+
 
 
 
@@ -71,8 +73,54 @@
 \newpage
 \section{度量空间}
 \subsection{压缩映射原理}
+本节首先定义了\textbf{度量空间}.
+
+\begin{example}[{空间 $C[a,b]$ }]
+    区间 $[a,b]$ 上的连续函数全体记为 $C[a,b]$, 按距离 \[\rho(x,y) \triangleq \underset{a \leq t \leq b}{\max} | x(t) - y(t) | \]
+    形成度量空间 $(C[a,b], \rho)$, 简记为 $C[a,b]$. 可以证明此空间是完备的, 这个空间是泛函中常见的例子.
+\end{example}
+
+\begin{definition}[压缩映射]
+    称 $T: (\mathscr{X}, \rho) \to (\mathscr{X}, \rho)$ 是一个\textbf{压缩映射}, 如果存在 $0<\alpha<1$, 使得 $\rho(Tx,Ty) \leq \alpha \rho(x,y) \quad (\forall x,y \in \mathscr{X})$
+\end{definition}
+
+\begin{thm}[压缩映射原理]
+    设 $(\mathscr{X}, \rho)$ 是一个完备的度量空间, $T$ 是 $(\mathscr{X}, \rho)$ 到其自身的一个压缩映射, 则 $T$ 在 $\mathscr{X}$ 上存在唯一的不动点.
+\end{thm}
+\begin{proof}
+    任取初始点 $x_0 \in \mathscr{X}$, 考察序列 $x_{n+1} = Tx_{n}$, 下证其为基本列:
+    \[|x_{n+p} - x_{n} | \leq \sum\limits_{i = 1}^p | x_i - x_{i+1}| \leq \sum\limits_{i=1}^p\alpha^{n+i-1} |x_1 - x_0| < \frac{\alpha^n}{1-\alpha} |x_1-x_0|\]
+\end{proof}
+
+利用压缩映射原理可以证明\textbf{常微分方程的一种初值问题的局部存在唯一性}与\textbf{隐函数存在定理}.
+
 \subsection{完备化}
+\begin{definition}[稠密子集]
+    设 $(\mathscr{X},\rho)$ 是度量空间, 集合 $E \subset \mathscr{X}$ 叫作在 $\mathscr{X}$ 中的\textbf{稠密子集}, 如果 $\forall x \in \mathscr{X}, \forall \epsilon > 0, \exists z \in E$, 使得
+     $\rho(x,z) < \epsilon$. 
+\end{definition}
+
+\begin{definition}[完备化空间]
+    包含给定度量空间 $(\mathscr{X},\rho)$ 的最小的完备度量空间称为 $\mathscr{X}$ 的\textbf{完备化空间}, 其中最小的含义是: 任何一个以 $(\mathscr{X},\rho)$ 为子空间的完备度量空间都以此空间作为子空间.
+\end{definition}
+
+\begin{thm}
+    如果 $(\mathscr{X}_1, \rho_1)$ 是一个以 $(\mathscr{X}, \rho)$ 为子空间的完备度量空间, $\rho_1 | _{\mathscr{X} \times \mathscr{X}} = \rho$, 并且 $\mathscr{X}$ 在 $\mathscr{X}_1$ 中稠密, 则 $\mathscr{X}_1$ 是 $\mathscr{X}$ 的完备化空间.
+\end{thm}
+
+\begin{thm}
+    每一个度量空间都有一个完备化空间.
+\end{thm}
+\begin{proof}
+    设 $(\mathscr{X}, \rho)$ 是一个度量空间, 考虑其上的基本列组成的等价类, 可以证明这是一个度量空间, 且是 $(\mathscr{X}, \rho)$ 的完备化空间.
+\end{proof}
+
 \subsection{列紧集}
+\begin{definition}[列紧集]
+    设 $(\mathscr{X}, \rho)$ 是一个度量空间, $A$ 是其一子集, 称 $A$ 是\textbf{列紧的}, 如果 $A$ 中的任意点列在 $\mathscr{X}$ 中有一个收敛子列. 
+    若这个子列还收敛到 $A$ 中的点, 则称 $A$ 是\textbf{自列紧}的. 如果空间 $\mathscr{X}$ 是列紧的, 那么称 $\mathscr{X}$ 为\textbf{列紧空间}.
+\end{definition}
+
 \subsection{赋范线性空间}
 \begin{definition}[次线性泛函]
     设 $P:\mathscr{X} \to \mathbb{R}$ 是线性空间$\mathscr{X}$上的一个函数,若它满足
@@ -82,12 +130,14 @@
     \end{enumerate}
     则称$P$为$\mathscr{X}$上的一个\textbf{次线性泛函}.
 \end{definition}
+
 \subsection{凸集与不动点}
 \begin{definition}[Minkowski泛函]
     设$\mathscr{X}$是线性空间,$C$是$\mathscr{X}$上含有$\theta$的凸子集,在$\mathscr{X}$上规定一个取值于$[0,\infty]$的函数
     \[P(x) = \inf\{\lambda > 0 |\frac{x}{\lambda} \in C\} \quad (\forall x \in \mathscr{X})\]
     与$C$对应,称函数$P$为$C$的\textbf{$\mathrm{Minkowski}$泛函}.
 \end{definition}
+
 \subsection{内积空间}
 
 \begin{thm}
@@ -133,6 +183,7 @@
 \newpage
 
 \section{线性算子与线性泛函}
+
 \subsection{线性算子}
 \begin{definition}[线性算子]
     设$\mathscr{X},\mathscr{Y}$是两个线性空间,$D$是$\mathscr{X}$的一个线性子空间.$T:D\to \mathscr{Y}$是一个映射,
@@ -166,6 +217,7 @@
 \begin{proof}
     主要是证范数的三角不等式与完备性,三角不等式基于算子范数的定义与$\mathscr{Y}$中范数的三角不等式.根据$\mathscr{Y}$的完备性可以定义极限算子.
 \end{proof}
+
 \subsection{Riesz表示定理及其应用}
 \begin{thm}[Riesz表示定理(Hilbert空间)]
     设$f$是$\mathrm{Hilbert}$空间$\mathscr{X}$上的一个连续线性泛函,则必存在唯一的$y_f \in \mathscr{X}$,使得
@@ -215,6 +267,7 @@ Riesz表示定理有很多应用,这首先依赖于\rm{Hilbert}空间本身的�
     \[\int_{\Omega}fv\mathrm{d}x = (u_0,v)_1 = \int_{\Omega}\nabla u \cdot \nabla v\mathrm{d}x\quad (\forall v \in H_0^1(\Omega))\]
     从而$u_0$是一个弱解.唯一性略.
 \end{proof}
+
 \subsection{纲与开映射定理}
 \begin{definition}[疏集,第一纲集,第二纲集]
     设$(\mathscr{X},\rho )$是一个度量空间,集合$E \subset \mathscr{X}$,称$E$是\textbf{疏}的,如果$\overline{E}$的内点是空的.
