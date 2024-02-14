@@ -732,5 +732,13 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
 
 \section{极限定理}
 \subsection{伯努利试验的极限定理}
+\begin{thm}[切比雪夫大数定律]
+    设 $\xi_1, \xi_2, \cdots$ 是由两两不相关的随机变量所构成的序列, 每一随机变量都有有限的方差, 并且它们有公共上界 $C$, 则对任意的 $\epsilon > 0$, 皆有
+    \[\lim_{n \to \infty} P\left\{ \Big| \frac{1}{n} \sum\limits_{k=1}^n \xi_k - \frac{1}{n} \sum\limits_{k=1}^n E\xi_k \Big| < \epsilon \right\} = 1 \]
+\end{thm}
+\begin{proof}
+    因为 $\{\xi_k\}$ 两两不相关, 故 \[D\left( \frac{1}{n} \sum\limits_{k=1}^n \xi_k \right) = \frac{1}{n^2} \sum\limits_{k=1}^n D\xi_k \leq \frac{C}{n}\]
+    再有切比雪夫不等式得到 \[P\left\{ \Big| \frac{1}{n} \sum\limits_{k=1}^n \xi_k - \frac{1}{n} \sum\limits_{k=1}^n E\xi_k \Big| < \epsilon \right\} \geq 1 - \frac{D(\frac{1}{n}\sum\limits_{k=1}^n \xi_k)}{\epsilon^2} \geq 1 - \frac{C}{n\epsilon^2}\]
+\end{proof}
 
 \end{document}

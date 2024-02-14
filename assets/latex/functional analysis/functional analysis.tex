@@ -121,6 +121,29 @@
     若这个子列还收敛到 $A$ 中的点, 则称 $A$ 是\textbf{自列紧}的. 如果空间 $\mathscr{X}$ 是列紧的, 那么称 $\mathscr{X}$ 为\textbf{列紧空间}.
 \end{definition}
 
+\begin{definition}[ $\epsilon$ 网]
+    设 $M$ 是 $(\mathscr{X}, \rho)$ 中的一个子集, $\epsilon > 0, N \subset M$. 如果对于 $\forall x \in M, \exists y \in N$ 使得 $\rho(x,y) < \epsilon$, 那么称 $N$ 是 $M$ 的一个\textbf{ $\epsilon$ 网}. 
+    如果 $N$ 还是一个有穷集$($个数依赖于 $\epsilon$ $)$, 那么称 $N$ 为 $M$ 的一个\textbf{有穷 $\epsilon$ 网}.
+\end{definition}
+
+\begin{definition}[完全有界]
+    集合 $M$ 称为是\textbf{完全有界}的, 如果 $\forall \epsilon > 0,$ 都存在 $M$ 的一个有穷 $\epsilon$ 网.
+\end{definition}
+
+\begin{thm}[Hausdorff]
+    $($完备$)$度量空间中的集合 $M$ 是列紧的, 必须$($且仅需$)$ $M$ 是完全有界集.
+\end{thm}
+
+\begin{definition}[可分空间]
+    一个度量空间若有可数的稠密子集, 那么称此度量空间是\textbf{可分的}.
+\end{definition}
+
+\begin{thm}
+    完全有界的度量空间都是可分的.
+\end{thm}
+\begin{proof}
+    取 $N_n$ 为 有穷的 $\frac{1}{n}$ 网, 则 $\bigcup\limits_{n=1}^{\infty} N_n$ 为一个可数的稠密子集.
+\end{proof}
 \subsection{赋范线性空间}
 \begin{definition}[次线性泛函]
     设 $P:\mathscr{X} \to \mathbb{R}$ 是线性空间$\mathscr{X}$上的一个函数,若它满足
