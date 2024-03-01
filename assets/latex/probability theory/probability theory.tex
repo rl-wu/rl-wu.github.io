@@ -728,6 +728,18 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
 由于\[\sum\limits_{k=0}^{\infty} p_k = 1\] 由幂级数的收敛性知道 $P(s)$ 至少在 $|s| \leq 1$ 一致收敛且绝对收敛.
 因此母函数对任何整值随机变量都存在.
 
+\subsection{特征函数}
+
+\begin{definition}[复随机变量]
+    如果 $\xi, \eta$ 都是概率空间 $(\Omega, \mathscr{F}, P)$ 上的实值随机变量, 则称 $\zeta = \xi + \mathrm{i} \eta$ 为\textbf{复随机变量}.
+\end{definition}
+
+\begin{definition}[特征函数]
+    若随机变量 $\xi$ 的分布函数为 $F_{\xi}(x)$, 则称 \[f_{\xi}(t) = E \mathrm{e}^{\mathrm{i} t \xi} = \int_{-\infty}^{\infty} \mathrm{e}^{\mathrm{i} t x} \mathrm{d} F_{\xi}(x)\] 为 $\xi$ 的\textbf{特征函数} $(\mathrm{characteristic \ function})$.
+\end{definition}
+
+
+
 \newpage
 
 \section{极限定理}
@@ -740,5 +752,26 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
     因为 $\{\xi_k\}$ 两两不相关, 故 \[D\left( \frac{1}{n} \sum\limits_{k=1}^n \xi_k \right) = \frac{1}{n^2} \sum\limits_{k=1}^n D\xi_k \leq \frac{C}{n}\]
     再有切比雪夫不等式得到 \[P\left\{ \Big| \frac{1}{n} \sum\limits_{k=1}^n \xi_k - \frac{1}{n} \sum\limits_{k=1}^n E\xi_k \Big| < \epsilon \right\} \geq 1 - \frac{D(\frac{1}{n}\sum\limits_{k=1}^n \xi_k)}{\epsilon^2} \geq 1 - \frac{C}{n\epsilon^2}\]
 \end{proof}
+
+\subsection{收敛性}
+
+\begin{definition}[弱收敛]
+    对于分布函数列 $\{ F_n(x)\}$, 如果存在一个非降函数 $F(x)$ 使
+    \[ \lim\limits_{n \to \infty} F_n(x) = F(x)\]
+    在 $F(x)$ 的每一连续点上都成立, 则称 $F_n(x)$ \textbf{弱收敛}于 $F(x)$, 并记为 $F_n(x) \overset{W}{\to} F(x)$.
+\end{definition}
+
+\begin{definition}[依分布收敛]
+    设随机变量 $\xi_n(\omega),\xi(\omega)$ 的分布函数分别为 $F_n(x)$ 及 $F(x)$, 如果 $F_n(x) \overset{W}{\to} F(x)$, 则称 $\{\xi_n(\omega)\}$ 
+    \textbf{依分布收敛} $(\mathrm{convergence \ in \ distribution})$ 于 $\xi(\omega)$, 并记为 $\xi_n(\omega) \overset{L}{\to} \xi(\omega)$.
+\end{definition}
+
+\begin{definition}[依概率收敛]
+    如果对任意的 $\epsilon > 0$ 成立:
+    \[\lim\limits_{n \to \infty} P\{ |\xi_n(\omega) - \xi(\omega)| \geq \epsilon \} = 0\]
+    则称 $\{\xi_n(\omega)\}$ \textbf{依概率收敛} $(\mathrm{convergence \ in \ probability)}$ 于 $\xi(\omega)$, 并记为 $\xi_n(\omega) \overset{P}{\to} \xi(\omega)$.
+\end{definition}
+
+这样一来, 大数定律可重新叙述为: 设 $\mu_n$ 是 $n$ 次独立试验中事件 $A$ 出现的次数, 而 $p$ 是事件 $A$ 在每次试验中出现的概率, 则频率 $\frac{\mu_n}{n}$ 依概率收敛于概率 $p$.
 
 \end{document}
