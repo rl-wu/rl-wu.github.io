@@ -738,11 +738,18 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
     若随机变量 $\xi$ 的分布函数为 $F_{\xi}(x)$, 则称 \[f_{\xi}(t) = E \mathrm{e}^{\mathrm{i} t \xi} = \int_{-\infty}^{\infty} \mathrm{e}^{\mathrm{i} t x} \mathrm{d} F_{\xi}(x)\] 为 $\xi$ 的\textbf{特征函数} $(\mathrm{characteristic \ function})$.
 \end{definition}
 
+对于连续型分布变量, 若其分布函数为 $p(x)$, 则其特征函数为 \[f(t) = \int_{-\infty}^{\infty} \mathrm{e}^{\mathrm{i}tx} p(x) \mathrm{d}x\]
+此时, 特征函数就是密度函数 $p(x)$ 的 Fourier 变换.
+
+设 $\xi_1$ 与 $\xi_2$ 是两个相互独立的随机变量, $\eta = \xi_1 + \xi_2$, 于是复随机变量 $\mathrm{e}^{\mathrm{i}t\xi_1}$ 与 $\mathrm{e}^{\mathrm{i}t\xi_2}$ 也是独立的, 因此
+\[E \mathrm{e}^{\mathrm{i}t\eta} = E \mathrm{e}^{\mathrm{i}t(\xi_1 + \xi_2)} = E \mathrm{e}^{\mathrm{i}t\xi_1} \cdot E \mathrm{e}^{\mathrm{i}t\xi_2}\]
+故\textbf{两个相互独立的随机变量之和的特征函数等于它们的特征函数之积}.  
 
 
 \newpage
 
 \section{极限定理}
+
 \subsection{伯努利试验的极限定理}
 \begin{thm}[切比雪夫大数定律]
     设 $\xi_1, \xi_2, \cdots$ 是由两两不相关的随机变量所构成的序列, 每一随机变量都有有限的方差, 并且它们有公共上界 $C$, 则对任意的 $\epsilon > 0$, 皆有
@@ -773,5 +780,22 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
 \end{definition}
 
 这样一来, 大数定律可重新叙述为: 设 $\mu_n$ 是 $n$ 次独立试验中事件 $A$ 出现的次数, 而 $p$ 是事件 $A$ 在每次试验中出现的概率, 则频率 $\frac{\mu_n}{n}$ 依概率收敛于概率 $p$.
+
+\begin{thm}
+    $\xi_n \overset{P}{\to} \xi \Rightarrow \xi_n \overset{L}{\to} \xi$
+\end{thm}
+
+\begin{proof}
+    对 $x' < x$ 有
+    \[\{\xi < x'\} = \{\xi_n < x, \xi < x'\} + \{\xi_n \geq x, \xi < x'\} \subset \{\xi_n < x\} + \{\xi_n \geq x, \xi < x'\}\]
+    所以有\[F(x') \leq F_n(x) + P\{\xi_n \geq x, \xi < x'\}\]
+    由于 $\{\xi_n\}$ 依概率收敛于 $\xi$, 有
+    \[P\{\xi_n \geq x, \xi<x'\} \leq P\{|\xi_n - \xi| \geq x-x'\} \to 0\]
+    因而有 \[F(x') \leq \varliminf\limits_{n \to \infty} F_n(x) \]
+    同理可证, 对 $x'' > x$, 有
+    \[\varlimsup\limits_{n \to \infty} F_n(x) \leq F(x'')\]
+    如果 $x$ 是 $F(x)$ 的连续点, 令 $x',x''$ 趋于 $x$ 可得
+    \[F(x) = \lim\limits_{n \to \infty} F_n(x)\]
+\end{proof}
 
 \end{document}
