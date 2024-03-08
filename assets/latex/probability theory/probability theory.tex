@@ -741,9 +741,43 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
 对于连续型分布变量, 若其分布函数为 $p(x)$, 则其特征函数为 \[f(t) = \int_{-\infty}^{\infty} \mathrm{e}^{\mathrm{i}tx} p(x) \mathrm{d}x\]
 此时, 特征函数就是密度函数 $p(x)$ 的 Fourier 变换.
 
+下面介绍特征函数的重要性质, 这些性质是特征函数后期大放异彩的基石.
+
 设 $\xi_1$ 与 $\xi_2$ 是两个相互独立的随机变量, $\eta = \xi_1 + \xi_2$, 于是复随机变量 $\mathrm{e}^{\mathrm{i}t\xi_1}$ 与 $\mathrm{e}^{\mathrm{i}t\xi_2}$ 也是独立的, 因此
 \[E \mathrm{e}^{\mathrm{i}t\eta} = E \mathrm{e}^{\mathrm{i}t(\xi_1 + \xi_2)} = E \mathrm{e}^{\mathrm{i}t\xi_1} \cdot E \mathrm{e}^{\mathrm{i}t\xi_2}\]
 故\textbf{两个相互独立的随机变量之和的特征函数等于它们的特征函数之积}.  
+
+设随机变量 $\xi$ 有 $n$ 阶矩存在, 则它的特征函数 $n$ 可微, 且当 $k \leq n$ 时:
+\[f^{k}(0) = \mathrm{i}^{k} E \xi^k\]
+
+\begin{proof}
+    \[|\frac{\mathrm{d}^k}{\mathrm{d}t^k} (\mathrm{e}^{\mathrm{i}tx})| = | \mathrm{i}^k x^k \mathrm{e}^{\mathrm{i}tx} | \leq |x|^k\]
+    由于 $\xi$ 的 $k$ 阶矩存在, 故 $\int_{-\infty}^{\infty} |x|^k \mathrm{d}F(x) < \infty$, 因而可交换下列积分与微分
+    \[f^k(t) = \int_{-\infty}^{\infty} \frac{\mathrm{d}^k}{\mathrm{d}t^k} (\mathrm{e}^{\mathrm{i}tx}) \mathrm{d}F(x) = \mathrm{i}^k \int_{-\infty}^{\infty} x^k \mathrm{e}^{\mathrm{i}tx} \mathrm{d} F(x)\]
+    取 $t = 0$ 即得.
+\end{proof}
+
+由此我们将特征函数在 $t = 0$ 处展开, 得到如下展开:
+\[f(t) = 1 + (\mathrm{i} t) E \xi + \frac{(\mathrm{i}t)^2}{2!} E \xi^2 + \cdots + \frac{(\mathrm{i}t)^n}{n!} E \xi^n + o(t^n)\]
+由此可以由特征函数求得随机变量的各阶矩.
+
+设 $\eta = a \xi + b$, 这里 $a, b$ 为常数, 则有 \[f_{\eta}(t) = \mathrm{e}^{\mathrm{i}bt} f_{\xi}(at)\]
+\begin{proof}
+    \[f_{\eta}(t) = E \mathrm{e}^{\mathrm{i}t \eta} = E \mathrm{e}^{\mathrm{i}t(a\xi + b)} = \mathrm{e}^{\mathrm{i}tb} E \mathrm{e}^{\mathrm{i}ta\xi} = \mathrm{e}^{\mathrm{i}ta\xi} = \mathrm{e}^{\mathrm{i}bt}f_{\xi}(at)\]
+\end{proof}
+
+\begin{example}
+    下面考虑正态分布 $N(0, 1)$ 的特征函数:
+    \[f(t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \mathrm{e}^{\mathrm{i}tx} \cdot \mathrm{e}^{-\frac{x^2}{2}} \mathrm{d}x = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \cos tx \cdot \mathrm{e}^{-\frac{x^2}{x}} \mathrm{d}x\] 
+    由于正态分布一阶矩存在, 可对上式求导:
+    \[f^{\prime}(t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \sin tx \mathrm{d} \mathrm{e}^{-\frac{x^2}{2}} 
+    = -\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} t \cos tx \cdot \mathrm{e}^{-\frac{x^2}{2}} \mathrm{d}x = -tf(t)\]
+    由于 $f(0) = 1$, 解上式微分方程得: 
+    \[f(t) = \mathrm{e}^{-\frac{t^2}{2}}\]
+    对于一般 $N(\mu, \sigma^2)$, 利用上述性质, 可以得到\[f(t) = \mathrm{e}^{\mathrm{i}\mu t - \frac{1}{2}\sigma^2 t^2}\]
+\end{example}
+
+
 
 
 \newpage
