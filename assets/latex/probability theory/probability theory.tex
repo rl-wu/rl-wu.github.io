@@ -777,8 +777,34 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
     对于一般 $N(\mu, \sigma^2)$, 利用上述性质, 可以得到\[f(t) = \mathrm{e}^{\mathrm{i}\mu t - \frac{1}{2}\sigma^2 t^2}\]
 \end{example}
 
+\subsection{逆转公式与唯一性定理}
+现在来证明特征函数与分布函数是相互确定的, 即特征函数可唯一决定分布函数.
 
+\begin{thm}
+    设 $x_1<x_2$, \[g(T, x, x_1, x_2) = \frac{1}{\pi} \int_0^T \left[ \frac{\sin t(x - x_2)}{t} - \frac{\sin t(x - x_2)}{t} \right] \mathrm{d} t\]
+    则有 \[ \lim_{T \to \infty} g(T, x, x_1, x_2) = \begin{cases}0 & x<x_1 \text{或} x>x_2  \\ \frac{1}{2}  & x=x_1 \text{或} x = x_2 \\ 1 & x_1<x<x_2 \end{cases}\]
+\end{thm}
+\begin{proof}
+    由 Dirichlet 积分
+    \[D(\alpha) = \frac{1}{\pi} \int_{0}^{\infty} \frac{\sin \alpha t}{t} \mathrm{d}t = \begin{cases} \frac{1}{2} & \alpha > 0 \\ 0 & \alpha = 0 \\ - \frac{1}{2} & \alpha<0 \end{cases}\]
+    于是 \[\lim_{T \to \infty} g(T, x, x_1, x_2) = D(x-x_1) - D(x-x_2)\]
+\end{proof}
 
+\begin{thm}[逆转公式]
+    设分布函数 $F(x)$ 的特征函数为 $f(t)$, 又 $x_1, x_2$ 是 $F(x)$ 的连续点, 则 
+    \[F(x_2) - F(x_1) = \lim_{T \to \infty} \frac{1}{2\pi} \int_{-T}^{T} \frac{\mathrm{e}^{-\mathrm{i}tx_1} - \mathrm{e}^{-\mathrm{i}tx_2}}{\mathrm{i}t} f(t) \mathrm{d} t\]
+\end{thm}
+\begin{proof}
+    不妨设 $x_1<x_2$, 记 
+    \[\begin{aligned}
+        I_T & = \frac{1}{2\pi} \int_{-T}^{T} \frac{\mathrm{e}^{-\mathrm{i}tx_1} - \mathrm{e}^{-\mathrm{i}tx_2}}{\mathrm{i}t} f(t) \mathrm{d} t
+    = \frac{1}{2\pi} \int_{-T}^{T} \int_{-\infty}^{\infty} \frac{\mathrm{e}^{-\mathrm{i}tx_1} - \mathrm{e}^{-\mathrm{i}tx_2}}{\mathrm{i}t} \mathrm{e}^{\mathrm{i}tx} \mathrm{d} F(x) \mathrm{d}t\\
+    & = \frac{1}{2\pi} \int_{-\infty}^{\infty} \int_{-T}^{T} \frac{\mathrm{e}^{-\mathrm{i}tx_1} - \mathrm{e}^{-\mathrm{i}tx_2}}{\mathrm{i}t} \mathrm{e}^{\mathrm{i}tx} \mathrm{d} t \mathrm{d} F(x)
+    = \int_{-\infty}^{\infty} g(T, x, x_1, x_2) \mathrm{d} F(x)
+    \end{aligned}\]
+    由 Lebesgue 控制收敛定理保证极限可以取进去:
+    \[\lim_{T \to \infty} I_T = \int_{-\infty}^{\infty} \lim_{T \to \infty} g(T, x, x_1, x_2) \mathrm{d} F(x) = F(x_2) - F(x_1)\]
+\end{proof}
 
 \newpage
 
