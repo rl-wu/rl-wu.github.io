@@ -806,6 +806,40 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
     \[\lim_{T \to \infty} I_T = \int_{-\infty}^{\infty} \lim_{T \to \infty} g(T, x, x_1, x_2) \mathrm{d} F(x) = F(x_2) - F(x_1)\]
 \end{proof}
 
+\begin{thm}[唯一性定理]
+    分布函数由其特征函数唯一决定.
+\end{thm}
+
+\begin{proof}
+    应用逆转公式, 在 $F(x)$ 的每一连续点上, 当 $y$ 沿着 $F(x)$ 的连续点趋于 $-\infty$ 时, 有 
+    \[ F(x) = \frac{1}{2\pi} \lim_{y \to -\infty} \lim_{T \to \infty} \int_{-T}^{T} \frac{-\mathrm{e}^{\mathrm{i}ty} - \mathrm{e}^{-\mathrm{i}tx}}{\mathrm{i}t} f(t) \mathrm{d}t \]
+    而分布函数由其连续点上的值唯一决定.
+
+    由唯一性定理可知特征函数也完整地描述了随机变量.
+\end{proof}
+
+特别当 $f(t)$ 是绝对可积函数时, 有下列更强的结果.
+
+\begin{thm}
+    若 $\int_{-\infty}^{\infty} |f(t)| \mathrm{d}t < \infty$, 则相应的分布函数 $F(x)$ 的导数存在并连续, 而且 
+    \[F^{\prime}(x) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \mathrm{e}^{-\mathrm{i}tx} f(t) \mathrm{d}t\]
+\end{thm}
+
+\begin{example}[正态分布]
+    若 $\xi_1$ 服从 $N(\mu_1, \sigma_1^2)$, $\xi_2$ 服从 $N(\mu_2, \sigma_2^2)$, 而且 $\xi_1$ 与 $\xi_2$ 独立, 则 $\eta = \xi_1 + \xi_2$ 服从 $N(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)$.
+\end{example}
+
+\begin{proof}
+    考虑特征函数 
+    \[
+    f_{\xi_1}(t) = \mathrm{e}^{\mathrm{i} \mu_1 t - \frac{1}{2}\sigma_1^2 t^2 },
+    f_{\xi_2}(t) = \mathrm{e}^{\mathrm{i} \mu_2 t - \frac{1}{2}\sigma_2^2 t^2 },
+    f_{\eta}(t) = \mathrm{e}^{\mathrm{i} (\mu_1 + \mu_2) t - \frac{1}{2}(\sigma_1^2 + \sigma_2^2) t^2 }
+    \]
+    这个事实简记为 \[ N(\mu_1, \sigma_1^2) \cdot N(\mu_2, \sigma_2^2)  = N(\mu_1 + \mu_2,) \]
+\end{proof}
+
+
 \newpage
 
 \section{极限定理}

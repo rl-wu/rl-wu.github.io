@@ -44,6 +44,13 @@
 \usepackage{xcolor}
 
 
+\newtheorem{thm}{定理}[section]  % 在每个章节重新编号
+\newtheorem{lemma}{引理}[section]    % 在每个章节重新编号
+\newtheorem{corollary}{推论}[section] % 在每个章节重新编号
+\newtheorem{definition}{定义}[section] % 在每个章节内自动编号
+\newtheorem{example}{例}[section] % 在每个章节内自动编号
+
+
 
 \begin{document}
 \begin{center}
@@ -51,24 +58,65 @@
 \end{center}
 
 
-我自学使用的教材为Stein的《complex analysis》，在此笔记中主要记录书中的核心内容，配以心得体会。
+我自学使用的教材为谭小江, 伍胜健的《复变函数简明教程》，在此笔记中主要记录书中的核心内容，配以心得体会。
 
 
 {\centering\tableofcontents}
 
 \newpage
-\section{Preliminaries}
-\subsection{Complex numbers and the complex plane}
-\subsection{Functions on the complex plane }
-\subsection{Integration along curves}
+\section{Cauchy 定理和 Cauchy 公式}
+\begin{thm}[Cauchy 定理]
+    设 $\Omega$ 是 $\mathbb{C}$ 中以有限条逐段光滑曲线为边界的有界区域, 函数 $f(z)$ 在 $\overline{\Omega}$ 上连续, 在 $\Omega$ 内解析, 则
+    \[\int_{\partial \Omega} f(z) \mathrm{d}z = 0\]
+\end{thm}
 
-\newpage
-\section{Cauchy's Theorem and Its Applications }
-\subsection{Goursat's theorem}
-\subsection{Local existence of primitives and Cauchy's theorem in a
-disc}
-\subsection{Evaluation of some integrals}
-\subsection{Cauchy's integral formulas }
-\subsection{Further applications}
+\begin{thm}[Cauchy 公式]
+    设 $\Omega$ 是由有限条逐段光滑曲线为边界的有界区域, $f(z)$ 在 $\overline{\Omega}$ 上连续, 在 $\Omega$ 内解析, 则 $\forall z \in \Omega$, 
+    \[f(z) = \frac{1}{2\pi \mathrm{i}} \int_{\partial \Omega} \frac{f(\omega)}{\omega - z} \mathrm{d} \omega\]
+\end{thm}
+
+\begin{thm}
+    函数 $f(z)$ 在区域 $\Omega$ 上解析的充分必要条件是 $\forall z_0 \in \Omega$, $f(z)$ 可在 $z_0$ 的邻域上展开为 $(z - z_0)$ 的幂级数. 其中在 $z_0$ 的邻域幂级数展开的形式为:
+    \[f(z) = \sum\limits_{n = 0}^{+\infty} \left[ \frac{1}{2\pi \mathrm{i}} \int_{|\omega - z_0| = r} \frac{f(\omega)}{(\omega - z_0)^{n+1}} \mathrm{d} \omega \right] (z-z_0)^n\]
+\end{thm}   
+
+\begin{thm}[Morera 定理]
+    设 $\Omega \subset \mathbb{C}$ 为一个区域, $f(z)$ 在 $\Omega$ 内连续. 则 $f(z)$ 在 $\Omega$ 内解析的充分必要条件是对 $\Omega$ 中任意由逐段光滑曲线为边界围成的有界区域 $D$, 如果 $\overline{D} \subset \Omega$, 则
+    \[\int_{\partial D} f(\omega) \mathrm{d} \omega = 0\]
+\end{thm}
+
+\section{利用幂级数研究解析函数}
+
+\begin{thm}
+    设 $f(z)$ 在区域 $\Omega$ 内解析, 如果存在 $z_0 \in \Omega$, 使得
+    \[f(z_0) = f^{\prime}(z_0) = f^{\prime \prime} (z_0) = \cdots = f^{n}(z_0) = \cdots = 0\]
+    则 $f(z)$ 在 $\Omega$ 上恒为零.
+\end{thm}
+
+\begin{corollary}
+    设 $f(z)$ 是区域 $\Omega$ 上不为常数的解析函数, 则 $\forall z_0 \in \Omega$, 存在正整数 $m$, 使得
+    \[f^{\prime}(z_0) = f^{\prime \prime}(z_0) = \cdots = f^{m-1}(z_0) = 0, \text{而}\  f^{m}(z_0) \neq 0\]
+    这时存在 $z_0$ 的邻域 $O$, 使得 $f(z)$ 在 $O$ 上可表示为
+    \[f(z) - f(z_0) = (z - z_0)^{m} g(z)\] 其中 $g(z)$ 在 $O$ 上解析, 且 $g(z_0) \neq 0$.
+\end{corollary}
+
+\begin{thm}[开映射定理]
+    如果 $f(z)$ 是区域 $\Omega$ 山不为常数的解析函数, 则 $f(z)$ 将 $\Omega$ 中的开集映为开集.
+\end{thm}
+
+\begin{thm}
+    如果 $f(z)$ 是区域 $\Omega$ 上的单叶解析函数, 则 $f(\Omega)$ 是 $\mathbb{C}$ 中的开集, 因而是区域;
+    $f^{\prime}(z)$ 在 $\Omega$ 上处处不为零. 因此 $f^{-1}: f(\Omega) \to \Omega$ 是解析的; $f: \Omega \to f(\Omega)$ 是解析同胚.
+\end{thm}
+
+\begin{thm}[最大模原理]
+    如果 $f(z)$ 是区域 $\Omega$ 上不为常数的解析函数, 则 $|f(z)|$ 在 $\Omega$ 内无极大值点.
+\end{thm}
+
+\begin{thm}[代数学基本定理]
+    设 \[P(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots + a_0\]
+    是一 $n$ 次多项式, 其中 $n \geq 1$, $a_n \neq 0$, 则方程 $P(z) = 0$ 在 $\mathbb{C}$ 中有解.
+\end{thm}
+
 
 \end{document}
