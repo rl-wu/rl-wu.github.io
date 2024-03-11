@@ -892,4 +892,39 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
     \[F(x) = \lim\limits_{n \to \infty} F_n(x)\]
 \end{proof}
 
+\subsection{独立同分布场合的极限定理}
+
+\begin{thm}[大数定律]
+    设 $\xi_1, \xi_2, \cdots, \xi_n, \cdots$ 是相互独立的随机变量序列, 它们服从相同的分布, 且具有有限的数学期望 $E \xi_n = a$, 则对任意的 $\epsilon > 0$, 有
+    \[\lim_{n \to \infty} P \left\{ \Big|\frac{1}{n} \sum\limits_{i=1}^{n} \xi_i  - a \Big| < \epsilon \right\} = 1\]
+\end{thm}
+
+\begin{proof}
+    由于 $\xi_1, \cdots, \xi_n$ 具有相同分布, 故有同一特征函数, 设为 $f(t)$, 因为数学期望存在, 故 $f(t)$ 可展开成
+    \[ f(t) = f(0) + f^{\prime}(0) t + o(t) = 1 + \mathrm{i} at + o(t) \]
+    而 $\frac{1}{n} \sum\limits_{i=1}^n \xi_i$ 的特征函数为
+    \[\left[ f\left(\frac{t}{n}\right) \right]^n = \left[ 1 + \mathrm{i}a \frac{t}{n} + o\left( \frac{t}{n} \right) \right]^n\]
+    对于固定的 $t$ \[\left[ f\left(\frac{t}{n}\right) \right]^n \to \mathrm{e}^{\mathrm{i}at}  \quad (n \to \infty)\]
+    极限函数 $\mathrm{e}^{\mathrm{i}at}$ 是连续函数, 它是退化分布 $I_a(x)$ 所对应的特征函数. \\
+    由逆极限定理知 $\frac{1}{n} \sum\limits_{i=1}^n \xi_i$ 的分布函数弱收敛于 $I_a(x)$, \\
+    由书上定理 5.2.7 知 $\frac{1}{n} \sum\limits_{i=1}^n \xi_i$ 依概率收敛于常数 $a$.
+\end{proof}
+
+若 $\xi_1, \cdots, \xi_n, \cdots$ 是一串相互独立相同分布的随机变量序列, 且 \[E\xi_k = \mu, D \xi_k = \sigma^2\]
+我们来讨论标准化随机变量和 \[\zeta_n = \frac{1}{\sigma \sqrt{n}} \sum\limits_{k=1}^n (\xi_k - \mu)\]
+
+\begin{thm}[中心极限定理]
+    对于上述标准化和, 若 $0 < \sigma^2 < \infty$, 则
+    \[\lim_{n \to \infty} P\{\zeta_n < x\} = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^x \mathrm{e}^{-t^2/2} \mathrm{d} t\]
+\end{thm}
+
+\begin{proof}
+    记 $\xi_k - \mu$ 的特征函数为 $g(t)$, 则 $\zeta_n$ 的特征函数为 $\left[g\left( \frac{t}{\sigma \sqrt{n}} \right)\right]^n$. 
+    由于 $E \xi_k = \mu, D \xi_k = \sigma^2$ 故 $g^{\prime}(0) = 0, g^{\prime \prime}(0) = -\sigma^2$. 因此
+    \[g(t) = 1 -\frac{1}{2}\sigma^2 t^2 + o(t^2)\]
+    所以 \[ \left[g \left( \frac{t}{\sigma \sqrt{n}} \right)\right]^n = \left[ 1 - \frac{1}{2n} t^2 + o(\frac{t^2}{n}) \right]^n \to \mathrm{e}^{-t^2/2} \]
+    由于 $\mathrm{e}^{-t^2/2}$ 是连续函数, 它对应的分布函数为 $N(0,1)$, 因此由逆极限定理知
+    \[P\{ \zeta_n < x\} \to \frac{1}{\sqrt{2\pi}} \int_{-\infty}^x \mathrm{e}^{-t^2/2} \mathrm{d}t\]
+\end{proof}
+
 \end{document}
