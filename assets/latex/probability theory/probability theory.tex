@@ -784,6 +784,7 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
     设 $x_1<x_2$, \[g(T, x, x_1, x_2) = \frac{1}{\pi} \int_0^T \left[ \frac{\sin t(x - x_2)}{t} - \frac{\sin t(x - x_2)}{t} \right] \mathrm{d} t\]
     则有 \[ \lim_{T \to \infty} g(T, x, x_1, x_2) = \begin{cases}0 & x<x_1 \text{或} x>x_2  \\ \frac{1}{2}  & x=x_1 \text{或} x = x_2 \\ 1 & x_1<x<x_2 \end{cases}\]
 \end{thm}
+
 \begin{proof}
     由 Dirichlet 积分
     \[D(\alpha) = \frac{1}{\pi} \int_{0}^{\infty} \frac{\sin \alpha t}{t} \mathrm{d}t = \begin{cases} \frac{1}{2} & \alpha > 0 \\ 0 & \alpha = 0 \\ - \frac{1}{2} & \alpha<0 \end{cases}\]
@@ -794,6 +795,7 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
     设分布函数 $F(x)$ 的特征函数为 $f(t)$, 又 $x_1, x_2$ 是 $F(x)$ 的连续点, 则 
     \[F(x_2) - F(x_1) = \lim_{T \to \infty} \frac{1}{2\pi} \int_{-T}^{T} \frac{\mathrm{e}^{-\mathrm{i}tx_1} - \mathrm{e}^{-\mathrm{i}tx_2}}{\mathrm{i}t} f(t) \mathrm{d} t\]
 \end{thm}
+
 \begin{proof}
     不妨设 $x_1<x_2$, 记 
     \[\begin{aligned}
@@ -910,6 +912,16 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
     由书上定理 5.2.7 知 $\frac{1}{n} \sum\limits_{i=1}^n \xi_i$ 依概率收敛于常数 $a$.
 \end{proof}
 
+\begin{example}[Monte Carlo 方法计算定积分]
+    为计算积分 \[J = \int_a^b g(x) \mathrm{d}x\] 可以通过如下概率论方法实现.
+
+    任取一列相互独立的, 都具有 $[a,b]$ 中均匀分布的随机变量 ${\xi_i}$, 则 ${g(\xi_i)}$ 也是一列相互独立相同分布的随机变量, 而且
+    \[ Eg(\xi_i) = \frac{1}{b-a}  \int_a^b g(x) \mathrm{d}x  = \frac{J}{b-a}\]
+
+    因为大数定律 \[ \frac{g(\xi_1) + \cdots + g(\xi_n)}{n} \overset{P}{\to} Eg(\xi_i) \]
+    这样一来只要生成随机变量序列 ${g(\xi_i)}$ 就能对积分进行数值计算, 而生成 ${g(\xi_i)}$ 的关键是要生成相互独立相同分布的 ${\xi_i}$, 这里 $\xi_i$ 均服从 $[a,b]$ 上的均匀分布.
+\end{example}
+
 若 $\xi_1, \cdots, \xi_n, \cdots$ 是一串相互独立相同分布的随机变量序列, 且 \[E\xi_k = \mu, D \xi_k = \sigma^2\]
 我们来讨论标准化随机变量和 \[\zeta_n = \frac{1}{\sigma \sqrt{n}} \sum\limits_{k=1}^n (\xi_k - \mu)\]
 
@@ -926,5 +938,6 @@ $\varphi(x) = -x\log x$ 是凹函数, 于是由 Jensen 不等式即得.
     由于 $\mathrm{e}^{-t^2/2}$ 是连续函数, 它对应的分布函数为 $N(0,1)$, 因此由逆极限定理知
     \[P\{ \zeta_n < x\} \to \frac{1}{\sqrt{2\pi}} \int_{-\infty}^x \mathrm{e}^{-t^2/2} \mathrm{d}t\]
 \end{proof}
+
 
 \end{document}

@@ -4,7 +4,7 @@
 \usepackage[UTF8]{ctex}
 
 % 数学宏包
-\usepackage{amsmath,amsfonts,amssymb,blkarray}
+\usepackage{amsmath,amsfonts,amssymb,blkarray,mathrsfs,amsthm,bm}
 
 %插入代码
 \usepackage{listings}
@@ -118,5 +118,128 @@
     是一 $n$ 次多项式, 其中 $n \geq 1$, $a_n \neq 0$, 则方程 $P(z) = 0$ 在 $\mathbb{C}$ 中有解.
 \end{thm}
 
+\begin{proof}
+    容易推出 \[ \lim_{z \to \infty} |P(z)| = + \infty\]
+    取 $R$ 充分大, 使得 \[ \min\{|P(z)| | |z| = R\} > |P(0)| \]
+    设 $z_0$ 是 $|P(z)|$ 在闭圆盘 $\overline{D(0,R)}$ 内的最小值点, 由假设知 $z_0 \in D(0,R)$. 因为 $P(z)$ 解析且不为常数, 所以 $P(D(0,R))$ 是 $\mathbb{C}$ 中的开集. 
+    从而 $P(z_0)$ 是 $P(D(0,R))$ 的内点, 如果 $P(z_0) \neq 0$, 则 $|P(z_0)|$ 不能是最小, 此矛盾说明 $P(z_0) = 0$.
+
+\end{proof}
+
+\section{Cauchy不等式}
+
+\begin{thm}[Cauchy 不等式]
+    设 $f(z)$ 在区域 $\Omega$ 上解析, 且在 $\Omega$ 上 $|f(z)| \leq M$, 则 $\forall z_0 \in \Omega, 0 < r \leq \mathrm{dist}(z_0, \partial \Omega)$, 恒有
+    \[ |f^{(n)}(z_0)| \leq \frac{n!M}{r^n}\]
+\end{thm}
+
+
+\section{Laurent 级数}
+
+\begin{thm}
+ 函数 $f(z)$ 在圆环区域 $D(z_0, r, R)$ 内解析的充分必要条件是 $f(z)$ 可在 $D(z_0, r, R)$ 上展开为关于 $z-z_0$ 的 $\mathrm{Laurent}$ 级数.
+\end{thm}
+
+\begin{definition}
+    如果函数 $f(z)$ 在 $z_0$ 的空心邻域上解析, 即存在 $\epsilon > 0$, 使 $f(z)$ 在 $D_0(z_0, \epsilon)$ 上解析, 则 $z_0$ 称为 $f(z)$ 的\textbf{孤立奇点}. 
+    如果存在 $R_0>0$, 使得 $f(z)$ 在 $\mathbb{C} - \overline{D(0, R_0)}$ 上解析, 则称 $\infty$ 是 $f(z)$ 的一个孤立奇点. 例如任何整函数都以 $\infty$ 为孤立奇点.
+\end{definition}
+
+\begin{definition}
+    设 $z_0$ 是 $f(z)$ 的孤立零点.
+    
+    $(1)$ 如果存在 $c \in \mathbb{C}$ 使得函数 \[g(z) = \begin{cases}f(z) & z \neq z_0 \\ c & z = z_0 \end{cases}\] 
+    在 $z_0$ 的邻域上解析, 则称 $f(z)$ 可\textbf{解析开拓}到 $z_0$ 处, 并称 $z_0$ 为 $f(z)$ 的\textbf{可去奇点}.
+
+    $(2)$ 如果 $f(z)$ 不能解析开拓到 $z_0$ 处, 但 $\frac{1}{f(z)}$ 可解析开拓到 $z_0$, 则 $z_0$ 称为 $f(z)$ 的\textbf{极点}.
+
+    $(3)$ 如果 $z_0$ 既不是 $f(z)$ 的可去奇点, 也不是 $f(z)$ 的极点, 则称 $z_0$ 为 $f(z)$ 的\textbf{本性奇点}.
+\end{definition}
+
+下面写点对于上述定义的刻画:
+
+\begin{thm}
+    设 $z_0$ 是 $f(z)$ 的孤立零点, 则下面的条件等价:
+
+    $(1)$ $z_0$ 是 $f(z)$ 的可去奇点
+
+    $(2)$ $\lim_{z \to z_0} f(z)$ 在 $\mathbb{C}$ 中存在
+
+    $(3)$ $f(z)$ 在 $f(z)$ 的邻域上有界
+
+    $(4)$ $f(z)$ 在 $z_0$ 的 $\mathrm{Larurent}$ 展式的主部为零
+\end{thm}
+
+\begin{thm}
+    设 $z_0$ 是 $f(z)$ 的孤立奇点, 则下面条件等价:
+
+    $(1)$ $z_0$ 是 $f(z)$ 的极点
+
+    $(2)$ $z_0$ 是 $\frac{1}{f(z)}$ 的孤立零点
+
+    $(3)$ $\lim_{z \to z_0} f(z) = \infty$
+
+    $(4)$ $f(z)$ 在 $z_0$ 处 $\mathrm{Laurent}$ 展式的主部中有且仅有有限项不为零
+\end{thm}
+
+\begin{proof}
+    $(1) \Rightarrow (2)$: 由于 $\frac{1}{f(z)}$ 可解析开拓到 $z_0$, 从而由前面一个定理可知 $\lim_{z \to z_0} \frac{1}{f(z)}$ 在 $\mathbb{C}$ 中存在, 但由于 $f(z)$ 不能解析开拓到 $z_0$, 因此必有
+    \[ \lim_{z \to z_0} \frac{1}{f(z)} = 0\]
+
+    $(2) \Rightarrow (3)$: 显然
+
+    $(3) \Rightarrow (4)$: 由 $\lim_{z \to z_0} f(z) = \infty$, 我们得到 $z_0$ 是 $\frac{1}{f(z)}$ 的孤立零点. 设其是 $m$ 阶零点, 则 $\frac{1}{f(z)}$ 在 $z_0$ 邻域可展开为
+    \[\frac{1}{f(z)} = (z-z_0)^m \sum\limits_{n = 0}^{+\infty} b_n (z-z_0)^n = (z-z_0)^m g(z)\]
+    其中 $g(z)$ 在 $z_0$ 的邻域内解析且处处不为零. 因此 \[f(z) = \frac{1}{(z-z_0)^m} \cdot \frac{1}{g(z)}\]
+    由于 $\frac{1}{g(z)}$ 在 $z_0$ 的邻域内解析, 我们有 \[\frac{1}{g(z)} = c_0 + c_1 (z-z_0) + \cdots\]
+    其中 $c_0 \neq 0$, 从而推出 \[f(z) = \frac{c_0}{(z-z_0)^m} + \frac{c_1}{(z-z_0)^{m-1}} + \cdots\] 
+    
+    $(4) \Rightarrow (1)$: 设 $f(z)$ 在 $z_0$ 处 $\mathrm{Laurent}$ 展式的主部为 
+    \[\frac{a_{-m}}{(z-z_0)^m} + \frac{a_{-m+1}}{(z-z_0)^{m-1}} + \cdots + \frac{a_{-1}}{(z-z_0)}\]
+    其中 $a_{-m} \neq 0$, 则
+    \[(z-z_0)^m f(z) \overset{\text{记为}}{=} g(z)\] 在 $z_0$ 处解析, 且 $g(z_0) \neq 0$, 因此 
+    \[ f(z) = \frac{1}{(z-z_0)^m} \cdot g(z) \] 不能解析开拓到 $z_0$, 但
+    \[\frac{1}{f(z)} = \frac{(z-z_0)^m}{g(z)}\] 可解析开拓到 $z_0$, 即 $z_0$ 是 $f(z)$ 的极点.
+\end{proof}
+
+\begin{thm}
+    设 $z_0$ 是 $f(z)$ 的孤立奇点, 则下面的条件等价:
+
+    $(1)$ $z_0$ 是 $f(z)$ 的本性奇点
+
+    $(2)$ $\lim_{z \to z_0} f(z)$ 在 $\overline{\mathbb{C}} = \mathbb{C} \cup \{\infty\}$ 中不存在
+    
+    $(3)$ $f(z)$ 在 $z_0$ 的 $\mathrm{Laurent}$ 展式中主部有无穷多项不为零
+\end{thm}
+
+\begin{thm}[Weierstrass 定理]
+    如果 $z_0$ 是 $f(z)$ 的本性奇点, 则 $\forall \epsilon > 0$, $f(D_0(z_0, \epsilon))$ 都是 $\mathbb{C}$ 中的稠密子集.
+\end{thm}
+
+\begin{proof}
+    若结论不成立, 则存在 $z^* \in \mathbb{C} - \overline{f(D_0(z_0, \epsilon))}$, 使得
+    \[ D(z^*, \delta) \cap \overline{f(D_0(z_0, \epsilon))}  = \varnothing \]
+    令 \[g(z) = \frac{1}{f(z) - z^*}\] 则 \[|g(z)| = \frac{1}{|f(z) - z^*|} \leq \frac{1}{\delta}\] 
+    因此 $g(z)$ 在 $z_0$ 的邻域上有界, 由上面定理得 $z_0$ 是 $g(z)$ 的可去奇点, 而由于
+    \[f(z) = z^* + \frac{1}{g(z)}\] 所以 $z_0$ 只能是 $f(z)$ 的可去奇点或者极点, 矛盾!
+\end{proof}
+
+\section{留数}
+
+\begin{definition}[留数]
+    设 $f(z)$ 在 $D_0(z_0, R)$ 内解析, 即 $z_0$ 是 $f(z)$ 的一个孤立奇点, 函数 $f(z)$ 在 $z_0$ 处的\textbf{留数}, 记作 $\mathrm{Res}(f, z_0)$, 定义为
+    \[\mathrm{Res}(f, z_0) = \frac{1}{2\pi \mathrm{i}} \int_{|z-z_0|=\rho} f(z) \mathrm{d} z\]
+    其中 $0 < \rho < R$.
+
+    当 $\infty$ 为 $f(z)$ 的孤立奇点, 即存在 $R>0$, 使得 $f(z)$ 在 $\mathbb{C}-\overline{D(0,R)}$ 上解析, 则 $f(z)$ 在 $\infty$ 处的留数记作 $\mathrm{Res}(f, \infty)$, 定义为
+    \[\mathrm{Res}(f, \infty) = - \frac{1}{2\pi \mathrm{i}} \int_{|z|=\rho} f(z) \mathrm{d}z\]
+    其中 $R < \rho < +\infty$
+\end{definition}
+
+\begin{thm}[留数定理]
+    设 $\varOmega$ 是 $\overline{\mathbb{C}}$ 中以有限条逐段光滑曲线为边界的区域, $\infty \notin \partial \varOmega$, $z_1, \cdots, z_n$ 位于 $\varOmega$ 的内部, 
+    再设 $f(z)$ 在 $\varOmega$ 内除去 $z_1, \cdots, z_n$ 外解析, 在 $\overline{\varOmega}$ 上除去 $z_1, \cdots, z_n$ 外连续, 则 
+    \[\int_{\partial \varOmega} f(z) \mathrm{d}z = 2 \pi \mathrm{i} \sum\limits_{k=1}^n \mathrm{Res}(f, z_k)\]
+\end{thm}
 
 \end{document}

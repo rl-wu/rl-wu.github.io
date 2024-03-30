@@ -250,15 +250,15 @@
     主要是证范数的三角不等式与完备性,三角不等式基于算子范数的定义与$\mathscr{Y}$中范数的三角不等式.根据$\mathscr{Y}$的完备性可以定义极限算子.
 \end{proof}
 
-\subsection{Riesz表示定理及其应用}
-\begin{thm}[Riesz表示定理(Hilbert空间)]
-    设$f$是$\mathrm{Hilbert}$空间$\mathscr{X}$上的一个连续线性泛函,则必存在唯一的$y_f \in \mathscr{X}$,使得
+\subsection{Riesz 表示定理及其应用}
+\begin{thm}[Riesz 表示定理 (Hilbert空间)]
+    设 $f$ 是 $\mathrm{Hilbert}$ 空间 $\mathscr{X}$ 上的一个连续线性泛函,则必存在唯一的 $y_f \in \mathscr{X}$, 使得
     \[f(x) = (x,y_f)\quad (\forall x \in \mathscr{X})\]
 \end{thm}
 \begin{proof}
-    考虑$M\triangleq \{x\in \mathscr{X}|f(x) = 0\}$,不妨设$f$不恒等于$0$,由$f$连续线性保证$M$是一个真闭线性子空间.
-    任取$x_0 \perp M$,正交分解定理保证了$x_0$是存在的.由于\[x-\frac{f(x)}{f(x_0)}x_0 \in M \quad (\forall x \in \mathscr{X})\]
-    (由此可以看到$M$是余$1$维的)于是\[f(x)\frac{\|x_0\|^2}{f(x_0)} = (x,x_0)\]所以取$y_f = (\overline{f(x_0)}/\|x_0\|^2) x_0$即可.
+    考虑 $M\triangleq \{x\in \mathscr{X}|f(x) = 0\}$, 不妨设 $f$ 不恒等于 $0$, 由 $f$ 连续线性保证 $M$ 是一个真闭线性子空间.
+    任取 $x_0 \perp M$, 正交分解定理保证了 $x_0$ 是存在的.由于 \[x-\frac{f(x)}{f(x_0)}x_0 \in M \quad (\forall x \in \mathscr{X})\]
+    (由此可以看到 $M$ 是余 $1$ 维的) 于是 \[f(x)\frac{\|x_0\|^2}{f(x_0)} = (x,x_0)\]所以取 $y_f = (\overline{f(x_0)}/\|x_0\|^2) x_0$ 即可.
 \end{proof}
 实际上还有$\|f\| = \|y_f\|$.
 \begin{thm}[共轭双线性函数的表示]

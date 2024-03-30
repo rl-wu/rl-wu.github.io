@@ -1,2 +1,5 @@
 \contentsline {section}{\numberline {1}Cauchy 定理和 Cauchy 公式}{2}{section.1}%
 \contentsline {section}{\numberline {2}利用幂级数研究解析函数}{2}{section.2}%
+\contentsline {section}{\numberline {3}Cauchy不等式}{3}{section.3}%
+\contentsline {section}{\numberline {4}Laurent 级数}{3}{section.4}%
+\contentsline {section}{\numberline {5}留数}{6}{section.5}%
