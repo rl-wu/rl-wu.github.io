@@ -306,23 +306,23 @@ Riesz表示定理有很多应用,这首先依赖于\rm{Hilbert}空间本身的�
     集合$E$称为是\textbf{第一纲的},如果$E = \bigcup_{n=1}^\infty E_n$,其中$E_n$是疏集.不是第一纲的集合称为\textbf{第二纲集}.
 \end{definition}
 \begin{thm}[Baire]
-    完备度量空间$(\mathscr{X}, \rho)$是第二纲集.
+    完备度量空间 $(\mathscr{X}, \rho)$ 是第二纲集.
 \end{thm}
 \begin{proof}
-    根据疏集去构造基本列，并使得基本列的极限不在$\mathscr{X}$中.
+    根据疏集去构造基本列，并使得基本列的极限不在 $\mathscr{X}$ 中.
 \end{proof}
 \begin{thm}
-    在$C[0,1]$中处处不可微的函数集合$E$的余集是第一纲集,特别地,$E$非空.
+    在 $C[0,1]$ 中处处不可微的函数集合 $E$ 的余集是第一纲集,特别地, $E$ 非空.
 \end{thm}
 \begin{thm}[开映射定理]
-    设$\mathscr{X},\mathscr{Y}$都是$B$空间,若$T \in \mathscr{L}(\mathscr{X},\mathscr{Y})$是一个满射,则$T$是开映射.
+    设 $\mathscr{X},\mathscr{Y}$ 都是 $B$ 空间,若 $T \in \mathscr{L}(\mathscr{X},\mathscr{Y})$ 是一个满射,则 $T$ 是开映射.
 \end{thm}
 \begin{thm}[Banach]
-    设$\mathscr{X},\mathscr{Y}$是$B$空间,若$T \in \mathscr{L}(\mathscr{X}, \mathscr{Y})$,它既是单射又是满射,
-    那么$T^{-1} \in \mathscr{L}(\mathscr{X}, \mathscr{Y})$.
+    设 $\mathscr{X},\mathscr{Y}$ 是 $B$ 空间,若 $ T \in \mathscr{L}(\mathscr{X}, \mathscr{Y})$, 它既是单射又是满射,
+    那么 $T^{-1} \in \mathscr{L}(\mathscr{X}, \mathscr{Y})$.
 \end{thm}
 \begin{definition}[闭线性算子]
-    设$T$是$\mathscr{X} \to \mathscr{Y}$的线性算子,$D(T)$是其定义域.称$T$是\textbf{闭的}.是指由 $x_n \to x$ 以及 $Tx_n \to y$ 就能推出 $x \in D(T)$, 而且 $y = Tx$.
+    设 $T$ 是 $\mathscr{X} \to \mathscr{Y}$ 的线性算子, $D(T)$ 是其定义域.称 $T$ 是\textbf{闭的}.是指由 $x_n \to x$ 以及 $Tx_n \to y$ 就能推出 $x \in D(T)$, 而且 $y = Tx$.
 \end{definition}
 \begin{corollary}[等价范数定理]
     设线性空间 $\mathscr{X}$ 上有两个范数 $\|\cdot\|_1$ 与 $\|\cdot\|_2$. 如果 $\mathscr{X}$ 关于这两个范数都构成 $B$ 空间, 
@@ -335,6 +335,19 @@ Riesz表示定理有很多应用,这首先依赖于\rm{Hilbert}空间本身的�
     设 $\mathscr{X}$ 是 $B$ 空间, $\mathscr{Y}$ 是 $B^*$ 空间, 如果 $W \subset \mathscr{L}(\mathscr{X}, \mathscr{Y})$, 使得
     \[\underset{A \in W}{\sup} \|Ax\| < \infty \quad (\forall x \in \mathscr{X})\]
     那么存在常数 $M$, 使得 $\|A\| \leq M \quad (\forall A \in W)$.
+\end{thm}
+
+\begin{thm}[Banach-Steinhaus 定理]
+    设 $\mathscr{X}$ 是 $B$ 空间, $\mathscr{Y}$ 是 $B^*$ 空间, $M$ 是 $\mathscr{X}$ 的某个稠密子集. 
+    若 $A_n, A \in \mathscr{L}(\mathscr{X}, \mathscr{Y})$, 则 $\forall x \in \mathscr{X}$ 都有
+    \begin{equation}
+        \lim_{n \to \infty} A_n x = Ax
+    \end{equation}
+    的充要条件是
+    \begin{enumerate}
+        \item $\|A_n\|$ 有界
+        \item $(1)$ 对 $\forall x \in M$ 成立
+    \end{enumerate}
 \end{thm}
 本小节后面的两个应用还没怎么细看,这节东西太多了,一下子看完不是很消化...另外一个原因是已经等不及赶紧进入下一节去看凸集分离定理了!
 在最优化方法的课上就早有耳闻,如今终于可以学到了!

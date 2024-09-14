@@ -1,8 +1,8 @@
-PWD c:/Users/WuRuilin/Desktop/Code/rl-wu.github.io/assets/latex/ODE
+PWD c:/Users/WuRuilin/Code/rl-wu.github.io/assets/latex/ODE
 INPUT c:/texlive/2022/texmf.cnf
 INPUT c:/texlive/2022/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/WuRuilin/Desktop/Code/rl-wu.github.io/assets/latex/ODE/ODE.tex
+INPUT c:/Users/WuRuilin/Code/rl-wu.github.io/assets/latex/ODE/ODE.tex
 OUTPUT ODE.log
 INPUT c:/texlive/2022/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2022/texmf-dist/tex/latex/base/article.cls
