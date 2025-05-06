@@ -105,7 +105,7 @@ analytics:
 # Site Author
 author:
   name             : "吴睿林"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/徒步 山顶 自拍.heic"
   bio              : "Life is <i>complex</i> for its real and imaginary components."
   location         : "北京"
   email            :
