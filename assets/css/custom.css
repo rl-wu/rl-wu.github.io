@@ -1,6 +1,0 @@
-.author__avatar img {
-    width: 200px; /* 头像大小 */
-    height: 200px; /* 确保是正方形，避免椭圆 */
-    border-radius: 20px; /* 圆角大小，50%是正圆，20px是圆角矩形，0是正方形 */
-  }
-  
