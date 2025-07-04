@@ -1,24 +1,21 @@
 ---
 layout: default
-title: "主页"
+title: "课程学习"
+category: "course"
 ---
 
-<div class="hero-section">
-    <h1 class="hero-title">欢迎来到我的个人网站</h1>
-    <p class="hero-subtitle">分享学习、科研、心得与杂谈</p>
-</div>
+<h1>课程学习</h1>
+<p>记录学习过程中的课程笔记、心得体会和重要知识点。</p>
 
-<section class="recent-posts-section">
-    <h2>最新文章</h2>
-    <div class="post-grid">
-        {% for post in site.posts limit:6 %}
+<div class="post-grid">
+    {% for post in site.posts %}
+        {% if post.category == "course" %}
         <article class="post-card" data-tags="{{ post.tags | join: ',' }}">
             <h3 class="post-title">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </h3>
             <div class="post-meta">
                 <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
-                <span>{{ post.category }}</span>
             </div>
             <div class="post-excerpt">
                 {{ post.excerpt | strip_html | truncatewords: 30 }}
@@ -31,6 +28,6 @@ title: "主页"
             </div>
             {% endif %}
         </article>
-        {% endfor %}
-    </div>
-</section>
+        {% endif %}
+    {% endfor %}
+</div>
