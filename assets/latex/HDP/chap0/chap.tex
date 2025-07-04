@@ -1,0 +1,54 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+\input{../config/cover}
+\else
+\fi
+
+\chapter{数学公式示例}
+
+Example 1
+
+\[
+    \frac{a}{b} = c
+\]
+
+Example 2
+
+\[
+    \frac{a}{b} = c
+\]
+
+\begin{defn}{}{}  % 两个空大括号 第一个填入表示定理的别名 第二个类似 label 的引用
+    设空间闭区域$\Omega$由分片光滑的闭曲面$\Sigma$围成，若函数$P(x,y,z),\;Q(x,y,z) \\ ,R(x,y,z)$在$\Omega$上具有一阶连续偏导数，则有
+    \begin{equation}
+        \iiint_{\Omega} \bigg(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z} \bigg)\d v = \oiint_{\Sigma}P\d y\d z+Q\d z\d x+R\d x\d y
+    \end{equation}
+    或
+    \begin{equation}
+        \iiint_{\Omega} \bigg(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z} \bigg)\d v = \oiint_{\Sigma}(P\cos\alpha+Q\cos\beta+R\cos\gamma)\d S
+    \end{equation}
+    这里$\Sigma$是$\Omega$的整个边界曲面的外侧，$\cos\alpha,\;\cos\beta,\;\cos\gamma$是$\Sigma$在点$(x,y,z)$处的法向量的单位余弦.
+\end{defn}
+
+\begin{lemma}{牛顿莱布尼茨公式11111}{lemma111}
+    lemma1
+    \[
+        \int_a^b f(x) \mathrm{d}x = F(b) -F(a)
+    \]
+\end{lemma}
+
+\begin{them}[label=them1]{牛顿莱布尼茨公式22222}{them111}  % [] 可选参数
+    这是一条测试的公式
+    \[
+        \int_a^b f(x) \mathrm{d}x = F(b) -F(a)
+    \]
+\end{them}
+
+引用 \ref{them1}  和 \ref{them:them111}  和 \ref{lem:lemma111}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

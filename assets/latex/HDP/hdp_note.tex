@@ -1,0 +1,71 @@
+\documentclass[12pt,a4paper]{article}
+
+% 中文支持
+\usepackage[UTF8]{ctex}
+
+% 数学宏包
+\usepackage{amsmath,amsfonts,amssymb,blkarray,mathrsfs,amsthm,bm}
+
+%使用分条的列表
+\usepackage{enumitem}
+
+%插入代码
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+
+% 图片和表格
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{subcaption}
+
+% 页面布局
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
+\usepackage{multirow}
+
+
+% 超链接
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=red
+}
+
+
+% 页眉和页脚
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{概率论笔记}
+\lhead{\textbf{WRL}}
+\rfoot{第 \thepage 页}
+
+% 颜色
+\usepackage{xcolor}
+
+\newtheorem{thm}{Thm}}[subsection]  % 在每个章节重新编号
+\newtheorem{lemma}{Lemma}[subsection]    % 在每个章节重新编号
+\newtheorem{corollary}{Corollary}[subsection] % 在每个章节重新编号
+\newtheorem{definition}{Definition}[subsection] % 在每个章节内自动编号
+\newtheorem{example}{Example}[subsection] % 在每个章节内自动编号
+
+
+\begin{document}
+\begin{center}
+\section*{摘要}
+\end{center}
+
+我自学使用的教材为 Roman Vershynin 的 \href{https://www.math.uci.edu/~rvershyn/papers/HDP-book/HDP-2.pdf}{High-Dimensional Probability }
+, 在此笔记中主要记录教材中的核心内容.
+
+
+{\centering\tableofcontents}
+
+\newpage
+
+
+
+\end{document}
