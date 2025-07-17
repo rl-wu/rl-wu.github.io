@@ -20,7 +20,7 @@ paginate_path: "/page:num/"
 
 # 栏目设置
 categories:
-  - name: "课程学习"
+  - name: "学习"
     slug: "course"
   - name: "科研"
     slug: "research" 
