@@ -8,11 +8,33 @@ title: "主页"
     <p class="hero-subtitle">分享学习、科研、心得与杂谈</p>
 </div>
 
+<!-- 个人简介卡片（新增） -->
+<div class="profile-card">
+    <img src="{{ '/assets/images/profile/avatar.jpg' | relative_url }}" alt="个人头像" class="profile-avatar">
+    <h2 class="profile-name">吴睿林</h2>
+    <p class="profile-title">计算数学 大四本科生</p>
+    <p class="profile-bio">
+        这里写一段简短的个人介绍，可以包括你的专业领域、兴趣爱好、学习方向等。保持简洁有趣，让访客快速了解你。
+    </p>
+    <div class="profile-links">
+        <a href="mailto:your-email@example.com">邮箱</a>
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+    </div>
+</div>
+
 <section class="recent-posts-section">
     <h2>最新文章</h2>
     <div class="post-grid">
         {% for post in site.posts limit:6 %}
         <article class="post-card" data-tags="{{ post.tags | join: ',' }}">
+            <!-- 文章封面图（新增，可选） -->
+            {% if post.featured_image %}
+            <div class="post-featured-image">
+                <img src="{{ post.featured_image | relative_url }}" alt="{{ post.title }}">
+            </div>
+            {% endif %}
+            
             <h3 class="post-title">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </h3>
