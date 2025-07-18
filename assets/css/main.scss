@@ -462,70 +462,105 @@ img {
 }
 
 /* 个人简介卡片 */
+/* 个人简介卡片 - 带渐变背景 */
 .profile-card {
-    background: var(--bg-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     border-radius: var(--border-radius);
-    padding: 40px;
+    padding: 60px 40px;
     margin-bottom: 40px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    border: none;
     text-align: center;
+    color: white;
 }
 
 .profile-avatar {
-    width: 120px;
-    height: 120px;
+    width: 140px;           /* 从120px增加到140px */
+    height: 140px;          /* 从120px增加到140px */
     border-radius: 50%;
-    margin: 0 auto 20px;
-    border: 4px solid var(--primary-color);
-    box-shadow: var(--shadow-lg);
+    margin: 0 auto 25px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     transition: var(--transition);
 }
 
 .profile-avatar:hover {
     transform: scale(1.05);
-    border-color: var(--accent-color);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
 .profile-name {
-    font-size: 24px;
+    font-size: 28px;        /* 稍微增大字体 */
     font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--text-color);
+    margin-bottom: 10px;
+    color: white;
 }
 
 .profile-title {
-    font-size: 16px;
-    color: var(--text-light);
-    margin-bottom: 20px;
+    font-size: 18px;        /* 稍微增大字体 */
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 25px;
 }
 
 .profile-bio {
-    font-size: 14px;
+    font-size: 16px;        /* 稍微增大字体 */
     line-height: 1.6;
-    color: var(--text-color);
-    max-width: 400px;
-    margin: 0 auto 25px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 500px;       /* 稍微增加宽度 */
+    margin: 0 auto 30px;
 }
 
 .profile-links {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .profile-links a {
-    padding: 8px 16px;
-    background: var(--bg-light);
-    border-radius: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
     font-size: 14px;
     font-weight: 500;
     transition: var(--transition);
+    color: white;
+    backdrop-filter: blur(10px);
 }
 
 .profile-links a:hover {
-    background: var(--primary-color);
-    color: white;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 40px 20px;
+    }
+    
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .profile-name {
+        font-size: 24px;
+    }
+    
+    .profile-title {
+        font-size: 16px;
+    }
+    
+    .profile-bio {
+        font-size: 14px;
+    }
+    
+    .profile-links {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
 }
 
 /* 文章封面图片 */
