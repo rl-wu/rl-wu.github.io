@@ -126,8 +126,34 @@ img {
     }
 }
 
-/* 主页按钮 */
-a[href="/"], a[href="./"], a[href*="index.html"], .nav-link:first-child {
+/* 导航按钮样式修正 */
+.site-nav .nav-link {
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 60px;
+    text-align: center;
+    border: none;
+    
+    /* 默认样式 */
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: var(--text-color);
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(59, 130, 246, 0.15);
+    }
+}
+
+/* 使用文本内容匹配按钮 */
+.site-nav .nav-link:contains('主页'), 
+.site-nav .nav-link[href*='index'], 
+.site-nav .nav-link[href='/'],
+.site-nav .nav-link[href='{{ "/" | relative_url }}'] {
     background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%) !important;
     color: #1e40af !important;
     
@@ -137,8 +163,8 @@ a[href="/"], a[href="./"], a[href*="index.html"], .nav-link:first-child {
     }
 }
 
-/* 学习按钮 */
-a[href*="课程学习.html"] {
+.site-nav .nav-link:contains('学习'),
+.site-nav .nav-link[href*='课程学习'] {
     background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%) !important;
     color: #0277bd !important;
     
@@ -148,8 +174,8 @@ a[href*="课程学习.html"] {
     }
 }
 
-/* 科研按钮 */
-a[href*="科研.html"] {
+.site-nav .nav-link:contains('科研'),
+.site-nav .nav-link[href*='科研'] {
     background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%) !important;
     color: #7c3aed !important;
     
@@ -159,8 +185,8 @@ a[href*="科研.html"] {
     }
 }
 
-/* 心得按钮 */
-a[href*="心得.html"] {
+.site-nav .nav-link:contains('心得'),
+.site-nav .nav-link[href*='心得'] {
     background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
     color: #059669 !important;
     
@@ -170,8 +196,8 @@ a[href*="心得.html"] {
     }
 }
 
-/* 杂谈按钮 */
-a[href*="杂谈.html"] {
+.site-nav .nav-link:contains('杂谈'),
+.site-nav .nav-link[href*='杂谈'] {
     background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
     color: #d97706 !important;
     
@@ -180,7 +206,6 @@ a[href*="杂谈.html"] {
         box-shadow: 0 6px 16px rgba(245, 158, 11, 0.25) !important;
     }
 }
-
 /* 响应式调整 */
 @media (max-width: 768px) {
     .site-nav .nav-list {
