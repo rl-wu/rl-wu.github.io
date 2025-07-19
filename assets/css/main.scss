@@ -195,32 +195,6 @@ a[href*="杂谈.html"] {
         min-width: 50px;
     }
 }
-/* 响应式调整 */
-@media (max-width: 768px) {
-    .site-nav .nav-list {
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .site-nav .nav-link {
-        padding: 10px 16px;
-        font-size: 14px;
-        min-width: 50px;
-    }
-}
-
-@media (max-width: 480px) {
-    .site-nav .nav-list {
-        gap: 8px;
-    }
-    
-    .site-nav .nav-link {
-        padding: 8px 12px;
-        font-size: 13px;
-        min-width: 45px;
-    }
-}
 
 .main-content {
     min-height: calc(100vh - 200px);
