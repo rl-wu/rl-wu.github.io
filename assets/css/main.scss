@@ -100,19 +100,119 @@ img {
     .nav-list {
         display: flex;
         list-style: none;
-        gap: 30px;
+        gap: 15px;  /* 减小间距让按钮更紧凑 */
     }
     
     .nav-link {
-        font-weight: 500;
-        padding: 8px 16px;
-        border-radius: var(--border-radius);
-        transition: var(--transition);
+        font-weight: 600;
+        padding: 12px 20px;  /* 增大内边距 */
+        border-radius: 25px;  /* 更圆润的按钮 */
+        transition: all 0.3s ease;
+        font-size: 15px;  /* 稍微增大字体 */
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        display: inline-block;
+        min-width: 60px;  /* 确保按钮有最小宽度 */
+        text-align: center;
+        
+        /* 默认样式 */
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-color);
+        border: 2px solid transparent;
         
         &:hover {
-            background: var(--bg-light);
-            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
+    }
+    
+    /* 主页按钮 */
+    .nav-link[href*="index"], .nav-link[href="/"], .nav-link[href=""] {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        
+        &:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+    }
+    
+    /* 学习按钮 */
+    .nav-link[href*="课程学习"] {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+        
+        &:hover {
+            background: linear-gradient(135deg, #3d8bfe 0%, #00d4fe 100%);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+        }
+    }
+    
+    /* 科研按钮 */
+    .nav-link[href*="科研"] {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        color: white;
+        
+        &:hover {
+            background: linear-gradient(135deg, #f8628a 0%, #fdd835 100%);
+            box-shadow: 0 8px 25px rgba(250, 112, 154, 0.4);
+        }
+    }
+    
+    /* 心得按钮 */
+    .nav-link[href*="心得"] {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        color: #2d3748;
+        
+        &:hover {
+            background: linear-gradient(135deg, #96e6e3 0%, #fcc9d8 100%);
+            box-shadow: 0 8px 25px rgba(168, 237, 234, 0.4);
+        }
+    }
+    
+    /* 杂谈按钮 */
+    .nav-link[href*="杂谈"] {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        color: #2d3748;
+        
+        &:hover {
+            background: linear-gradient(135deg, #ffe4c4 0%, #faa688 100%);
+            box-shadow: 0 8px 25px rgba(252, 182, 159, 0.4);
+        }
+    }
+    
+    /* 当前页面高亮效果 */
+    .nav-link.active {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .site-nav .nav-list {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .site-nav .nav-link {
+        padding: 10px 16px;
+        font-size: 14px;
+        min-width: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-nav .nav-list {
+        gap: 8px;
+    }
+    
+    .site-nav .nav-link {
+        padding: 8px 12px;
+        font-size: 13px;
+        min-width: 45px;
     }
 }
 
