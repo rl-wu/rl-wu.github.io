@@ -1,10 +1,7 @@
 # 网站基本信息
 title: "欢迎来到我的个人网站"
-email: 2321495449@qq.com
 description: "If you find it, you find it"
-baseurl: ""
 url: "https://rl-wu.github.io"
-github_username: rl-wu
 
 # Jekyll配置
 markdown: kramdown
