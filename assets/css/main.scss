@@ -106,78 +106,78 @@ img {
     .nav-link {
         font-weight: 500;
         padding: 12px 20px;
-        border-radius: 8px;  /* 简约的圆角 */
+        border-radius: 20px;  /* 更圆润的边缘 */
         transition: all 0.3s ease;
         font-size: 15px;
         text-decoration: none;
         display: inline-block;
         min-width: 60px;
         text-align: center;
-        border: 1px solid transparent;
+        border: none;
         
         /* 默认样式 */
-        background: var(--bg-light);
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
         color: var(--text-color);
         
         &:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.15);
         }
     }
 }
 
 /* 主页按钮 */
 a[href="/"], a[href="./"], a[href*="index.html"], .nav-link:first-child {
-    background: #6366f1 !important;
-    color: white !important;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%) !important;
+    color: #1e40af !important;
     
     &:hover {
-        background: #5856eb !important;
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+        background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%) !important;
+        box-shadow: 0 6px 16px rgba(59, 130, 246, 0.25) !important;
     }
 }
 
 /* 学习按钮 */
 a[href*="课程学习.html"] {
-    background: #059669 !important;
-    color: white !important;
+    background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%) !important;
+    color: #0277bd !important;
     
     &:hover {
-        background: #047857 !important;
-        box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3) !important;
+        background: linear-gradient(135deg, #b3e5fc 0%, #81d4fa 100%) !important;
+        box-shadow: 0 6px 16px rgba(3, 169, 244, 0.25) !important;
     }
 }
 
 /* 科研按钮 */
 a[href*="科研.html"] {
-    background: #dc2626 !important;
-    color: white !important;
+    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%) !important;
+    color: #7c3aed !important;
     
     &:hover {
-        background: #b91c1c !important;
-        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3) !important;
+        background: linear-gradient(135deg, #e9d5ff 0%, #ddd6fe 100%) !important;
+        box-shadow: 0 6px 16px rgba(139, 92, 246, 0.25) !important;
     }
 }
 
 /* 心得按钮 */
 a[href*="心得.html"] {
-    background: #7c3aed !important;
-    color: white !important;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+    color: #059669 !important;
     
     &:hover {
-        background: #6d28d9 !important;
-        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%) !important;
+        box-shadow: 0 6px 16px rgba(16, 185, 129, 0.25) !important;
     }
 }
 
 /* 杂谈按钮 */
 a[href*="杂谈.html"] {
-    background: #ea580c !important;
-    color: white !important;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
+    color: #d97706 !important;
     
     &:hover {
-        background: #c2410c !important;
-        box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3) !important;
+        background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%) !important;
+        box-shadow: 0 6px 16px rgba(245, 158, 11, 0.25) !important;
     }
 }
 
@@ -193,9 +193,9 @@ a[href*="杂谈.html"] {
         padding: 10px 16px;
         font-size: 14px;
         min-width: 50px;
+        border-radius: 16px;  /* 移动端稍小的圆角 */
     }
 }
-
 .main-content {
     min-height: calc(100vh - 200px);
 }
