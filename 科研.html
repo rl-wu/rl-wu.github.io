@@ -1,0 +1,33 @@
+---
+layout: default
+title: "科研"
+category: "research"
+---
+
+<h1>科研</h1>
+<p>或许会记录科研进展。</p>
+
+<div class="post-grid">
+    {% for post in site.posts %}
+        {% if post.category == "research" %}
+        <article class="post-card" data-tags="{{ post.tags | join: ',' }}">
+            <h3 class="post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h3>
+            <div class="post-meta">
+                <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
+            </div>
+            <div class="post-excerpt">
+                {{ post.excerpt | strip_html | truncatewords: 30 }}
+            </div>
+            {% if post.tags %}
+            <div class="post-tags">
+                {% for tag in post.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </article>
+        {% endif %}
+    {% endfor %}
+</div>

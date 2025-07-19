@@ -93,7 +93,7 @@ url: "https://username.github.io"
 
 # 栏目配置
 categories:
-  - name: "课程学习"
+  - name: "学习"
     slug: "course"
   - name: "科研"
     slug: "research"
