@@ -1,9 +1,0 @@
-source "https://rubygems.org"
-
-gem "github-pages", group: :jekyll_plugins
-gem "jekyll-feed"
-gem "jekyll-sitemap"
-
-# Windows特定依赖
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "wdm", "~> 0.1.1", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

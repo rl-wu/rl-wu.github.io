@@ -1,54 +1,64 @@
----
-layout: default
-title: "主页"
----
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ruilin Wu is a computational mathematics student interested in approximate message passing, optimization, probability, and statistics.">
+    <meta name="theme-color" content="#f7f6f2">
+    <title>Ruilin Wu — Computational Mathematics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
+    <header class="site-header">
+        <a class="wordmark" href="#top">Ruilin Wu</a>
+        <nav class="site-nav" aria-label="Main menu">
+            <a href="#about">About</a>
+            <a href="mailto:rlwu1026@outlook.com">Email</a>
+            <a href="https://github.com/rl-wu" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+    </header>
 
-<!-- 个人简介卡片（新增） -->
-<div class="profile-card">
-    <img src="{{ '/assets/images/profile/avatar.jpg' | relative_url }}" alt="个人头像" class="profile-avatar">
-    <h2 class="profile-name">吴睿林</h2>
-    <p class="profile-title">北京 海淀</p>
-    <p class="profile-bio">
-        我是一名计算数学专业的 22 级本科生，目前对 AMP 算法及其相关的优化，概率统计问题感兴趣。
-    </p>
-    <div class="profile-links">
-        <a href="mailto:2321495449@qq.com">Email</a>
-        <a href="https://github.com/rl-wu" target="_blank">GitHub</a>
-        <a href="https://rl-wu.github.io" target="_blank">广告位招租</a>
-    </div>
-</div>
+    <main id="main">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow">Computational mathematics · Beijing</p>
+                <h1 id="hero-title">Ruilin Wu</h1>
+                <p class="chinese-name" lang="zh-CN">吴睿林</p>
+                <div class="hero-links">
+                    <a href="mailto:rlwu1026@outlook.com">rlwu1026@outlook.com</a>
+                    <a href="https://github.com/rl-wu" target="_blank" rel="noreferrer">GitHub</a>
+                </div>
+            </div>
 
-<section class="recent-posts-section">
-    <h2>最新文章</h2>
-    <div class="post-grid">
-        {% for post in site.posts limit:6 %}
-        <article class="post-card" data-tags="{{ post.tags | join: ',' }}">
-            <!-- 文章封面图（新增，可选） -->
-            {% if post.featured_image %}
-            <div class="post-featured-image">
-                <img src="{{ post.featured_image | relative_url }}" alt="{{ post.title }}">
+            <figure class="portrait">
+                <img src="assets/images/profile/avatar.jpg" alt="Ruilin Wu by a lake" width="1200" height="1500">
+            </figure>
+        </section>
+
+        <section class="about" id="about" aria-labelledby="about-title">
+            <p class="section-label">About</p>
+            <div class="about-content">
+                <p class="about-lead" id="about-title">
+                    I am a computational mathematics student based in Beijing,
+                    currently exploring mathematical structure in high-dimensional problems.
+                </p>
+                <div class="focus">
+                    <p class="focus-label">Focus</p>
+                    <ul>
+                        <li>Approximate message passing</li>
+                        <li>Optimization</li>
+                        <li>Probability &amp; statistics</li>
+                    </ul>
+                </div>
             </div>
-            {% endif %}
-            
-            <h3 class="post-title">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            </h3>
-            <div class="post-meta">
-                <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
-                <span>{{ post.category }}</span>
-            </div>
-            <div class="post-excerpt">
-                {{ post.excerpt | strip_html | truncatewords: 30 }}
-            </div>
-            {% if post.tags %}
-            <div class="post-tags">
-                {% for tag in post.tags %}
-                <span class="tag">{{ tag }}</span>
-                {% endfor %}
-            </div>
-            {% endif %}
-        </article>
-        {% endfor %}
-    </div>
-</section>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Ruilin Wu · Beijing</p>
+        <p>© 2026</p>
+    </footer>
+</body>
+</html>
